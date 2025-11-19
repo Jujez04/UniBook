@@ -1,0 +1,39 @@
+# VS Code
+.vscode/
+.history/
+
+# Apache
+logs/
+*.pid
+
+
+# PHP
+*.log
+
+# Latex
+*.aux
+*.bbl
+*.blg
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.log
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.lof
+*.lot
+*.lol
+*.ilg
+*.idx
+*.ind
+*.glo
+*.glg
+*.gls
+*.ist
+*.gz
+
+# Cartelle temporanee di compilazione
+doc/*.pdf
