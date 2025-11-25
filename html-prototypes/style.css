@@ -1,5 +1,7 @@
 div.card {
-    width: 312px;
+    min-width: 312px;
+    max-width: 380px;
+    flex-direction: row;
 }
 
 
@@ -10,6 +12,10 @@ div.card-body > p.card-text {
     -webkit-line-clamp: 1; /* number of lines to show */
     -webkit-box-orient: vertical;
 } 
+
+.card > img {
+    width: 100px;
+}
 
 .card-body svg  {
     width: 10px;
