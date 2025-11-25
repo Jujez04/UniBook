@@ -20,5 +20,11 @@
   2. l'amministratore avrà la possibilità di vedere chi è in coda e accettare la prenotazione dei primi della coda
   3. l'amministratore crea il prestito cancellando la prenotazione dalla coda
   4. poi si esegue la logica della gestione della restituzione.
-- Gestione restituzione 5) tramite l'assegnazione andiamo a vedere se è stato restituito (ovvero assegnazione dovrà tenere conto dello stato del prestito che può essere "in prestito", "in restituzione" o "restituito") 6) l'utente può passare da "in prestito" a "in restituzione" inoltrando una richiesta 7) l'amministratore è in grado di accettare la richiesta di prestito e passare da "in restituzione" a "restituito" 8) l'utente può lasciare una recensione quando il libro è stato restituito
+- Gestione restituzione
+
+5. tramite l'assegnazione andiamo a vedere se è stato restituito (ovvero assegnazione dovrà tenere conto dello stato del prestito che può essere "in prestito", "in restituzione" o "restituito")
+6. l'utente può passare da "in prestito" a "in restituzione" inoltrando una richiesta
+7. l'amministratore è in grado di accettare la richiesta di prestito e passare da "in restituzione" a "restituito"
+8. l'utente può lasciare una recensione quando il libro è stato restituito
+
 - Possibilità di vedere le informazioni sul documento
