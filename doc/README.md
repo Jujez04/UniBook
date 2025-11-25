@@ -2,11 +2,12 @@
 
 ## Funzionalità
 
-- Ricerca di un documento in base al libro
+- Ricerca di un documento in base al autore, titolo, editore, ...
 - Ricerca del documento in base al tag
 - Possibilità di registrarsi e modificare il profilo
   - matricola come identificatore
   - il resto è modificabile (credo) -> utente(idmatricola, nome, cognome, email, immagineprofilo, telefono)
+  - password registrata con hashing e decryption fatto al momento del controllo
 - info point(FAQ) per la gestione delle prenotazioni e prestiti -> unibo
 - Ricerca del documento per catalogo (catalogo registrato nel momento dell'inserimento)
 - Possibilità di recensire un documento una volta restituito
@@ -16,7 +17,7 @@
   - eliminare
   - modificare -> cambiare catalogo di appartenenza, numero di copie disponibili (?), ...
 - Workflow della creazione del prestito:
-  1. l'utente esegue la prenotazione in una determinata data, mettendosi in coda
+  1. l'utente esegue la prenotazione in una determinata data, mettendosi in coda, registrandosi una sola volta
   2. l'amministratore avrà la possibilità di vedere chi è in coda e accettare la prenotazione dei primi della coda
   3. l'amministratore crea il prestito cancellando la prenotazione dalla coda
   4. poi si esegue la logica della gestione della restituzione.
