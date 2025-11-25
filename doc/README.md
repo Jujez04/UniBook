@@ -10,7 +10,7 @@
 - info point(FAQ) per la gestione delle prenotazioni e prestiti -> unibo
 - Ricerca del documento per catalogo (catalogo registrato nel momento dell'inserimento)
 - Possibilità di recensire un documento una volta restituito
-- Possibilità di vedere le prenotazioni, prestiti e recensioni
+- Possibilità di vedere le prenotazioni, prestiti, documenti in restituzione e recensioni
 - L'amministratore ha il controllo sulla gestione dei documenti all'interno del database, infatti può:
   - aggiungere
   - eliminare
