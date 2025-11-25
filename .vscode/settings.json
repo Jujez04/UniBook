@@ -1,0 +1,4 @@
+{
+	"html.format.unformattedContentDelimiter": "<!--noformat-->",
+	"editor.formatOnSave": true
+}
