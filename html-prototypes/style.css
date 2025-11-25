@@ -1,0 +1,18 @@
+div.card {
+    width: 312px;
+}
+
+
+div.card-body > p.card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* number of lines to show */
+    -webkit-box-orient: vertical;
+} 
+
+.card-body svg  {
+    width: 10px;
+    height: auto;
+}
+
