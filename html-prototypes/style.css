@@ -16,3 +16,6 @@ div.card-body > p.card-text {
     height: auto;
 }
 
+.card{
+    background-color: #F7E4CF;
+}
