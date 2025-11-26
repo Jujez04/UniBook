@@ -24,7 +24,22 @@ div.card-body > p.card-text {
     width: 10px;
     height: auto;
 }
-
+nav, .offcanvas{
+    background-color: #E6AA68;
+}
 .card{
     background-color: #F7E4CF;
+}
+ul.navbar-nav > li {
+    margin-bottom: 10px;
+}
+.offcanvas-body > ul > li > a {
+    color: white;
+    background-color: #D9534F;
+    border-radius: 12px;
+}
+.offcanvas-body > ul > li > a.btn {
+    background-color: #F7E4CF;
+    color: black;
+;
 }
