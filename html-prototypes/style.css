@@ -1,7 +1,7 @@
 div.card {
-    min-width: 312px;
+    min-width: 300px;
     max-width: 380px;
-    flex-direction: row;
+    background-color: #F7E4CF;
 }
 
 
@@ -12,6 +12,13 @@ div.card-body > p.card-text {
     -webkit-line-clamp: 1; /* number of lines to show */
     -webkit-box-orient: vertical;
 } 
+.collapse-card-body {
+    position: absolute;
+    z-index: 10;    /* sopra le altre card */
+    background-color: white;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 .container-fluid > ul > li {
     margin-left: 10px;
 }
@@ -27,9 +34,7 @@ div.card-body > p.card-text {
 nav, .offcanvas{
     background-color: #E6AA68;
 }
-.card{
-    background-color: #F7E4CF;
-}
+
 ul.navbar-nav > li {
     margin-bottom: 10px;
 }
@@ -41,5 +46,4 @@ ul.navbar-nav > li {
 .offcanvas-body > ul > li > a.btn {
     background-color: #F7E4CF;
     color: black;
-;
 }
