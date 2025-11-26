@@ -4,7 +4,7 @@
 
 - Ricerca di un documento in base al autore, titolo, editore, ...
 - Ricerca del documento in base al tag
-- Possibilità di registrarsi e modificare il profilo
+- Possibilità di registrarsi e modificare il profilo 
   - matricola come identificatore
   - il resto è modificabile (credo) -> utente(idmatricola, nome, cognome, email, immagineprofilo, telefono)
   - password registrata con hashing e decryption fatto al momento del controllo
@@ -13,7 +13,7 @@
 - Possibilità di recensire un documento una volta restituito
 - Possibilità di vedere le prenotazioni, prestiti, documenti in restituzione e recensioni
 - L'amministratore ha il controllo sulla gestione dei documenti all'interno del database, infatti può:
-  - aggiungere
+  - aggiungere -> deve aggiungere foto, nome, autore, editori , descrizione
   - eliminare
   - modificare -> cambiare catalogo di appartenenza, numero di copie disponibili (?), ...
 - Workflow della creazione del prestito:
