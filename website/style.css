@@ -4,11 +4,22 @@ div.card {
     background-color: #F7E4CF;
     border-radius: 10px;
 }
+form {
+    background-color:  #F7E4CF;
+    border-radius: 10px;
+    width: 308px;
+}
 div.card > img {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
-
+form ul  {
+    list-style: none;
+}
+form input[type="submit"] {
+   border-radius: 15px;
+   width: 131px;
+}
 
 div.card-body > p.card-text {
     overflow: hidden;
