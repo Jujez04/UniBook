@@ -37,7 +37,7 @@
                 </a>
                 <div class="dropdown">
                     <img src="/UniBook/img/download.jpg" alt="" width="32" height="32"
-                        class="rounded-circle dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
+                        class="rounded-circle dropdown-toggle  " data-bs-toggle="dropdown" aria-expanded="false">
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
                         <li><a class="dropdown-item" href="#">Settings</a></li>
@@ -49,9 +49,27 @@
                 </div>
             </div>
 
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasLanguage">
+                <div class="offcanvas-header">
+                    <div class="d-flex align-items-center">
+                        <a class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                            <img src="/UniBook/svg/menu-back.svg" alt="">
+                        </a>
+                        <h5 class="offcanvas-title mx-3" id="offcanvasLanguageNavbarLabel">UniBook</h5>
+                    </div>
+                </div>
+                <div class="offcanvas-body d-flex flex-column justify-content-between mx-3 ">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link btn py-2 px-4 " aria-current="page" href="#">
+                                Inglese
+                            </a>
+                        </li>
 
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
+                    </ul>
+                </div>
+            </div>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
                 <div class="offcanvas-header">
                     <div class="d-flex align-items-center">
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -77,9 +95,12 @@
                             </a>
                         </li>
                     </ul>
+
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link btn py-2 px-4 " aria-current="page" href="#">
+                            <a class="nav-link btn py-2 px-4 " data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasLanguage" aria-controls="offcanvasLanguage"
+                                aria-current="page" href="#">
                                 <div class="d-flex flex-row align-items-center ">
                                     <img src="/UniBook/svg/shop-black.svg" alt="" class="" width="48" height="48" />
                                     <span>Cambia Lingua</span>
@@ -110,12 +131,131 @@
     <main class="mt-5 px-2 pt-4">
         <h1 class="text-center">Benvenuti su UniBook</h1>
         <section>
-            <div class="d-flex justify-content-center align-items-center gap-3">
-                <h2 class="text-center">Ingegneria</h2>
-                <img src="/UniBook/svg/open-collapse.svg" alt="Toggle Libri Consigliati" data-bs-toggle="collapse"
-                    data-bs-target="#cat1" class="btn">
+            <div class=" row gap-3 align-items-center">
+                <div class="col"></div>
+                <h2 class="text-center col">Ingegneria</h2>
+                <div class="col">
+                    <img src="/UniBook/svg/open-collapse.svg" alt="Toggle Libri Consigliati" data-bs-toggle="collapse"
+                        data-bs-target="#cat1" class="btn col w-auto">
+                </div>
             </div>
             <div class="collapse container-fluid my-2" id="cat1">
+                <div class="row justify-content-center gap-3">
+                    <div class=" d-flex justify-content-center col-12 col-sm-6  col-md-4 col-lg-3 m-0 p-0">
+                        <div class="card flex-row ">
+                            <img src=" /UniBook/img/download.jpg" class=" " alt="immagine libro">
+                            <div class="card-body p-2   ">
+                                <h5 class="card-title">
+                                    <a href="book.php?id=1" class="text-decoration-none text-dark">
+                                        UML 2 and The Unified Process
+                                    </a>
+                                </h5>
+                                <div class="container-flex my-2">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/circle-fill.svg" width="13" height="13" alt="" class="">
+                                    <span>Recensioni</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center my-2   ">
+                                    <span class="">3 in coda</span>
+                                    <a href="#" class="btn btn-danger px-15">Prenota</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" d-flex justify-content-center col-12 col-sm-6  col-md-4 col-lg-3 m-0 p-0">
+                        <div class="card flex-row ">
+                            <img src=" /UniBook/img/download.jpg" class=" " alt="immagine libro">
+                            <div class="card-body p-2   ">
+                                <h5 class="card-title">
+                                    <a href="book.php?id=1" class="text-decoration-none text-dark">
+                                        UML 2 and The Unified Process
+                                    </a>
+                                </h5>
+                                <div class="container-flex my-2">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/circle-fill.svg" width="13" height="13" alt="" class="">
+                                    <span>Recensioni</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center my-2   ">
+                                    <span class="">3 in coda</span>
+                                    <a href="#" class="btn btn-danger px-15">Prenota</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" d-flex justify-content-center col-12 col-sm-6  col-md-4 col-lg-3 m-0 p-0">
+                        <div class="card flex-row ">
+                            <img src=" /UniBook/img/download.jpg" class=" " alt="immagine libro">
+                            <div class="card-body p-2   ">
+                                <h5 class="card-title">
+                                    <a href="book.php?id=1" class="text-decoration-none text-dark">
+                                        UML 2 and The Unified Process
+                                    </a>
+                                </h5>
+                                <div class="container-flex my-2">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/circle-fill.svg" width="13" height="13" alt="" class="">
+                                    <span>Recensioni</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center my-2   ">
+                                    <span class="">3 in coda</span>
+                                    <a href="#" class="btn btn-danger px-15">Prenota</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" d-flex justify-content-center col-12 col-sm-6  col-md-4 col-lg-3 m-0 p-0">
+                        <div class="card flex-row ">
+                            <img src=" /UniBook/img/download.jpg" class=" " alt="immagine libro">
+                            <div class="card-body p-2   ">
+                                <h5 class="card-title">
+                                    <a href="book.php?id=1" class="text-decoration-none text-dark">
+                                        UML 2 and The Unified Process
+                                    </a>
+                                </h5>
+                                <div class="container-flex my-2">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                    <img src="/UniBook/svg/circle-fill.svg" width="13" height="13" alt="" class="">
+                                    <span>Recensioni</span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center my-2   ">
+                                    <span class="">3 in coda</span>
+                                    <a href="#" class="btn btn-danger px-15">Prenota</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat the card structure as needed -->
+
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class=" row gap-3 align-items-center">
+                <div class="col"></div>
+                <h2 class="text-center col">Ingegneria</h2>
+                <div class="col">
+                    <img src="/UniBook/svg/open-collapse.svg" alt="Toggle Libri Consigliati" data-bs-toggle="collapse"
+                        data-bs-target="#cat2" class="btn col w-auto">
+                </div>
+            </div>
+            <div class="collapse container-fluid my-2" id="cat2">
                 <div class="row justify-content-center gap-3">
                     <div class=" d-flex justify-content-center col-12 col-sm-6  col-md-4 col-lg-3 m-0 p-0">
                         <div class="card flex-row ">
