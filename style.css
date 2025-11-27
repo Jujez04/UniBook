@@ -2,6 +2,11 @@ div.card {
     min-width: 300px;
     max-width: 380px;
     background-color: #F7E4CF;
+    border-radius: 10px;
+}
+div.card > img {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 
