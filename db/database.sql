@@ -1,20 +1,10 @@
--- *********************************************
--- * SQL MySQL generation                      
--- *--------------------------------------------
--- * DB-MAIN version: 11.0.2              
--- * Generator date: Sep 14 2021              
--- * Generation date: Tue Nov 25 18:07:42 2025 
--- * LUN file: C:\pandora\Database\unibook\Unibook.lun 
--- * Schema: relazionale/1 
--- ********************************************* 
-
-
+drop database if exists unibook;
 create database if not exists unibook;
 use unibook;
 
 
 -- Tables Section
--- _____________ 
+-- _____________
 
 create table catalogue (
      idcatalogue varchar(10) not null,
@@ -32,6 +22,8 @@ create table book (
      title varchar(255) not null,
      publisher varchar(100) not null,
      publicationyear int not null,
+     image varchar(100) not null,
+     description varchar(255) not null,
      author varchar(255) not null,
      idcatalogue varchar(10) not null,
      constraint IDdocument primary key (codebook));
@@ -56,7 +48,7 @@ create table loan (
 
 create table review (
      idreview varchar(20) not null,
-     rating decimal(2,1) not null, -- Rating come numero decimale (es. 4.5)
+     rating decimal(2,1) not null,
      constraint IDreview_ID primary key (idreview));
 
 create table student (
@@ -65,11 +57,12 @@ create table student (
      email varchar(100) not null unique,
      surname varchar(100) not null,
      idstudent varchar(20) not null,
+     profileimage varchar(100) not null,
      name varchar(100) not null,
      constraint IDstudent primary key (idstudent));
 
 create table tag (
-     idtag varchar(20) not null,
+     idtag varchar(50) not null,
      constraint IDtag primary key (idtag));
 
 create table tag_in_book (
@@ -79,7 +72,7 @@ create table tag_in_book (
 
 
 -- Constraints Section
--- ___________________ 
+-- ___________________
 
 alter table book_copy add constraint FKhas
      foreign key (codebook)
@@ -123,4 +116,4 @@ alter table tag_in_book add constraint FK    foreign key (codebook)
 
 
 -- Index Section
--- _____________ 
+-- _____________
