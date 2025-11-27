@@ -4,7 +4,7 @@
     background-color: #F7E4CF;
     border-radius: 10px;
 }
-form {
+body > div > form:first-child {
     background-color:  #F7E4CF;
     border-radius: 10px;
     width: 308px;
