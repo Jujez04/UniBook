@@ -1,4 +1,4 @@
-div.card {
+.card {
     min-width: 300px;
     max-width: 380px;
     background-color: #F7E4CF;
@@ -9,7 +9,7 @@ form {
     border-radius: 10px;
     width: 308px;
 }
-div.card > img {
+.card > img {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
