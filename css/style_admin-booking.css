@@ -1,0 +1,55 @@
+* {
+    font-family: 'Josefin Sans';
+}
+
+main section > ul {
+    padding-left: 0%;
+    list-style: none;
+}
+
+main h1 {
+    padding: 10px;
+}
+
+section {
+    width: 60%;
+}
+
+form {
+    width: 100%;
+}
+
+form ul {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+main ul > li {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+form ul li:nth-child(2n) {
+    text-align: end;
+}
+
+form footer {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+form footer input {
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-top: 0;
+    color: #ffffff;
+    background-color: #A72925;
+    border: 1px;
+}
+
+hr {
+    border: solid black 1px;
+    width: 90%;
+}
