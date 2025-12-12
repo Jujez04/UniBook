@@ -2,6 +2,40 @@
     font-family: 'Josefin Sans';
 }
 
+
+ul {
+    list-style: none;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E6AA68;
+    padding: 10px;
+}
+
+header > nav > ul {
+    display: flex; 
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+header > img {
+    max-height: 60px;
+}
+
+header nav {
+    margin: 0;
+}
+
+nav > ul > li > img {
+    width: 10%;
+}
+
 main section > ul {
     padding-left: 0%;
     list-style: none;
@@ -9,10 +43,6 @@ main section > ul {
 
 main h1 {
     padding: 10px;
-}
-
-section {
-    width: 60%;
 }
 
 form {
@@ -51,5 +81,26 @@ form footer input {
 
 hr {
     border: solid black 1px;
-    width: 90%;
+    width: 80%;
+    margin-left: 10%;
+}
+
+section > ul {
+    width: 100%;
+}
+
+section > ul > li {
+    background-color: #F7E4CF;
+    border-radius: 10px;
+    max-width: 60%;
+}
+
+
+
+section > ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
