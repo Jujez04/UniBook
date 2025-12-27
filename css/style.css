@@ -4,62 +4,136 @@
     background-color: #F7E4CF;
     border-radius: 10px;
 }
-body > div > form:first-child {
-    background-color:  #F7E4CF;
+
+body>div>form:first-child {
+    background-color: #F7E4CF;
     border-radius: 10px;
     width: 308px;
 }
-.card > img {
+
+.card>img {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
-form ul  {
+
+form ul {
     list-style: none;
 }
+
 form input[type="submit"] {
-   border-radius: 15px;
-   width: 131px;
+    border-radius: 15px;
+    width: 131px;
 }
 
-div.card-body > p.card-text {
+div.card-body>p.card-text {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 1; /* number of lines to show */
+    -webkit-line-clamp: 1;
+    /* number of lines to show */
     -webkit-box-orient: vertical;
-} 
+}
+
 .collapse-card-body {
     position: absolute;
-    z-index: 10;    /* sopra le altre card */
+    z-index: 10;
+    /* sopra le altre card */
     background-color: white;
     border-top: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.container-fluid > ul > li {
+
+.container-fluid>ul>li {
     margin-left: 10px;
 }
 
-.card > img {
+.card>img {
     width: 100px;
 }
 
-.card-body svg  {
+.card-body svg {
     width: 10px;
     height: auto;
 }
-nav, .offcanvas{
+
+nav,
+.offcanvas {
     background-color: #E6AA68;
 }
 
-ul.navbar-nav > li {
+ul.navbar-nav>li {
     margin-bottom: 10px;
 }
-.offcanvas-body > ul > li > a {
+
+.offcanvas-body>ul>li>a {
     color: white;
     background-color: #D9534F;
     border-radius: 12px;
 }
-.offcanvas-body > ul > li > a.btn {
+
+.offcanvas-body>ul>li>a.btn {
     background-color: #F7E4CF;
     color: black;
+}
+
+
+main>form {
+    padding: 20px 10%;
+    text-align: center;
+}
+
+
+main>form ul {
+    background-color: #F7E4CF;
+    text-align: center;
+    list-style: none;
+    width: 100%;
+    padding: 10px 5%;
+    margin: 0 auto;
+}
+
+main form ul li {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+main>form>ul>li>input[type="submit"] {
+    background-color: #A72925;
+    color: white;
+    padding: 10px 20px;
+}
+
+main>form ul li:last-child {
+    text-align: right;
+}
+
+main>form ul li label {
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+    cursor: pointer;
+}
+
+main>form ul li input:not([type="submit"]) {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+main>form ul li input[type="submit"] {
+    cursor: pointer;
+    border-width: 0;
+    width: 120px;
+    height: 38px;
+    border-radius: 15px;
+    align-self: center;
+    padding: 0;
+}
+
+
+@media screen and (min-width: 520px) {
+
+    main>form {
+        padding: 20px 20%;
+
+    }
 }

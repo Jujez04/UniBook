@@ -7,48 +7,48 @@ use unibook;
 -- _____________
 
 create table catalogue (
-     idcatalogue varchar(10) not null,
+     idcatalogue int  not null AUTO_INCREMENT,
      name varchar(100) not null,
      constraint IDcatalogue primary key (idcatalogue));
 
 create table book_copy (
-     codebook varchar(20) not null,
-     codecopy varchar(20) not null,
+     codebook int not null,
+     codecopy int not null,
      state varchar(50) not null,
      constraint IDbook_copy primary key (codebook, codecopy));
 
 create table book (
-     codebook varchar(20) not null,
+     codebook int not null AUTO_INCREMENT,
      title varchar(255) not null,
      publisher varchar(100) not null,
      publicationyear int not null,
      image varchar(100) not null,
      description varchar(255) not null,
      author varchar(255) not null,
-     idcatalogue varchar(10) not null,
+     idcatalogue int not null,
      constraint IDdocument primary key (codebook));
 
 create table booking (
-     idstudent varchar(20) not null,
-     codebook varchar(20) not null,
+     idstudent int not null,
+     codebook int not null,
      date date not null,
      constraint IDbooking primary key (idstudent, codebook));
 
 create table loan (
-     idstudent varchar(20) not null,
-     codebook varchar(20) not null,
-     codecopy varchar(20) not null,
-     idloan varchar(20) not null,
-     idreview varchar(20),
+     idstudent int not null,
+     codebook int not null,
+     codecopy int not null,
+     idreview int,
      refunddata date,
      subscriptiondate date not null,
      state varchar(50) not null,
-     constraint IDloan primary key (idstudent, codebook, codecopy, idloan),
+     constraint IDloan primary key (idstudent, codebook, codecopy, subscriptiondate),
      constraint FKvalutation_ID unique (idreview));
 
 create table review (
-     idreview varchar(20) not null,
+     idreview int not null AUTO_INCREMENT,
      rating decimal(2,1) not null,
+     description varchar(300) not null,
      constraint IDreview_ID primary key (idreview));
 
 create table student (
@@ -56,7 +56,7 @@ create table student (
      password varchar(255) not null,
      email varchar(100) not null unique,
      surname varchar(100) not null,
-     idstudent varchar(20) not null,
+     idstudent int not null AUTO_INCREMENT,
      profileimage varchar(100) not null,
      name varchar(100) not null,
      constraint IDstudent primary key (idstudent));
@@ -66,7 +66,7 @@ create table tag (
      constraint IDtag primary key (idtag));
 
 create table tag_in_book (
-     codebook varchar(20) not null,
+     codebook int not null,
      idtag varchar(20) not null,
      constraint IDtag_in_book primary key (codebook, idtag));
 
