@@ -67,7 +67,8 @@
                 </a>
                 <?php if ($sessionManager->isLogged()) : ?>
                 <div class="dropdown">
-                    <img src="/UniBook/img/download.jpg" alt="" width="32" height="32"
+                    <?php $student = $studentRepo->findById($_SESSION['userid']); ?>
+                    <img src="<?php echo htmlspecialchars($student->getProfileImage()); ?>" alt="" width="32" height="32"
                         class="rounded-circle dropdown-toggle  " data-bs-toggle="dropdown" aria-expanded="false">
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#">Profile</a></li>

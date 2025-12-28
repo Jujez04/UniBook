@@ -1,5 +1,5 @@
 <?php
-require_once 'db/DatabaseHelper.php';
+require_once 'db/database.php';
 require_once 'orm/Student.php';
 
 class StudentRepository {
