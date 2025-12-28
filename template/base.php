@@ -12,7 +12,7 @@
 
 <body>
 
-      <nav class=" navbar fixed-top d-flex justify-content-center mx-0 w-100 ">
+      <nav class=" navbar  d-flex justify-content-center mx-0 w-100 ">
         <div class=" row d-flex justify-content-center align-items-center w-100">
 
             <div class=" col container-fluid p-0 d-flex align-items-center ms-2 w-1">
@@ -80,7 +80,7 @@
                     </ul>
                 </div>
                 <?php else : ?>
-                <a class="btn btn-danger me-2" href="login-form.php">Login</a>
+                <a class="btn btn-danger " href="login-form.php">Login</a>
                 <?php endif; ?>
             </div>
 
