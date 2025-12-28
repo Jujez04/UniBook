@@ -176,10 +176,9 @@ form ul li:nth-child(2n) {
 
 /*#endregion*/
 
-/*#region Home style*/
+/*#region Cards style*/
 
-/*
-section article {
+section article.card {
 	min-width: 300px;
 	max-width: 380px;
 	background-color: #F7E4CF;
@@ -192,42 +191,32 @@ body>div>form:first-child {
 	width: 308px;
 }
 
-section article>img {
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
+section article.card>img {
+	border-radius: 10px;
+	height: 100%;
 }
 
-form ul {
-	list-style: none;
-}
-
-form input[type="submit"] {
-	border-radius: 15px;
-	width: 131px;
-}
-
-section article>div>p {
+section article.card>div>p {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
-	-webkit-line-clamp: 1;
-	/* number of lines to show /
+	--webkit-line-clamp: 1;
+	/* number of lines to show */
 	-webkit-box-orient: vertical;
-} 
+}
 
-section article>div:nth-child(2) > ul > li {
+section article.card>div:nth-child(2)>ul>li {
 	margin-left: 10px;
 }
 
-section article > img {
+section article.card>img {
 	width: 100px;
 }
 
-section article>div svg  {
+section article.card>div svg {
 	width: 10px;
 	height: auto;
 }
-*/
 
 /*
 .collapse-card-body {
