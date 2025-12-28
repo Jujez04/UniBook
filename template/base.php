@@ -7,21 +7,39 @@
     <title><?php echo $templateParams["title"]; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <nav class=" navbar fixed-top   ">
-        <div class="container-fluid ">
-            <div class="container p-0 w-50 m-0">
-                <button class="navbar-toggler mx-0" type="button" data-bs-toggle="offcanvas"
+      <nav class=" navbar fixed-top d-flex justify-content-center mx-0 w-100 ">
+        <div class=" row d-flex justify-content-center align-items-center w-100">
+
+            <div class=" col container-fluid p-0 d-flex align-items-center ms-2 w-1">
+                <button class="navbar-toggler  d-md-none mx-0" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <span class="mx-2 border border-0">UniBook</span>
+                <a href="index.php" class=" border border-0 text-decoration-none  p-0">
+                    <img src="/UniBook/svg/logo.svg" alt="" width="120" />
+                </a>
             </div>
-            <div class="collapse flex-grow-1" id="searchBar">
+            <div class=" col container d-none d-md-block">
+                <ul class="navbar-nav  flex-row justify-content-center  m-0 p-0">
+                    <li class="me-2">
+                        <a href="" class="btn btn-danger">Negozio</a>
+                    </li>
+                    <li class="me-2">
+                        <a href="" class="btn btn-danger">Negozio</a>
+                    </li>
+                    <li class="me-2">
+                        <a href="" class="btn btn-danger">Negozio</a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="collapse flex-grow-1 w-100" id="searchBar">
                 <form class=" d-flex">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                     <button class="btn btn-outline-success ms-2 my-2 my-sm-0" type="submit">Search</button>
@@ -29,12 +47,25 @@
                         data-bs-target="#searchBar" aria-controls="searchBar" id="searchCloseBtn">Close</button>
                 </form>
             </div>
-            <div id="right-container" class="d-flex ms-auto align-items-center gap-2">
 
-                <a class="nav-link mx-3 " id="searchActivator" data-bs-toggle="collapse" data-bs-target="#searchBar"
+            <div id="right-container" class="col d-flex ms-auto justify-content-end align-items-center gap-2">
+                <div class="dropdown d-none d-md-block me-3">
+                    <img src="/UniBook/svg/menu-language-desktop-icon.svg" alt="" width="32" height="32"
+                        class="rounded-circle dropdown-toggle  " data-bs-toggle="dropdown" aria-expanded="false">
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">Inglese</a></li>
+
+                    </ul>
+                </div>
+
+                <a class="nav-link me-3  d-none d-md-block " id="dark-mode-switch" href="#">
+                    <img src="/UniBook/svg/dark-mode-desktop-icon.svg" alt="" width="24" height="24">
+                </a>
+                <a class="nav-link me-3 " id="searchActivator" data-bs-toggle="collapse" data-bs-target="#searchBar"
                     href="#">
                     <img src="/UniBook/svg/search.svg" alt="" width="24" height="24">
                 </a>
+                <?php if ($sessionManager->isLogged()) : ?>
                 <div class="dropdown">
                     <img src="/UniBook/img/download.jpg" alt="" width="32" height="32"
                         class="rounded-circle dropdown-toggle  " data-bs-toggle="dropdown" aria-expanded="false">
@@ -47,6 +78,9 @@
                         <li><a class="dropdown-item" href="#">Logout</a></li>
                     </ul>
                 </div>
+                <?php else : ?>
+                <a class="btn btn-danger me-2" href="login-form.php">Login</a>
+                <?php endif; ?>
             </div>
 
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasLanguage">
@@ -119,7 +153,11 @@
                             <a class="nav-link btn py-2 px-4 " aria-current="page" href="#">
                                 <div class="d-flex flex-row align-items-center ">
                                     <img src="/UniBook/svg/shop-black.svg" alt="" class="" width="48" height="48" />
+                                    <?php if ($sessionManager->isLogged()) : ?>
                                     <span>Log out</span>
+                                    <?php else : ?>
+                                    <span>Log in</span>
+                                    <?php endif; ?>
                                 </div>
                             </a>
                         </li>
@@ -128,13 +166,11 @@
             </div>
         </div>
     </nav>
+
     <main>
         <?php
-    if($sessionManager->isLogged()) {
-        echo("Hello world");
-    } else {
-        echo("Non sei loggato");
-    }
+  
+    require $templateParams["content"];
     ?>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

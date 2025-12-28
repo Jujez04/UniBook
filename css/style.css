@@ -119,6 +119,10 @@ main>form ul li input:not([type="submit"]) {
     box-sizing: border-box;
 }
 
+body main form {
+    margin-top: 20px;
+}
+
 main>form ul li input[type="submit"] {
     cursor: pointer;
     border-width: 0;
