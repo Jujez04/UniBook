@@ -1,6 +1,6 @@
 <?php
 require_once 'db/database.php';
-require_once 'orm/student.php';
+require_once 'orm/Student.php';
 
 class StudentRepository {
     private $db;

@@ -2,7 +2,7 @@
 session_start();
 define("UPLOAD_DIR", "./upload/");
 require_once("db/database.php");
-require_once("orm/student.php");
+require_once("orm/Student.php");
 require_once("repo/StudentRepository.php");
 require_once("SessionManager.php");
 
