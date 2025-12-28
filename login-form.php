@@ -11,6 +11,16 @@
 </head>
 
 <body>
+    <?php
+    // La password che vuoi usare per il tuo utente di test
+    $passwordDaUsare = "pwd123"; 
+
+    // Generiamo l'hash
+    $hash = password_hash($passwordDaUsare, PASSWORD_DEFAULT);
+
+    echo "<h3>Copia questa stringa nel tuo Database:</h3>";
+    echo "<textarea cols='100' rows='2'>" . $hash . "</textarea>";
+    ?>
     <nav class=" navbar  d-flex justify-content-center mx-0 w-100 ">
         <div class=" row d-flex justify-content-center align-items-center w-100">
 

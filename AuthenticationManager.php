@@ -29,7 +29,7 @@ class AuthenticationManager {
 
         //Recupero lo studente tramite repository
         $student = $this->studentRepo->findByEmail($email);
-        
+
         if($student && password_verify($password, $student->getPassword())) {
             $this->sessionManager->loginUser(
                 $student->getIdStudent,
