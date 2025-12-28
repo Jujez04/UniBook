@@ -37,6 +37,19 @@ class CatalogueRepository {
         return $this->mapRowToObject($result[0]);
     }
 
+    /**
+     * Recupera i primi n cataloghi casuali (per index)
+     */
+    public function findRandom($limit) {
+        $sql = "SELECT * FROM catalogue ORDER BY RAND() LIMIT " . (int)$limit;
+        $result = $this->db->executeQuery($sql);
+
+        $catalogues = [];
+        foreach ($result as $row) {
+            $catalogues[] = $this->mapRowToObject($row);
+        }
+        return $catalogues;
+    }
 
     /**
      * (Admin) Crea una nuova categoria.
