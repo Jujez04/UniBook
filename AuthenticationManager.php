@@ -1,5 +1,5 @@
 <?php
-require_once 'StudentRepository.php';
+require_once 'repo/StudentRepository.php';
 require_once 'SessionManager.php';
 
 class AuthenticationManager {
@@ -29,7 +29,7 @@ class AuthenticationManager {
 
         //Recupero lo studente tramite repository
         $student = $this->studentRepo->findByEmail($email);
-
+        
         if($student && password_verify($password, $student->getPassword())) {
             $this->sessionManager->loginUser(
                 $student->getIdStudent,
@@ -39,11 +39,11 @@ class AuthenticationManager {
                     'profile_image' => $student->getProfileImage()
                 ]
             );
-            header("Location: dashboard.php"); // TODO: da cambiare
+            header("Location: index.php");
             exit;
         } else {
             //Credenziali errate
-            header("Location: login.php?error=credenziali_errate");
+            header("Location: login-form.php?error=credenziali_errate");
             exit;
         }
     }

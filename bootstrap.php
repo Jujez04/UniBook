@@ -1,0 +1,14 @@
+<?php
+session_start();
+define("UPLOAD_DIR", "./upload/");
+require_once("db/database.php");
+require_once("orm/student.php");
+require_once("repo/StudentRepository.php");
+require_once("SessionManager.php");
+
+$dbh = new DatabaseHelper("localhost", "root", "", "unibook", 3306);
+
+//Repository
+$studentRepo = new StudentRepository($dbh);
+
+?>
