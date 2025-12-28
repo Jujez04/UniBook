@@ -10,7 +10,7 @@ class SessionManager {
     }
 
     public function isLogged() {
-        return isset($_SESSION['userid']) && isset($_SESSION['user_data']);
+        return isset($_SESSION['userid']);
     }
 
     public function destroySession() {

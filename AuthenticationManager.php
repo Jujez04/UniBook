@@ -6,9 +6,9 @@ class AuthenticationManager {
     private $studentRepo;
     private $sessionManager;
 
-    public function __construct(&$studentRepo) {
+    public function __construct(&$studentRepo, &$sessionManager) {
         $this->studentRepo = $studentRepo;
-        $this->sessionManager = new SessionManager();
+        $this->sessionManager = $sessionManager;
     }
 
     public function login() {
@@ -32,7 +32,7 @@ class AuthenticationManager {
 
         if($student && password_verify($password, $student->getPassword())) {
             $this->sessionManager->loginUser(
-                $student->getIdStudent,
+                $student->getIdStudent(),
                 [
                     'name' => $student->getName(),
                     'surname' => $student->getSurname(),

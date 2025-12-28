@@ -11,4 +11,7 @@ $dbh = new DatabaseHelper("localhost", "root", "", "unibook", 3306);
 //Repository
 $studentRepo = new StudentRepository($dbh);
 
+//Session
+$sessionManager = new SessionManager();
+
 ?>
