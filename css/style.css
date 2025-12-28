@@ -8,11 +8,6 @@
     box-sizing: border-box;
 }
 
-main>section {
-    display: flex;
-    flex-direction: column;
-    padding: 0 10%;
-}
 
 @media screen and (min-width: 520px) {
     main>section {
@@ -107,10 +102,13 @@ nav ul>li>a:hover {
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
-main input[type="button"]:active,
-nav ul>li>a:active {
-    background-color: #7b1d19;
+main input[type="button"],
+nav ul>li>a {
+    display: none;
+    background-color: #7b1d19 !important;
 }
+
+
 
 /* #endregion */
 
@@ -134,30 +132,7 @@ hr {
 
 /*#region Form style */
 
-form {
-    width: 100%;
-}
 
-form ul {
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-form footer {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-}
-
-form footer input {
-    margin-bottom: 20px;
-    margin-right: 20px;
-    margin-top: 0;
-    color: #ffffff;
-    background-color: #A72925;
-    border: 1px;
-}
 
 /*
 section {
@@ -243,8 +218,7 @@ nav ul>li {
 }
 
 nav>div>div:nth-child(6)>div:nth-child(2)>ul>li>a,
-nav>div>div:nth-child(5)>div:nth-child(2)>ul>li>a,
-nav>div>div:nth-child(4)>a:last-child {
+nav>div>div:nth-child(5)>div:nth-child(2)>ul>li>a {
     color: white;
     background-color: #D9534F;
     border-radius: 12px;
@@ -254,6 +228,71 @@ nav>div>div:nth-child(5)>div:nth-child(2)>ul>li>a.btn,
 nav>div>div:nth-child(6)>div:nth-child(2)>ul>li>a.btn {
     background-color: #F7E4CF;
     color: black;
+}
+
+main>form {
+    padding: 20px 10%;
+    text-align: center;
+}
+
+
+main>form ul {
+    background-color: #F7E4CF;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    list-style: none;
+    width: 100%;
+    padding: 10px 5%;
+    margin: 0 auto;
+
+}
+
+main form ul li {
+    margin: 15px 0;
+    text-align: center;
+}
+
+main>form>ul>li>input[type="submit"] {
+    background-color: #A72925;
+    color: white;
+    padding: 10px 20px;
+}
+
+main>form ul li:last-child {
+    text-align: right;
+}
+
+main>form ul li label {
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+    cursor: pointer;
+}
+
+main>form ul li input:not([type="submit"]) {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+main>form ul li input[type="submit"] {
+    cursor: pointer;
+    border-width: 0;
+    width: 120px;
+    height: 38px;
+    border-radius: 15px;
+    align-self: center;
+    padding: 0;
+}
+
+
+@media screen and (min-width: 520px) {
+
+    main>form {
+        padding: 20px 20%;
+
+    }
 }
 
 /*#endregion*/

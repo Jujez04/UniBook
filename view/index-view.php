@@ -18,7 +18,7 @@
                         <img src=" /UniBook/img/download.jpg" class=" " alt="immagine libro" />
                         <div class="card-body p-2   ">
                             <h5 class="card-title">
-                                <a href="book.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none text-dark">
+                                <a href="bookPage.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none text-dark">
                                     <?php echo $book->getTitle(); ?>
                                 </a>
                             </h5>

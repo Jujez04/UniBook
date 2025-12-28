@@ -12,8 +12,8 @@
 
 <body>
 
-      <nav class=" navbar  d-flex justify-content-center mx-0 w-100 ">
-        <div class=" row d-flex justify-content-center align-items-center w-100">
+      <nav class=" navbar  d-flex justify-content-center mx-0 mb-2 w-100 ">
+        <div class=" row d-flex justify-content-center align-items-center w-100 " style="min-height: 56px;">
 
             <div class=" col container-fluid p-0 d-flex align-items-center ms-2 w-1">
                 <button class="navbar-toggler  d-md-none mx-0" type="button" data-bs-toggle="offcanvas"
@@ -24,16 +24,16 @@
                     <img src="/UniBook/svg/logo.svg" alt="" width="120" />
                 </a>
             </div>
-            <div class=" col container d-none d-md-block">
-                <ul class="navbar-nav  flex-row justify-content-center  m-0 p-0">
-                    <li class="me-2">
-                        <a href="" class="btn btn-danger">Negozio</a>
+            <div class="d-none d-md-block col ">
+                <ul class="navbar-nav flex-row justify-content-center align-items-center p-0 m-0">
+                    <li class="nav-item me-2">
+                        <a href="" class="nav-link">Negozio</a>
                     </li>
-                    <li class="me-2">
-                        <a href="" class="btn btn-danger">Negozio</a>
+                    <li class="nav-item me-2">
+                        <a href="" class="nav-link">Negozio</a>
                     </li>
-                    <li class="me-2">
-                        <a href="" class="btn btn-danger">Negozio</a>
+                    <li class="nav-item me-2">
+                        <a href="" class="nav-link">Negozio</a>
                     </li>
                 </ul>
             </div>
@@ -80,7 +80,7 @@
                     </ul>
                 </div>
                 <?php else : ?>
-                <a class=" me-0 btn " href="login-form.php">Login</a>
+                <a class=" me-0 btn btn-danger" href="login-form.php">Login</a>
                 <?php endif; ?>
             </div>
 

@@ -29,7 +29,15 @@ class BookRepository {
         }
         return $this->mapRowToObject($result[0]);
     }
+    public function getAuthorByBookId($codeBook) {
+        $sql = "SELECT author FROM book WHERE codebook = ?";
+        $result = $this->db->executeQuery($sql, [$codeBook]);
 
+        if(count($result) == 0) {
+            return null;
+        }
+        return $result[0]['author'];
+    }
     public function findByCatalogue($idCatalogue) {
         $sql = "SELECT * FROM book WHERE idcatalogue = ?";
         $result = $this->db->executeQuery($sql, [$idCatalogue]);
