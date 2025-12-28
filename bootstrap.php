@@ -10,6 +10,8 @@ require_once("repo/CatalogueRepository.php");
 require_once("repo/LoanRepository.php");
 require_once("repo/ReviewRepository.php");
 require_once("SessionManager.php");
+require_once 'AuthenticationManager.php';
+
 
 $dbh = new DatabaseHelper("localhost", "root", "", "unibook", 3306);
 
@@ -23,5 +25,8 @@ $reviewRepo = new ReviewRepository($dbh);
 
 //Session
 $sessionManager = new SessionManager();
+
+//Authentication
+$authManager = new AuthenticationManager($studentRepo, $sessionManager);
 
 ?>

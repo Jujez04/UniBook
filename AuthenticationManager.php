@@ -39,19 +39,14 @@ class AuthenticationManager {
                     'profile_image' => $student->getProfileImage()
                 ]
             );
-            header("Location: index.php");
-            exit;
+            return true;
         } else {
-            //Credenziali errate
-            header("Location: login-form.php?error=credenziali_errate");
-            exit;
+            return false;
         }
     }
 
     public function logout() {
         $this->sessionManager->destroySession();
-        header("Location: login.php");
-        exit;
     }
 }
 

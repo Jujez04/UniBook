@@ -68,7 +68,7 @@
                 <?php if ($sessionManager->isLogged()) : ?>
                 <div class="dropdown">
                     <?php $student = $studentRepo->findById($_SESSION['userid']); ?>
-                    <img src="<?php echo htmlspecialchars($student->getProfileImage()); ?>" alt="" width="32" height="32"
+                    <img src="<?php echo UPLOAD_DIR . 'profile/' . htmlspecialchars($student->getProfileImage()); ?>" alt="" width="32" height="32"
                         class="rounded-circle dropdown-toggle  " data-bs-toggle="dropdown" aria-expanded="false">
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
@@ -76,7 +76,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                     </ul>
                 </div>
                 <?php else : ?>
