@@ -91,61 +91,61 @@ main article>img {
 
 /*#region Admin style*/
 
-/*
-* {
-    font-family: 'Josefin Sans';
-}
-
-main section > ul {
-    padding-left: 0%;
-    list-style: none;
+main section>ul {
+	padding-left: 0%;
+	list-style: none;
 }
 
 main h1 {
-    padding: 10px;
-}
-
-section {
-    width: 60%;
-}
-
-form {
-    width: 100%;
-}
-
-form ul {
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-main ul > li {
-    width: 100%;
-    margin-bottom: 15px;
-}
-
-form ul li:nth-child(2n) {
-    text-align: end;
-}
-
-form footer {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-}
-
-form footer input {
-    margin-bottom: 20px;
-    margin-right: 20px;
-    margin-top: 0;
-    color: #ffffff;
-    background-color: #A72925;
-    border: 1px;
+	padding: 10px;
 }
 
 hr {
-    border: solid black 1px;
-    width: 90%;
+	border: solid black 1px;
+	width: 90%;
+}
+
+/*#endregion*/
+
+/*#region Form style */
+
+form {
+	width: 100%;
+}
+
+form ul {
+	padding: 20px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+form footer {
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+}
+
+form footer input {
+	margin-bottom: 20px;
+	margin-right: 20px;
+	margin-top: 0;
+	color: #ffffff;
+	background-color: #A72925;
+	border: 1px;
+}
+
+/*
+section {
+	width: 60%;
+}
+
+main ul > li {
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+form ul li:nth-child(2n) {
+	text-align: end;
 }
 */
 
@@ -154,71 +154,91 @@ hr {
 /*#region Home style*/
 
 /*
-.card {
-    min-width: 300px;
-    max-width: 380px;
-    background-color: #F7E4CF;
-    border-radius: 10px;
+section article {
+	min-width: 300px;
+	max-width: 380px;
+	background-color: #F7E4CF;
+	border-radius: 10px;
 }
-body > div > form:first-child {
-    background-color:  #F7E4CF;
-    border-radius: 10px;
-    width: 308px;
+
+body>div>form:first-child {
+	background-color: #F7E4CF;
+	border-radius: 10px;
+	width: 308px;
 }
-.card > img {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+
+section article>img {
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
 }
-form ul  {
-    list-style: none;
+
+form ul {
+	list-style: none;
 }
+
 form input[type="submit"] {
-   border-radius: 15px;
-   width: 131px;
+	border-radius: 15px;
+	width: 131px;
 }
 
-div.card-body > p.card-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1; /* number of lines to show /
-    -webkit-box-orient: vertical;
+section article>div>p {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	/* number of lines to show /
+	-webkit-box-orient: vertical;
 } 
-.collapse-card-body {
-    position: absolute;
-    z-index: 10;    /* sopra le altre card /
-    background-color: white;
-    border-top: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.container-fluid > ul > li {
-    margin-left: 10px;
+
+section article>div:nth-child(2) > ul > li {
+	margin-left: 10px;
 }
 
-.card > img {
-    width: 100px;
+section article > img {
+	width: 100px;
 }
 
-.card-body svg  {
-    width: 10px;
-    height: auto;
-}
-nav, .offcanvas{
-    background-color: #E6AA68;
-}
-
-ul.navbar-nav > li {
-    margin-bottom: 10px;
-}
-.offcanvas-body > ul > li > a {
-    color: white;
-    background-color: #D9534F;
-    border-radius: 12px;
-}
-.offcanvas-body > ul > li > a.btn {
-    background-color: #F7E4CF;
-    color: black;
+section article>div svg  {
+	width: 10px;
+	height: auto;
 }
 */
+
+/*
+.collapse-card-body {
+	position: absolute;
+	z-index: 10; /* sopra le altre card /
+	background-color: white;
+	border-top: 1px solid #ddd;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+*/
+
+/*#endregion*/
+
+/*#region Nav style*/
+
+nav,
+nav>div>div:nth-child(2),
+nav>div>div:nth-child(3) {
+	background-color: #E6AA68;
+}
+
+nav ul>li {
+	margin-bottom: 10px;
+}
+
+nav>div>div:nth-child(2)>div:nth-child(2)>ul>li>a,
+nav>div>div:nth-child(3)>div:nth-child(2)>ul>li>a {
+	color: white;
+	background-color: #D9534F;
+	border-radius: 12px;
+}
+
+nav>div>div:nth-child(2)>div:nth-child(2)>ul>li>a.btn,
+nav>div>div:nth-child(3)>div:nth-child(2)>ul>li>a.btn {
+	background-color: #F7E4CF;
+	color: black;
+}
 
 /*#endregion*/
