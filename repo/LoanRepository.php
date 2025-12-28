@@ -10,7 +10,7 @@ class LoanRepository {
     }
 
     public function create($idStudent, $codeBook, $codeCopy) {
-        $sql = "INSERT INTO loan (idstudent, codebook, codecopy, subscriptiondate, state, refunddata, idreview) 
+        $sql = "INSERT INTO loan (idstudent, codebook, codecopy, subscriptiondate, state, refunddata, idreview)
                 VALUES (?, ?, ?, CURDATE(), 'attivo', NULL, NULL)";
 
         $this->db->executeQuery($sql, [
@@ -21,14 +21,14 @@ class LoanRepository {
     }
 
     public function closeLoan($idStudent, $codeBook, $codeCopy, $subscriptionDate) {
-        $sql = "UPDATE loan 
-                SET state = 'restituito', refunddata = CURDATE() 
+        $sql = "UPDATE loan
+                SET state = 'restituito', refunddata = CURDATE()
                 WHERE idstudent = ? AND codebook = ? AND codecopy = ? AND subscriptiondate = ?";
 
         $this->db->executeQuery($sql, [
-            $idStudent, 
-            $codeBook, 
-            $codeCopy, 
+            $idStudent,
+            $codeBook,
+            $codeCopy,
             $subscriptionDate
         ]);
     }
@@ -59,8 +59,8 @@ class LoanRepository {
      * Trova tutti i prestiti in ritardo
      */
     public function findOverdueLoans() {
-        $sql = "SELECT * FROM loan 
-                WHERE state = 'attivo' 
+        $sql = "SELECT * FROM loan
+                WHERE state = 'attivo'
                 AND subscriptiondate < DATE_SUB(CURDATE(), INTERVAL 30 DAY)"; // Scadenza impostata a 30 giorni
 
         $result = $this->db->executeQuery($sql);
@@ -72,18 +72,6 @@ class LoanRepository {
         return $loans;
     }
 
-    /**
-     * Recupera i prestiti con i dettagli del libro
-     * Ritorna un array associativo misto.
-     */
-    public function getActiveLoansWithBookDetails($idStudent) {
-        $sql = "SELECT l.*, b.title, b.image, b.author 
-                FROM loan l
-                JOIN book b ON l.codebook = b.codebook
-                WHERE l.idstudent = ? AND l.state = 'attivo'";
-        
-        return $this->db->executeQuery($sql, [$idStudent]);
-    }
 
     private function mapRowToObject($row) {
         return new Loan(
