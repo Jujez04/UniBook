@@ -1,9 +1,8 @@
 ```mermaid
 classDiagram
-class DatabaseHelper
+class DatabaseManager
 %% class Admin (?)
 class SessionManager
-class SecurityManager
 
 Book -- Catalogue
 TagInBook --o Book
@@ -14,5 +13,6 @@ Review -- Loan
 Student -- Booking
 Booking -- Book
 Student -- Loan
-
+DatabaseManager o-- BookRepository
+Book -- BookRepository
 ```

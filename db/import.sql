@@ -210,7 +210,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES ('3331112222','pwd123','mario.rossi@example.com','Rossi',1,'mario.png','Mario'),('3331113333','pwd123','anna.bianchi@example.com','Bianchi',2,'anna.png','Anna'),('3331114444','pwd123','luca.verdi@example.com','Verdi',3,'luca.png','Luca');
+INSERT INTO `student` VALUES ('3331112222','pwd123','mario.rossi@example.com','Rossi',1,'3331112222.png','Mario'),('3331113333','pwd123','anna.bianchi@example.com','Bianchi',2,'3331113333.png','Anna'),('3331114444','pwd123','luca.verdi@example.com','Verdi',3,'3331114444.png','Luca');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 
