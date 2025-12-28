@@ -80,7 +80,7 @@
                     </ul>
                 </div>
                 <?php else : ?>
-                <a class="btn btn-danger " href="login-form.php">Login</a>
+                <a class=" me-0 btn " href="login-form.php">Login</a>
                 <?php endif; ?>
             </div>
 

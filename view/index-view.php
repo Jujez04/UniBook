@@ -2,7 +2,7 @@
     <?php foreach($templateParams['home_content'] as $content) : ?>
         <?php $collapse_id = "cat_".$content['catalogue_id'];?>
         <section>
-            <div class=" row gap-3 align-items-center">
+            <div class=" row gap-3 h-auto mb-10 align-items-center">
                 <div class="col"></div>
                 <h2 class="text-center col"><?php echo $content['catalogue_name']; ?></h2>
                 <div class="col">
@@ -18,7 +18,7 @@
                         <img src=" /UniBook/img/download.jpg" class=" " alt="immagine libro" />
                         <div class="card-body p-2   ">
                             <h5 class="card-title">
-                                <a href="book.php?id=1" class="text-decoration-none text-dark">
+                                <a href="book.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none text-dark">
                                     <?php echo $book->getTitle(); ?>
                                 </a>
                             </h5>
