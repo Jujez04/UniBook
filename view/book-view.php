@@ -45,7 +45,7 @@
 <section>
     <?php $reviews = $reviewRepo->getReviewsByBook($book->getCodeBook()); 
     ?>
-    <h2><?php echo count($reviews); ?> recensione/i</h2>
+    <h2><?php echo count($reviews) . (count($reviews) == 1 ? ' recensione' : ' recensioni'); ?> </h2>
     <?php foreach($reviews as $review) : ?>
     <article>
         <?php 
@@ -80,4 +80,4 @@
     <?php endforeach; ?>
     
 </section>
-	
+    
