@@ -63,15 +63,25 @@ class BookRepository {
     }
 
     public function getAvailableCopiesCount($codeBook) {
-        $sql = "SELECT COUNT(*) as total FROM book_copy
-                WHERE codebook = ? AND state = 'disponibile'";
+        $sql = "SELECT COUNT(*) as total
+                FROM book_copy b
+                WHERE b.codebook = ?
+                AND b.codecopy NOT IN (SELECT codecopy
+                                FROM  loan l
+                                WHERE l.state != 'restituito'
+                                AND l.codecopy = b.codebook)";
         $result = $this->db->executeQuery($sql, [$codeBook], 'i');
         return $result[0]['total'] ?? 0;
     }
 
     public function findFirstAvailableCopy($codeBook) {
-        $sql = "SELECT codecopy FROM book_copy
-                WHERE codebook = ? AND state = 'Disponibile'
+        $sql = "SELECT codecopy
+                FROM book_copy b
+                WHERE b.codebook = ?
+                AND b.codecopy NOT IN (SELECT codecopy
+                                FROM  loan l
+                                WHERE l.state != 'restituito'
+                                AND l.codecopy = b.codebook)
                 LIMIT 1";
         $result = $this->db->executeQuery($sql, [$codeBook], 'i');
 
