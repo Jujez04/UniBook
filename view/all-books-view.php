@@ -47,7 +47,14 @@
                                     <span>Recensioni</span>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center my-2   ">
-                                    <span class="">3 in coda</span>
+                                    <?php
+                                    $copies = $bookRepo->getAvailableCopiesCount($book->getCodeBook());
+                                    ?>
+                                    <span class=""><?php if ($copies > 0) {
+                                                        echo "Disponibile";
+                                                    } else {
+                                                        echo "Non disponibile";
+                                                    } ?></span>
                                     <?php if (!$sessionManager->isAdminLogged()) : ?>
                                         <?php if ($sessionManager->isLogged()) : ?>
                                             <?php $studentId = $_SESSION['userid']; ?>
