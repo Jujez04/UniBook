@@ -20,6 +20,16 @@ class LoanRepository {
         ], 'iii');
     }
 
+    public function findAll() {
+        $sql = "SELECT * FROM loan ORDER BY subscriptiondate DESC";
+        $result = $this->db->executeQuery($sql);
+        $loans = [];
+        foreach ($result as $row) {
+            $loans[] = $this->mapRowToObject($row);
+        }
+        return $loans;
+    }
+
     public function closeLoan($idStudent, $codeBook, $codeCopy, $subscriptionDate) {
         $sql = "UPDATE loan
                 SET state = 'restituito', refunddata = CURDATE()
