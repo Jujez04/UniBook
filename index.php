@@ -1,5 +1,5 @@
 <?php
-require_once 'bootstrap.php';
+require_once 'controller/bootstrap.php';
 
 $randomCatalogues = $catalogueRepo->findRandom(3);
 

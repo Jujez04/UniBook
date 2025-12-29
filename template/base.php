@@ -7,37 +7,37 @@
     <title><?php echo $templateParams["title"]; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style_base.css">
-    <link rel="stylesheet" href="css/<?php echo $templateParams['css']; ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL . '/css/style_base.css'; ?>">
+    <link rel="stylesheet" href="<?php echo BASE_URL . '/css/' . $templateParams['css']; ?>">
 </head>
 
 <body>
 
     <nav>
-        <div >
+        <div>
             <!-- Sezione Sinistra: Logo e Hamburger -->
-            <div >
-                <button  type="button" data-bs-toggle="offcanvas"
+            <div>
+                <button type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <span ></span>
+                    <span></span>
                 </button>
-                <a href="index.php" >
+                <a href="index.php">
                     <img src="/UniBook/svg/logo.svg" alt="UniBook Logo" width="120" />
                 </a>
             </div>
 
             <!-- Sezione Centro: Link Navigazione (desktop) -->
-            <div >
-                <ul >
-                    <li><a href="all-books.php">Libri</a></li>
+            <div>
+                <ul>
+                    <li><a href="<?php echo CONTROLLER_PATH; ?>all-books.php">Libri</a></li>
                 </ul>
             </div>
 
             <!-- Barra di Ricerca Collapsible -->
-           
+
 
             <!-- Sezione Destra: Icone e Azioni -->
-            <div >
+            <div>
                 <!-- Dropdown Lingua (desktop) -->
                 <div class="dropdown navbar-item desktop-only">
                     <img src="/UniBook/svg/menu-language-desktop-icon.svg" alt="Language" width="32" height="32"
@@ -59,22 +59,24 @@
 
                 <!-- User Profile / Login -->
                 <?php if ($sessionManager->isLogged()) : ?>
-                <div class="dropdown navbar-item">
-                    <?php $student = $studentRepo->findById($_SESSION['userid']); ?>
-                    <img src="<?php echo UPLOAD_DIR . 'students/' . htmlspecialchars($student->getProfileImage()); ?>" 
-                        alt="Profile" width="32" height="32"
-                        class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="reserved-books.php?id=<?php echo $_SESSION['userid']; ?>">Libri prenotati</a></li>
-                        <li><a class="dropdown-item" href="#">Libri in prestito</a></li>
-                        <li><a class="dropdown-item" href="#">Libri in restituzione</a></li>
+                    <div class="dropdown navbar-item">
+                        <?php $student = $studentRepo->findById($_SESSION['userid']); ?>
+                        <img src="<?php echo UPLOAD_DIR . 'students/' . htmlspecialchars($student->getProfileImage()); ?>"
+                            alt="Profile" width="32" height="32"
+                            class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="reserved-books.php?id=<?php echo $_SESSION['userid']; ?>">Libri prenotati</a></li>
+                            <li><a class="dropdown-item" href="#">Libri in prestito</a></li>
+                            <li><a class="dropdown-item" href="#">Libri in restituzione</a></li>
 
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                    </ul>
-                </div>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                        </ul>
+                    </div>
                 <?php else : ?>
-                <a class="" href="login-form.php">Login</a>
+                    <a class="" href="login-form.php">Login</a>
                 <?php endif; ?>
             </div>
         </div>
@@ -130,9 +132,9 @@
                             <div class="d-flex flex-row align-items-center">
                                 <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
                                 <?php if ($sessionManager->isLogged()) : ?>
-                                <span>Log out</span>
+                                    <span>Log out</span>
                                 <?php else : ?>
-                                <span>Log in</span>
+                                    <span>Log in</span>
                                 <?php endif; ?>
                             </div>
                         </a>
@@ -160,21 +162,21 @@
             </div>
         </div>
 
-         <div class="collapse search-collapse" id="searchBar">
-                <form class="search-form">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                    <button class="btn btn-outline-danger" id="searchCloseBtn" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#searchBar" aria-controls="searchBar">Close</button>
-                </form>
-            </div>
+        <div class="collapse search-collapse" id="searchBar">
+            <form class="search-form">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn btn-outline-danger" id="searchCloseBtn" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#searchBar" aria-controls="searchBar">Close</button>
+            </form>
+        </div>
     </nav>
 
     <main>
         <?php
-  
-    require $templateParams["content"];
-    ?>
+
+        require $templateParams["content"];
+        ?>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

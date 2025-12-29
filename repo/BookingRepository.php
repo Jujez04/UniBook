@@ -1,6 +1,6 @@
 <?php
-require_once 'db/database.php';
-require_once 'orm/Booking.php';
+require_once BASE_PATH. "/UniBook/".  'db/database.php';
+require_once BASE_PATH. "/UniBook/". 'orm/Booking.php';
 
 class BookingRepository {
     private $db;

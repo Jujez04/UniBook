@@ -1,6 +1,6 @@
 <?php
-require_once '../repo/StudentRepository.php';
-require_once 'SessionManager.php';
+require_once  BASE_PATH. "/UniBook/". 'repo/StudentRepository.php';
+require_once BASE_PATH. "/UniBook/". 'controller/SessionManager.php';
 
 class AuthenticationManager {
     private $studentRepo;

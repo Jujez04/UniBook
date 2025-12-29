@@ -1,6 +1,6 @@
 <?php
-require_once 'orm/Loan.php';
-require_once 'db/database.php';
+require_once BASE_PATH.  "/UniBook/". 'orm/Loan.php';
+require_once BASE_PATH. "/UniBook/". 'db/database.php';
 
 class LoanRepository {
     private $db;

@@ -1,6 +1,6 @@
 <?php
-require_once 'db/database.php';
-require_once 'orm/Review.php';
+require_once BASE_PATH. "/UniBook/". 'db/database.php';
+require_once BASE_PATH. "/UniBook/". 'orm/Review.php';
 
 class ReviewRepository {
     private $db;

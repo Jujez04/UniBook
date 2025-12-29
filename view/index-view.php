@@ -15,10 +15,10 @@
                     <?php foreach($content['books'] as $book) : ?>
                     <article
                         class="card flex-row  d-flex justify-content-center col-12 col-sm-6  col-md-4 col-lg-3 m-0 p-0">
-                        <img src=" /UniBook/img/download.jpg" class=" " alt="immagine libro" />
+                        <img src=" <?php echo BASE_URL; ?>upload/books/<?php echo $book->getImage(); ?>" class=" " alt="immagine libro" />
                         <div class="card-body p-2   ">
                             <h5 class="card-title">
-                                <a href="bookPage.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none text-dark">
+                                <a href="<?php echo CONTROLLER_PATH; ?>/bookPage.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none text-dark">
                                     <?php echo $book->getTitle(); ?>
                                 </a>
                             </h5>
