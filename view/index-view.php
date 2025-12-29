@@ -10,7 +10,7 @@
                     data-bs-target="#<?php echo $collapse_id; ?>" class="btn col w-auto">
             </div>
         </div>
-        <div class="collapse container-fluid my-2" id="<?php echo $collapse_id; ?>">
+        <div class="collapse show container-fluid my-2" id="<?php echo $collapse_id; ?>">
             <div class="row justify-content-center gap-3">
                 <?php foreach ($content['books'] as $book) : ?>
                     <article
