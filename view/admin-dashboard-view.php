@@ -5,11 +5,17 @@
         <img src="../svg/open-collapse.svg" alt="">
     </header>
     <ul>
+        <?php foreach($bookingRepo->findAll() as $booking) :?>
         <li>
             <form action="#">
                 <ul>
                     <li>Studente:</li>
-                    <li>Gianni Piergigio</li>
+                    <li>
+                    <?php
+                        $student = $studentRepo->findById($booking->getIdStudent());
+                        echo $student->getName(). " " . $student->getSurname();
+                    ?>
+                    </li>
                     <li>Libro:</li>
                     <li>Design Patterns</li>
                     <li>Data:</li>
@@ -22,6 +28,7 @@
                 </footer>
             </form>
         </li>
+        <?php endforeach; ?>
         <li>
             <form action="#">
                 <ul>

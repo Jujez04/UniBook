@@ -53,6 +53,21 @@ class BookingRepository {
         return $bookings;
     }
 
+    /**
+     * Recupera tutte le prenotazioni.
+     */
+    public function findAll() {
+        $sql = "SELECT * FROM booking";
+        $result = $this->db->executeQuery($sql, [], 'i');
+
+        $bookings = [];
+        foreach ($result as $row) {
+            $bookings[] = $this->mapRowToObject($row);
+        }
+        return $bookings;
+    }
+
+
     private function mapRowToObject($row) {
         return new Booking(
             $row['idstudent'],
