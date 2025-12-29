@@ -6,11 +6,23 @@ class SessionManager {
         session_regenerate_id(true);
 
         $_SESSION['userid'] = $userId;
+        $_SESSION['user_type'] = 'student';
+        $_SESSION['user_data'] = $userData;
+    }
+
+    public function loginAdmin($userId, $userData = []) {
+        session_regenerate_id(true);
+        $_SESSION['userid'] = $userId;
+        $_SESSION['user_type'] = 'admin';
         $_SESSION['user_data'] = $userData;
     }
 
     public function isLogged() {
-        return isset($_SESSION['userid']);
+        return isset($_SESSION['user_type']) && $_SESSION['user_type'] == 'student';
+    }
+
+    public function isAdminLogged() {
+        return isset($_SESSION['user_type']) && $_SESSION['user_type'] == 'admin';
     }
 
     public function destroySession() {

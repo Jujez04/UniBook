@@ -30,6 +30,15 @@ class AuthenticationManager {
         //Recupero lo studente tramite repository
         $student = $this->studentRepo->findByEmail($email);
 
+        //Se è l'admin lo reindirizzo alla dashboard
+        if ($email === ADMIN_EMAIL && password_verify($password, $student->getPassword())) {
+            $this->sessionManager->loginAdmin(
+                $student->getIdStudent(),
+                ['name' => 'admin']
+            );
+            return true;
+        }
+
         if($student && password_verify($password, $student->getPassword())) {
             $this->sessionManager->loginUser(
                 $student->getIdStudent(),

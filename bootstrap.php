@@ -1,6 +1,11 @@
 <?php
 session_start();
 define("UPLOAD_DIR", "./upload/");
+
+//Credenziali admin
+define("ADMIN_EMAIL", "admin@unibook.com");
+define("ADMIN_PASSWORD", "admin");
+
 require_once("db/database.php");
 require_once("orm/Student.php");
 require_once("repo/StudentRepository.php");
@@ -24,6 +29,17 @@ $catalogueRepo = new CatalogueRepository($dbh);
 $loanRepo = new LoanRepository($dbh);
 $reviewRepo = new ReviewRepository($dbh);
 $tagInBookRepo = new TagInBookRepository($dbh);
+
+if ($studentRepo->findByEmail(ADMIN_EMAIL) === null) {
+    $studentRepo->create(
+        "Admin",
+        "System",
+        ADMIN_EMAIL,
+        password_hash(ADMIN_PASSWORD, PASSWORD_DEFAULT),
+        "0000000000"
+    );
+}
+
 //Session
 $sessionManager = new SessionManager();
 
