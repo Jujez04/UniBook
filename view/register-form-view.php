@@ -1,4 +1,4 @@
-<form action="#" method="POST">
+<form action="#" method="POST" enctype="multipart/form-data">
     <ul>
         <li>
             <label for="nome">Nome:</label><input type="text" id="nome" name="nome" />
