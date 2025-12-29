@@ -18,6 +18,7 @@ foreach($randomCatalogues as $catalogue) {
 $templateParams["title"] = "Unibook - Home";
 $templateParams["content"] = "view/all-books-view.php";
 $templateParams["home_content"] = $homeContent;
+$templateParams["css"] = "user_style.css";
 
 require 'template/base.php';
 ?>
