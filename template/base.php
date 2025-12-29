@@ -65,7 +65,7 @@
                             alt="Profile" width="32" height="32"
                             class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="<?php echo CONTROLLER_PATH . "reserved-books.php?id=" . $_SESSION['userid']; ?>">Libri prenotati</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/reserved-books.php?id=" . $_SESSION['userid']; ?>">Libri prenotati</a></li>
                             <li><a class="dropdown-item" href="#">Libri in prestito</a></li>
                             <li><a class="dropdown-item" href="#">Libri in restituzione</a></li>
 
