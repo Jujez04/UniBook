@@ -21,7 +21,7 @@
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span></span>
                 </button>
-                <a href="index.php">
+                <a href="<?php echo BASE_URL . "index.php"; ?>">
                     <img src="/UniBook/svg/logo.svg" alt="UniBook Logo" width="120" />
                 </a>
             </div>
@@ -29,7 +29,7 @@
             <!-- Sezione Centro: Link Navigazione (desktop) -->
             <div>
                 <ul>
-                    <li><a href="<?php echo CONTROLLER_PATH; ?>all-books.php">Libri</a></li>
+                    <li><a href="<?php echo CONTROLLER_PATH . "all-books.php"; ?>">Libri</a></li>
                 </ul>
             </div>
 
@@ -65,18 +65,18 @@
                             alt="Profile" width="32" height="32"
                             class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="reserved-books.php?id=<?php echo $_SESSION['userid']; ?>">Libri prenotati</a></li>
+                            <li><a class="dropdown-item" href="<?php echo CONTROLLER_PATH . "reserved-books.php?id=" . $_SESSION['userid']; ?>">Libri prenotati</a></li>
                             <li><a class="dropdown-item" href="#">Libri in prestito</a></li>
                             <li><a class="dropdown-item" href="#">Libri in restituzione</a></li>
 
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                            <li><a class="dropdown-item" href="<?php echo CONTROLLER_PATH . "logout.php"; ?>">Logout</a></li>
                         </ul>
                     </div>
                 <?php else : ?>
-                    <a class="" href="login-form.php">Login</a>
+                    <a class="" href="<?php echo CONTROLLER_PATH . "login-form.php"  ?>">Login</a>
                 <?php endif; ?>
             </div>
         </div>
