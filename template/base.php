@@ -28,9 +28,7 @@
             <!-- Sezione Centro: Link Navigazione (desktop) -->
             <div >
                 <ul >
-                    <li><a href="">Negozio</a></li>
-                    <li><a href="">Negozio</a></li>
-                    <li><a href="">Negozio</a></li>
+                    <li><a href="all-books.php">Libri</a></li>
                 </ul>
             </div>
 

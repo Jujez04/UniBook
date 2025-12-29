@@ -40,7 +40,7 @@ class ReviewRepository {
      * Recupera tutte le recensioni di un determinato libro.
      */
     public function getReviewsByBook($codeBook) {
-        $sql = "SELECT r.*, s.name, s.surname, l.subscriptiondate
+        $sql = "SELECT r.*, s.email,s.name, s.surname, l.subscriptiondate
                 FROM review r
                 JOIN loan l ON r.idreview = l.idreview
                 JOIN student s ON l.idstudent = s.idstudent
@@ -80,6 +80,33 @@ class ReviewRepository {
 
         $sqlDelete = "DELETE FROM review WHERE idreview = ?";
         $this->db->executeQuery($sqlDelete, [$idReview]);
+    }
+
+    /**
+     * in caso l'altra versione non funzioni provare questa.
+     */
+    public function addReviewAlterntiva($idStudent, $codeBook, $codeCopy, $subscriptionDate, $rating, $description) {
+        // vedi l'id maggiore inserito finora
+        $sqlId = "SELECT MAX(idreview) as max_id FROM review";
+        $result = $this->db->executeQuery($sqlId);
+        $newReviewId = $result[0]['max_id'] + 1;
+        $sqlReview = "INSERT INTO review (rating, description) VALUES (?, ?)";
+        $this->db->executeQuery($sqlReview, [$rating, $description]);
+
+
+        $sqlLoan = "UPDATE loan
+                    SET idreview = ?
+                    WHERE idstudent = ? AND codebook = ? AND codecopy = ? AND subscriptiondate = ?";
+
+        $this->db->executeQuery($sqlLoan, [
+            $newReviewId,
+            $idStudent,
+            $codeBook,
+            $codeCopy,
+            $subscriptionDate
+        ]);
+
+        return $newReviewId;
     }
 }
 ?>

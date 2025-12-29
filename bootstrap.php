@@ -9,6 +9,7 @@ require_once("repo/BookRepository.php");
 require_once("repo/CatalogueRepository.php");
 require_once("repo/LoanRepository.php");
 require_once("repo/ReviewRepository.php");
+require_once("repo/TagInBookRepository.php");
 require_once("SessionManager.php");
 require_once 'AuthenticationManager.php';
 
@@ -22,7 +23,7 @@ $bookRepo = new BookRepository($dbh);
 $catalogueRepo = new CatalogueRepository($dbh);
 $loanRepo = new LoanRepository($dbh);
 $reviewRepo = new ReviewRepository($dbh);
-
+$tagInBookRepo = new TagInBookRepository($dbh);
 //Session
 $sessionManager = new SessionManager();
 

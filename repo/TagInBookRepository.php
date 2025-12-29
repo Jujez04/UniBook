@@ -1,0 +1,23 @@
+<?php
+require_once 'db/database.php';
+require_once 'orm/Review.php';
+class TagInBookRepository {
+    private $db;
+
+    public function __construct($db) {
+        $this->db = $db;
+    
+    }
+    
+    /**
+     * Recupera tutti i tag associati a un libro.
+     */
+    public function getTagsByBook($codeBook) {
+        $sql = "SELECT t.*
+                FROM tag t,tag_in_book tb
+                WHERE t.idtag = tb.idtag
+                AND tb.codebook = ?";
+        return $this->db->executeQuery($sql, [$codeBook]);    
+    }
+}
+?>

@@ -35,49 +35,49 @@
     </p>
     <!-- Tag -->
     <ul>
-        <li><a href="#">#uml</a></li>
-        <li><a href="#">#oop</a></li>
+        <?php $tags = $tagInBookRepo->getTagsByBook($book->getCodeBook());
+        foreach($tags as $tag) : ?>
+        <li><a href="#"><?php echo '#' . $tag['idtag']; ?></a></li>
+        <?php endforeach; ?>
     </ul>
 </section>
 <!-- Recensioni -->
 <section>
-    <h2>13 recensioni</h2>
+    <?php $reviews = $reviewRepo->getReviewsByBook($book->getCodeBook()); 
+    ?>
+    <h2><?php echo count($reviews); ?> recensione/i</h2>
+    <?php foreach($reviews as $review) : ?>
     <article>
-        <img src="/profile/default-profle-icon.jpg" alt="profile icon">
+        <?php 
+            $student = $studentRepo->findByEmail($review['email']);
+        ?>
+        <img src=<?php echo UPLOAD_DIR .'profiles/'. $student->getProfileImage(); ?> alt="profile icon">
         <div>
-            <h3>Mario Rossi</h3>
+            <h3><?php echo $student->getName() . ' ' . $student->getSurname(); ?></h3>
+            <?php 
+                $n = $review['rating'];
+                $whole = floor($n);
+                $fraction = $n - $whole;
+                if($fraction > 0) { $remainder = 1; } else { $remainder = 0; }
+            ?>
             <div>
-                <img src="/svg/star-fill.svg" width="12" height="12" alt="">
-                <img src="/svg/star-fill.svg" width="12" height="12" alt="">
-                <img src="/svg/star-fill.svg" width="12" height="12" alt="">
-                <img src="/svg/star-half.svg" width="12" height="12" alt="">
-                <img src="/svg/star.svg" width="12" height="12" alt="">
+                <?php for($i = 0; $i < $whole; $i++) : ?>
+                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="">
+                <?php endfor; ?>
+                <?php if($fraction > 0) : ?>
+                    <img src="/UniBook/svg/star-half.svg" width="12" height="12" alt="">
+                <?php endif?>
+                <?php for($i = 0; $i < 5 - $whole - $remainder; $i++) : ?>
+                    <img src="/UniBook/svg/star.svg" width="12" height="12" alt="">
+                <?php endfor; ?>
+                
             </div>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod omnis excepturi maxime. Minus
-                provident aspernatur iure voluptas ex voluptatibus commodi exercitationem ea officia iste
-                vitae, aperiam incidunt delectus fugiat consequatur.
+                <?php echo $review['description']; ?>
             </p>
         </div>
     </article>
-    <article>
-        <img src="/profile/default-profle-icon.jpg" alt="profile icon">
-        <div>
-            <h3>Giovanni Bianchi</h3>
-            <div>
-                <img src="/svg/star-fill.svg" width="12" height="12" alt="">
-                <img src="/svg/star-fill.svg" width="12" height="12" alt="">
-                <img src="/svg/star-fill.svg" width="12" height="12" alt="">
-                <img src="/svg/star-fill.svg" width="12" height="12" alt="">
-                <img src="/svg/star-half.svg" width="12" height="12" alt="">
-            </div>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod omnis excepturi maxime. Minus
-                provident aspernatur iure voluptas ex voluptatibus commodi exercitationem ea officia iste
-                vitae, aperiam incidunt delectus fugiat consequatur.
-            </p>
-        </div>
-    </article>
-</section>
+    <?php endforeach; ?>
+    
 </section>
 	
