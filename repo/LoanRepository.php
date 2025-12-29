@@ -13,11 +13,11 @@ class LoanRepository {
         $sql = "INSERT INTO loan (idstudent, codebook, codecopy, subscriptiondate, state, refunddata, idreview)
                 VALUES (?, ?, ?, CURDATE(), 'attivo', NULL, NULL)";
 
-        $this->db->executeQuery($sql, [
+        $this->db->executeStatement($sql, [
             $idStudent,
             $codeBook,
             $codeCopy
-        ]);
+        ], 'iii');
     }
 
     public function closeLoan($idStudent, $codeBook, $codeCopy, $subscriptionDate) {
@@ -25,17 +25,17 @@ class LoanRepository {
                 SET state = 'restituito', refunddata = CURDATE()
                 WHERE idstudent = ? AND codebook = ? AND codecopy = ? AND subscriptiondate = ?";
 
-        $this->db->executeQuery($sql, [
+        $this->db->executeStatement($sql, [
             $idStudent,
             $codeBook,
             $codeCopy,
             $subscriptionDate
-        ]);
+        ], 'iiis');
     }
 
     public function findActiveLoansByStudent($idStudent) {
         $sql = "SELECT * FROM loan WHERE idstudent = ? AND state = 'attivo'";
-        $result = $this->db->executeQuery($sql, [$idStudent]);
+        $result = $this->db->executeQuery($sql, [$idStudent], 'i');
 
         $loans = [];
         foreach ($result as $row) {
@@ -46,7 +46,7 @@ class LoanRepository {
 
     public function findAllByStudent($idStudent) {
         $sql = "SELECT * FROM loan WHERE idstudent = ? ORDER BY subscriptiondate DESC";
-        $result = $this->db->executeQuery($sql, [$idStudent]);
+        $result = $this->db->executeQuery($sql, [$idStudent], 'i');
 
         $loans = [];
         foreach ($result as $row) {

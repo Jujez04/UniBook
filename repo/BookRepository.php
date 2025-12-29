@@ -22,16 +22,17 @@ class BookRepository {
 
     public function findById($codeBook) {
         $sql = "SELECT * FROM book WHERE codebook = ?";
-        $result = $this->db->executeQuery($sql, [$codeBook]);
+        $result = $this->db->executeQuery($sql, [$codeBook], 'i');
 
         if(count($result) == 0) {
             return null;
         }
         return $this->mapRowToObject($result[0]);
     }
+
     public function getAuthorByBookId($codeBook) {
         $sql = "SELECT author FROM book WHERE codebook = ?";
-        $result = $this->db->executeQuery($sql, [$codeBook]);
+        $result = $this->db->executeQuery($sql, [$codeBook], 'i');
 
         if(count($result) == 0) {
             return null;
@@ -40,7 +41,7 @@ class BookRepository {
     }
     public function findByCatalogue($idCatalogue) {
         $sql = "SELECT * FROM book WHERE idcatalogue = ?";
-        $result = $this->db->executeQuery($sql, [$idCatalogue]);
+        $result = $this->db->executeQuery($sql, [$idCatalogue], 'i');
 
         $books = [];
         foreach($result as $row) {
@@ -52,7 +53,7 @@ class BookRepository {
     public function search($keyword) {
         $sql = "SELECT * FROM book WHERE title LIKE ? OR author LIKE ?";
         $searchTerm = "%" . $keyword . "%";
-        $result = $this->db->executeQuery($sql, [$searchTerm, $searchTerm]);
+        $result = $this->db->executeQuery($sql, [$searchTerm, $searchTerm], 'ss');
 
         $books = [];
         foreach($result as $row) {
@@ -64,7 +65,7 @@ class BookRepository {
     public function getAvailableCopiesCount($codeBook) {
         $sql = "SELECT COUNT(*) as total FROM book_copy
                 WHERE codebook = ? AND state = 'disponibile'";
-        $result = $this->db->executeQuery($sql, [$codeBook]);
+        $result = $this->db->executeQuery($sql, [$codeBook], 'i');
         return $result[0]['total'] ?? 0;
     }
 

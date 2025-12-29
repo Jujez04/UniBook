@@ -14,7 +14,7 @@ class StudentRepository {
      */
     public function findByEmail($email) {
         $sql = "SELECT * FROM student WHERE email = ?";
-        $result = $this->db->executeQuery($sql, [$email]);
+        $result = $this->db->executeQuery($sql, [$email], 's');
 
         if (count($result) == 0) {
             return null;
@@ -28,7 +28,7 @@ class StudentRepository {
      */
     public function findById($id) {
         $sql = "SELECT * FROM student WHERE idstudent = ?";
-        $result = $this->db->executeQuery($sql, [$id]);
+        $result = $this->db->executeQuery($sql, [$id], 'i');
 
         if (count($result) == 0) {
             return null;
@@ -47,7 +47,7 @@ class StudentRepository {
                 VALUES (?, ?, ?, ?, ?, 'default.jpg')";
 
         // Esegue la query
-        $this->db->executeQuery($sql, [$name, $surname, $email, $passwordHash, $phone]);
+        $this->db->executeStatement($sql, [$name, $surname, $email, $passwordHash, $phone], 'sssss');
 
         return true;
     }
@@ -57,7 +57,7 @@ class StudentRepository {
      */
     public function updateProfile($idStudent, $phone, $profileImage) {
         $sql = "UPDATE student SET phone = ?, profileimage = ? WHERE idstudent = ?";
-        $this->db->executeQuery($sql, [$phone, $profileImage, $idStudent]);
+        $this->db->executeStatement($sql, [$phone, $profileImage, $idStudent], 'ssi');
     }
 
     /**
@@ -65,11 +65,11 @@ class StudentRepository {
      */
     public function updatePassword($idStudent, $newPasswordHash) {
         $sql = "UPDATE student SET password = ? WHERE idstudent = ?";
-        $this->db->executeQuery($sql, [$newPasswordHash, $idStudent]);
+        $this->db->executeStatement($sql, [$newPasswordHash, $idStudent], 'si');
     }
 
     /**
-     * Helper privato per trasformare le righe in oggetti Student
+     * Helper
      */
     private function mapRowToObject($row) {
         return new Student(

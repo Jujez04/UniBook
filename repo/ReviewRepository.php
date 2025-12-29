@@ -17,7 +17,7 @@ class ReviewRepository {
      */
     public function addReview($idStudent, $codeBook, $codeCopy, $subscriptionDate, $rating, $description) {
         $sqlReview = "INSERT INTO review (rating, description) VALUES (?, ?)";
-        $this->db->executeQuery($sqlReview, [$rating, $description]);
+        $this->db->executeQuery($sqlReview, [$rating, $description], 'is');
 
         $newReviewId = $this->db->getConnection()->insert_id;
 
@@ -25,13 +25,13 @@ class ReviewRepository {
                     SET idreview = ?
                     WHERE idstudent = ? AND codebook = ? AND codecopy = ? AND subscriptiondate = ?";
 
-        $this->db->executeQuery($sqlLoan, [
+        $this->db->executeStatement($sqlLoan, [
             $newReviewId,
             $idStudent,
             $codeBook,
             $codeCopy,
             $subscriptionDate
-        ]);
+        ], 'iiiis');
 
         return $newReviewId;
     }
@@ -48,7 +48,7 @@ class ReviewRepository {
                 ORDER BY r.idreview DESC";
 
         // Ritorna un array associativo con dati recensione + nome studente
-        return $this->db->executeQuery($sql, [$codeBook]);
+        return $this->db->executeQuery($sql, [$codeBook], 'i');
     }
 
     /**
@@ -61,7 +61,7 @@ class ReviewRepository {
                 JOIN loan l ON r.idreview = l.idreview
                 WHERE l.codebook = ?";
 
-        $result = $this->db->executeQuery($sql, [$codeBook]);
+        $result = $this->db->executeQuery($sql, [$codeBook], 'i');
 
         // Se non ci sono recensioni, ritorna 0
         return [
@@ -76,37 +76,10 @@ class ReviewRepository {
      */
     public function deleteReview($idReview) {
         $sqlUnlink = "UPDATE loan SET idreview = NULL WHERE idreview = ?";
-        $this->db->executeQuery($sqlUnlink, [$idReview]);
+        $this->db->executeStatement($sqlUnlink, [$idReview], 'i');
 
         $sqlDelete = "DELETE FROM review WHERE idreview = ?";
-        $this->db->executeQuery($sqlDelete, [$idReview]);
-    }
-
-    /**
-     * in caso l'altra versione non funzioni provare questa.
-     */
-    public function addReviewAlterntiva($idStudent, $codeBook, $codeCopy, $subscriptionDate, $rating, $description) {
-        // vedi l'id maggiore inserito finora
-        $sqlId = "SELECT MAX(idreview) as max_id FROM review";
-        $result = $this->db->executeQuery($sqlId);
-        $newReviewId = $result[0]['max_id'] + 1;
-        $sqlReview = "INSERT INTO review (rating, description) VALUES (?, ?)";
-        $this->db->executeQuery($sqlReview, [$rating, $description]);
-
-
-        $sqlLoan = "UPDATE loan
-                    SET idreview = ?
-                    WHERE idstudent = ? AND codebook = ? AND codecopy = ? AND subscriptiondate = ?";
-
-        $this->db->executeQuery($sqlLoan, [
-            $newReviewId,
-            $idStudent,
-            $codeBook,
-            $codeCopy,
-            $subscriptionDate
-        ]);
-
-        return $newReviewId;
+        $this->db->executeStatement($sqlDelete, [$idReview], 'i');
     }
 }
 ?>

@@ -10,7 +10,7 @@ class CatalogueRepository {
     }
 
     /**
-     * Restituisce tutte le categorie.
+     * Restituisce tutti i cataloghi.
      */
     public function findAll() {
         $sql = "SELECT * FROM catalogue";
@@ -24,11 +24,11 @@ class CatalogueRepository {
     }
 
     /**
-     * Trova una categoria specifica per ID.
+     * Trova un catalogo specifico per ID.
      */
     public function findById($idCatalogue) {
         $sql = "SELECT * FROM catalogue WHERE idcatalogue = ?";
-        $result = $this->db->executeQuery($sql, [$idCatalogue]);
+        $result = $this->db->executeQuery($sql, [$idCatalogue], 'i');
 
         if (count($result) == 0) {
             return null;
@@ -52,36 +52,35 @@ class CatalogueRepository {
     }
 
     /**
-     * (Admin) Crea una nuova categoria.
+     * (Admin) Crea un nuovo catalogo.
      */
     public function create($name) {
         $sql = "INSERT INTO catalogue (name) VALUES (?)";
-        $this->db->executeQuery($sql, [$name]);
-        
+        $this->db->executeStatement($sql, [$name], 's');
+
         return $this->db->getConnection()->insert_id;
     }
 
     /**
-     * (Admin) Rinominare una categoria.
+     * (Admin) Rinominare un catalogo.
      */
     public function update($idCatalogue, $newName) {
         $sql = "UPDATE catalogue SET name = ? WHERE idcatalogue = ?";
-        $this->db->executeQuery($sql, [$newName, $idCatalogue]);
+        $this->db->executeStatement($sql, [$newName, $idCatalogue], 'si');
     }
 
     /**
-     * (Admin) Cancella una categoria.
+     * (Admin) Cancella un catalogo.
      */
     public function delete($idCatalogue) {
         $sql = "DELETE FROM catalogue WHERE idcatalogue = ?";
-        $this->db->executeQuery($sql, [$idCatalogue]);
+        $this->db->executeStatement($sql, [$idCatalogue], 'i');
     }
 
     /**
      * Helper Mapping
      */
     private function mapRowToObject($row) {
-        // Catalogue ha solo id e name
         return new Catalogue(
             $row['idcatalogue'],
             $row['name']

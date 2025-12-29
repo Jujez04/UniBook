@@ -14,13 +14,11 @@ class BookingRepository {
      * Inserisce la data odierna (CURDATE()) automaticamente.
      */
     public function create($idStudent, $codeBook) {
-        // Prima controlliamo se esiste già (opzionale, ma evita errori SQL brutti)
         if ($this->isBooked($idStudent, $codeBook)) {
-            return false; // Già prenotato
+            return false;
         }
-        var_dump($idStudent, $codeBook);
         $sql = "INSERT INTO booking (idstudent, codebook, date) VALUES (?, ?, CURDATE())";
-        $this->db->executeQuery($sql, [$idStudent, $codeBook]);
+        $this->db->executeStatement($sql, [$idStudent, $codeBook], 'ii');
         return true;
     }
 
@@ -29,7 +27,7 @@ class BookingRepository {
      */
     public function delete($idStudent, $codeBook) {
         $sql = "DELETE FROM booking WHERE idstudent = ? AND codebook = ?";
-        $this->db->executeQuery($sql, [$idStudent, $codeBook]);
+        $this->db->executeStatement($sql, [$idStudent, $codeBook], 'ii');
     }
 
     /**
@@ -37,8 +35,7 @@ class BookingRepository {
      */
     public function isBooked($idStudent, $codeBook) {
         $sql = "SELECT count(*) as total FROM booking WHERE idstudent = ? AND codebook = ?";
-        $result = $this->db->executeQuery($sql, [$idStudent, $codeBook]);
-        
+        $result = $this->db->executeQuery($sql, [$idStudent, $codeBook], 'ii');
         return $result[0]['total'] > 0;
     }
 
@@ -47,7 +44,7 @@ class BookingRepository {
      */
     public function findAllByStudent($idStudent) {
         $sql = "SELECT * FROM booking WHERE idstudent = ?";
-        $result = $this->db->executeQuery($sql, [$idStudent]);
+        $result = $this->db->executeQuery($sql, [$idStudent], 'i');
 
         $bookings = [];
         foreach ($result as $row) {
