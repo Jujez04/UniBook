@@ -47,18 +47,25 @@
                                     <span>Recensioni</span>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center my-2   ">
-                                    <span class="">3 in coda</span>
+                                    <?php
+                                    $copies = $bookRepo->getAvailableCopiesCount($book->getCodeBook());
+                                    ?>
+                                    <span class=""><?php if ($copies > 0) {
+                                                        echo "Disponibile";
+                                                    } else {
+                                                        echo "Non disponibile";
+                                                    } ?></span>
                                     <?php if (!$sessionManager->isAdminLogged()) : ?>
                                         <?php if ($sessionManager->isLogged()) : ?>
                                             <?php $studentId = $_SESSION['userid']; ?>
                                             <?php if (!$bookingRepo->isBooked($studentId, $book->getCodeBook())) : ?>
-                                                <a href="reservation.php?redirect=<?php echo urlencode($currentUrl); ?>&idbook=<?php echo (int)$book->getCodeBook(); ?>&idstudent=<?php echo $studentId; ?>" class="btn btn-danger px-15">Prenota</a>
+                                                <a href=" <?php echo BASE_URL ?>/controller/reservation.php?redirect=<?php echo urlencode($currentUrl); ?>&idbook=<?php echo (int)$book->getCodeBook(); ?>&idstudent=<?php echo $studentId; ?>" class="btn btn-danger px-15">Prenota</a>
                                             <?php else : ?>
                                                 <a href="#" class="btn btn-secondary px-15 disabled">Prenotato</a>
                                             <?php endif; ?>
 
                                         <?php else : ?>
-                                            <a href="login-form.php" class="btn btn-danger px-15">Prenota</a>
+                                            <a href=" <?php echo BASE_PATH  ?>/controller/login-form.php" class="btn btn-danger px-15">Prenota</a>
                                         <?php endif; ?>
                                     <?php endif; ?>
                                 </div>
