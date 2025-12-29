@@ -2,7 +2,7 @@
 <?php foreach ($templateParams['home_content'] as $content) : ?>
     <?php $collapse_id = "cat_" . $content['catalogue_id']; ?>
     <section>
-        <div class=" row gap-3 h-auto mb-10 align-items-center">
+        <div class=" row  h-auto mb-1 align-items-center">
             <div class="col"></div>
             <h2 class="text-center col"><?php echo $content['catalogue_name']; ?></h2>
             <div class="col">
@@ -10,7 +10,7 @@
                     data-bs-target="#<?php echo $collapse_id; ?>" class="btn col w-auto">
             </div>
         </div>
-        <div class="collapse show container-fluid my-2" id="<?php echo $collapse_id; ?>">
+        <div class=" container-fluid my-2" id="<?php echo $collapse_id; ?>">
             <div class="row justify-content-center gap-3">
                 <?php foreach ($content['books'] as $book) : ?>
                     <article
@@ -60,7 +60,7 @@
                                 <?php if ($sessionManager->isLogged()) : ?>
                                     <?php $studentId = $_SESSION['userid']; ?>
                                     <?php if (!$bookingRepo->isBooked($studentId, $book->getCodeBook())) : ?>
-                                        <a href="reservation.php?redirect=<?php echo urlencode($currentUrl); ?>&idbook=<?php echo (int)$book->getCodeBook(); ?>&idstudent=<?php echo $studentId; ?>" class="btn btn-danger px-15">Prenota</a>
+                                        <a href="<?php echo BASE_URL . "controller/reservation.php?redirect=" . urlencode($currentUrl) . "&idbook=" . (int)$book->getCodeBook() . "&idstudent=" . $studentId; ?>" class="btn btn-danger px-15">Prenota</a>
                                     <?php else : ?>
                                         <a href="#" class="btn btn-secondary px-15 disabled">Prenotato</a>
                                     <?php endif; ?>
