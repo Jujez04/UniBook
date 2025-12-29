@@ -10,18 +10,34 @@ class LoanRepository {
     }
 
     public function create($idStudent, $codeBook, $codeCopy) {
-        $sql = "INSERT INTO loan (idstudent, codebook, codecopy, subscriptiondate, state, refunddata, idreview)
-                VALUES (?, ?, ?, CURDATE(), 'attivo', NULL, NULL)";
+    $date= date('Y-m-d');
 
-        $this->db->executeStatement($sql, [
-            $idStudent,
-            $codeBook,
-            $codeCopy
-        ], 'iii');
-    }
+    $sql = "INSERT INTO loan (idstudent, codebook, codecopy, subscriptiondate, state, refunddata, idreview)
+            VALUES (?, ?, ?, ?, 'in_prestito', NULL, NULL)";
+
+    $this->db->executeStatement($sql, [
+        $idStudent,
+        $codeBook,
+        $codeCopy,
+        $date
+    ], 'iiis');
+}
 
     public function findAll() {
         $sql = "SELECT * FROM loan ORDER BY subscriptiondate DESC";
+        $result = $this->db->executeQuery($sql);
+        $loans = [];
+        foreach ($result as $row) {
+            $loans[] = $this->mapRowToObject($row);
+        }
+        return $loans;
+    }
+
+    public function findAllExceptReturned() {
+        $sql = "SELECT *
+                FROM loan
+                WHERE state != 'Restituito'
+                ORDER BY subscriptiondate DESC";
         $result = $this->db->executeQuery($sql);
         $loans = [];
         foreach ($result as $row) {

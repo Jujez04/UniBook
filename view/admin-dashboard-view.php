@@ -1,3 +1,4 @@
+<?php var_dump($_GET);?>
 <section>
     <header>
         <h1 class="text-center">Prenotazioni</h1>
@@ -10,8 +11,10 @@
             $book = $bookRepo->findById($booking->getCodeBook());
         ?>
             <li>
-                <form action="#">
-                    <ul>
+                <form action="<?php echo BASE_URL . "/controller/admin_booking_action.php";?>" method="POST">
+                <input type="hidden" name="idstudent" value="<?php echo $booking->getIdStudent(); ?>">
+                <input type="hidden" name="codebook" value="<?php echo $booking->getCodeBook(); ?>">
+                <ul>
                         <li>Studente:</li>
                         <li><?php echo $student->getName() . " " . $student->getSurname(); ?> </li>
                         <li>Libro:</li>
@@ -37,7 +40,7 @@
     </header>
     <ul>
         <?php
-        foreach ($loanRepo->findAll() as $loan) :
+        foreach ($loanRepo->findAllExceptReturned() as $loan) :
             $student = $studentRepo->findById($loan->getIdStudent());
             $book = $bookRepo->findById($loan->getCodeBook());
         ?>
