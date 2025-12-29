@@ -1,4 +1,3 @@
-<?php var_dump($_GET);?>
 <section>
     <header>
         <h1 class="text-center">Prenotazioni</h1>
@@ -35,12 +34,41 @@
 <hr />
 <section>
     <header>
-        <h1 class="text-center">Prestiti</h1>
+        <h1 class="text-center">In prestito</h1>
         <img src="../svg/open-collapse.svg" alt="">
     </header>
     <ul>
         <?php
-        foreach ($loanRepo->findAllExceptReturned() as $loan) :
+        foreach ($loanRepo->findAllOnLoan() as $loan) :
+            $student = $studentRepo->findById($loan->getIdStudent());
+            $book = $bookRepo->findById($loan->getCodeBook());
+        ?>
+            <li>
+                <form action="#">
+                    <ul>
+                        <li>Studente:</li>
+                        <li><?php echo $student->getName() . " " . $student->getSurname(); ?> </li>
+                        <li>Libro:</li>
+                        <li><?php echo $book->getTitle(); ?></li>
+                        <li>Scadenza:</li>
+                        <li><?php echo $loan->getRefundData(); ?></li>
+                        <li>Stato</li>
+                        <li><?php echo $loan->getState(); ?></li>
+                    </ul>
+                </form>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</section>
+<hr />
+<section>
+    <header>
+        <h1 class="text-center">In restituzione</h1>
+        <img src="../svg/open-collapse.svg" alt="">
+    </header>
+    <ul>
+        <?php
+        foreach ($loanRepo->findAllReturining() as $loan) :
             $student = $studentRepo->findById($loan->getIdStudent());
             $book = $bookRepo->findById($loan->getCodeBook());
         ?>

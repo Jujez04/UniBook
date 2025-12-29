@@ -23,13 +23,11 @@ try {
 
     $codeCopy = $bookRepo->findFirstAvailableCopy($codeBook);
     if ($codeCopy === null) {
-        // ERRORE: Non ci sono copie fisiche libere.
         header("Location: admin-dashboard.php?error=no_copies_available");
         exit;
     }
 
     $loanRepo->create($idStudent, $codeBook, $codeCopy);
-    $bookRepo->updateCopyState($codeBook, $codeCopy, 'In_prestito');
     $bookingRepo->delete($idStudent, $codeBook);
 
     header("Location: admin-dashboard.php?msg=booking_accepted");

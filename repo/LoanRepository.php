@@ -33,10 +33,23 @@ class LoanRepository {
         return $loans;
     }
 
-    public function findAllExceptReturned() {
+    public function findAllReturining() {
         $sql = "SELECT *
                 FROM loan
-                WHERE state != 'Restituito'
+                WHERE state != 'in_restituzione'
+                ORDER BY subscriptiondate DESC";
+        $result = $this->db->executeQuery($sql);
+        $loans = [];
+        foreach ($result as $row) {
+            $loans[] = $this->mapRowToObject($row);
+        }
+        return $loans;
+    }
+
+    public function findAllOnLoan() {
+        $sql = "SELECT *
+                FROM loan
+                WHERE state = 'in_prestito'
                 ORDER BY subscriptiondate DESC";
         $result = $this->db->executeQuery($sql);
         $loans = [];
