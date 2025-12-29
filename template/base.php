@@ -58,7 +58,21 @@
                 </a>
 
                 <!-- User Profile / Login -->
-                <?php if ($sessionManager->isLogged()) : ?>
+                <?php if ($sessionManager->isAdminLogged()) : ?>
+                    <div class="dropdown navbar-item">
+                        <?php $student = $studentRepo->findById($_SESSION['userid']); ?>
+                        <img src="<?php echo UPLOAD_DIR . 'students/default.png' ?>"
+                            alt="Profile" width="32" height="32"
+                            class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/admin-dashboard.php"; ?>">DashBoard</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/logout.php"; ?>">Logout</a></li>
+                        </ul>
+                    </div>
+                <?php elseif ($sessionManager->isLogged()) : ?>
                     <div class="dropdown navbar-item">
                         <?php $student = $studentRepo->findById($_SESSION['userid']); ?>
                         <img src="<?php echo UPLOAD_DIR . 'students/' . htmlspecialchars($student->getProfileImage()); ?>"

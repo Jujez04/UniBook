@@ -125,10 +125,15 @@ form ul li:nth-child(2n) {
 /*#region Cards style*/
 
 section article.card {
-    min-width: 300px;
+    min-width: 312px;
     max-width: 380px;
     background-color: #F7E4CF;
     border-radius: 10px;
+}
+
+section article.card>img {
+    width: 120px;
+    height: 120px;
 }
 
 body>div>form:first-child {

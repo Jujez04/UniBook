@@ -1,8 +1,8 @@
 <h1 class="text-center">Benvenuti su UniBook</h1>
 <?php foreach ($templateParams['home_content'] as $content) : ?>
     <?php $collapse_id = "cat_" . $content['catalogue_id']; ?>
-    <section>
-        <div class=" row  h-auto mb-1 align-items-center">
+    <section class="mb-0">
+        <div class=" row align-items-center">
             <div class="col"></div>
             <h2 class="text-center col"><?php echo $content['catalogue_name']; ?></h2>
             <div class="col">
@@ -10,8 +10,8 @@
                     data-bs-target="#<?php echo $collapse_id; ?>" class="btn col w-auto">
             </div>
         </div>
-        <div class=" container-fluid my-2" id="<?php echo $collapse_id; ?>">
-            <div class="row justify-content-center gap-3">
+        <div class="  justify-content-center collapse show" id="<?php echo $collapse_id; ?>">
+            <div class="row d-flex justify-content-center gap-3">
                 <?php foreach ($content['books'] as $book) : ?>
                     <article
                         class="card flex-row  d-flex justify-content-center col-12 col-sm-6  col-md-4 col-lg-3 m-0 p-0">
@@ -57,16 +57,18 @@
                                 $currentUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
                                 ?>
-                                <?php if ($sessionManager->isLogged()) : ?>
-                                    <?php $studentId = $_SESSION['userid']; ?>
-                                    <?php if (!$bookingRepo->isBooked($studentId, $book->getCodeBook())) : ?>
-                                        <a href="<?php echo BASE_URL . "controller/reservation.php?redirect=" . urlencode($currentUrl) . "&idbook=" . (int)$book->getCodeBook() . "&idstudent=" . $studentId; ?>" class="btn btn-danger px-15">Prenota</a>
-                                    <?php else : ?>
-                                        <a href="#" class="btn btn-secondary px-15 disabled">Prenotato</a>
-                                    <?php endif; ?>
+                                <?php if (!$sessionManager->isAdminLogged()) : ?>
+                                    <?php if ($sessionManager->isLogged()) : ?>
+                                        <?php $studentId = $_SESSION['userid']; ?>
+                                        <?php if (!$bookingRepo->isBooked($studentId, $book->getCodeBook())) : ?>
+                                            <a href="reservation.php?redirect=<?php echo urlencode($currentUrl); ?>&idbook=<?php echo (int)$book->getCodeBook(); ?>&idstudent=<?php echo $studentId; ?>" class="btn btn-danger px-15">Prenota</a>
+                                        <?php else : ?>
+                                            <a href="#" class="btn btn-secondary px-15 disabled">Prenotato</a>
+                                        <?php endif; ?>
 
-                                <?php else : ?>
-                                    <a href="<?php echo BASE_URL . "controller/login-form.php"; ?>" class="btn btn-danger px-15">Prenota</a>
+                                    <?php else : ?>
+                                        <a href="login-form.php" class="btn btn-danger px-15">Prenota</a>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                             </div>
                         </div>
