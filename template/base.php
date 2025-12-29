@@ -60,7 +60,7 @@
                 <?php if ($sessionManager->isLogged()) : ?>
                 <div class="dropdown navbar-item">
                     <?php $student = $studentRepo->findById($_SESSION['userid']); ?>
-                    <img src="<?php echo UPLOAD_DIR . 'profile/' . htmlspecialchars($student->getProfileImage()); ?>" 
+                    <img src="<?php echo UPLOAD_DIR . 'students/' . htmlspecialchars($student->getProfileImage()); ?>" 
                         alt="Profile" width="32" height="32"
                         class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <ul class="dropdown-menu dropdown-menu-end">
@@ -71,7 +71,7 @@
                     </ul>
                 </div>
                 <?php else : ?>
-                <a class="btn btn-danger" href="login-form.php">Login</a>
+                <a class="" href="login-form.php">Login</a>
                 <?php endif; ?>
             </div>
         </div>

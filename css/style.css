@@ -104,9 +104,34 @@ nav ul>li>a:hover {
 }
 
 main input[type="button"],
-nav ul>li>a {
+nav>div ul>li>a,
+nav>div:nth-child(1)>div:nth-child(3)>a:last-child {
     display: none;
-    background-color: #7b1d19 !important;
+    background-color: #A72925 !important;
+}
+
+nav>div:nth-child(1)>div:nth-child(3)>a:last-child {
+    background-color: #A72925 !important;
+    color: white !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+nav>div:nth-child(1)>div:nth-child(3)>div:last-child a {
+    background-color: white;
+    color: inherit !important;
+    transition: box-shadow 0.3s ease, background-color 0.1s ease;
+}
+
+nav>div:nth-child(1)>div:nth-child(3)>div:last-child a:hover {
+    background-color: #F7E4CF;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+
 }
 
 /* #navbar */
