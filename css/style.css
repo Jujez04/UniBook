@@ -123,13 +123,14 @@ nav>div:nth-child(1)>div:nth-child(3)>a:last-child {
 }
 
 nav>div:nth-child(1)>div:nth-child(3)>div:last-child a {
-    background-color: white;
+    background-color: white !important;
     color: inherit !important;
+    border-radius: 16px;
     transition: box-shadow 0.3s ease, background-color 0.1s ease;
 }
 
 nav>div:nth-child(1)>div:nth-child(3)>div:last-child a:hover {
-    background-color: #F7E4CF;
+    background-color: #F7E4CF !important;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 
 }
