@@ -6,62 +6,251 @@
     box-sizing: border-box;
 }
 
-main>section>div:nth-of-type(1) {
-    width: 100%;
-    height: 300px;
+main input[type="button"],
+nav>div>div>ul>li>a {
+    color: #ffffff;
+    background-color: #A72925;
+    border-radius: 16px;
+    border-width: 0;
+    text-decoration: none;
+    padding: 8px;
+    text-align: center;
+    color: white;
+    transition: box-shadow 0.3s ease, background-color 0.1s ease;
+    min-width: 130px;
+    display: inline-block;
+}
+
+
+
+nav {
+    background-color: #E6AA68;
+}
+
+main input[type="button"]:hover,
+nav ul>li>a:hover {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+main input[type="button"],
+nav>div ul>li>a,
+nav>div:nth-child(1)>div:nth-child(3)>a:last-child {
+    display: none;
+    background-color: #A72925 !important;
+}
+
+nav>div:nth-child(1)>div:nth-child(3)>a:last-child {
+    background-color: #A72925 !important;
+    color: white !important;
     display: flex;
-    justify-content: center;
     align-items: center;
-    overflow: hidden;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 16px;
+    cursor: pointer;
 }
 
-main>section img {
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: inherit;
-    border-radius: 12px;
+nav>div:nth-child(1)>div:nth-child(3)>div:last-child a {
+    background-color: white !important;
+    color: inherit !important;
+    border-radius: 16px;
+    transition: box-shadow 0.3s ease, background-color 0.1s ease;
 }
 
-main>section>ul {
-    padding-left: 0;
-    list-style-type: none;
+nav>div:nth-child(1)>div:nth-child(3)>div:last-child a:hover {
+    background-color: #F7E4CF !important;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+
 }
 
-main>section>ul>li {
-    display: inline-flex;
+/* #navbar */
+/* Reset e Base */
+nav {
+    width: 100%;
+    margin-bottom: 0.5rem;
 }
 
-main>section>ul>li>img {
-    margin: 0 10px;
-}
-
-main>section>div:nth-of-type(2) {
+nav>div:first-child {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    gap: 1rem;
 }
 
-main>section>ul:nth-of-type(2)>li>a {
-    font-weight: 300;
-    font-style: italic;
-    color: black;
-}
-
-main article {
-    background-color: rgb(247, 228, 207);
-    border-radius: 12px;
-    padding: 16px;
+/* Sezione Sinistra */
+nav>div>div:first-child {
     display: flex;
-    margin-bottom: 16px;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-main article h3 {
+nav>div>div:first-child>button {
+    display: none;
+    background: none;
+    border: 1px solid rgba(0, 0, 0, .1);
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
+}
+
+nav>div>div:first-child>button>span {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+nav>div>div:first-child>a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+nav>div>div:first-child>a img {
+    display: block;
+}
+
+/* Sezione Centro - Link Navigazione */
+nav>div:first-child>div:nth-child(2) {
+    display: none;
+    flex: 0 0 auto;
+}
+
+nav>div:first-child>div:nth-child(2)>ul {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
     margin: 0;
+    padding: 0;
 }
 
-main article>img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    margin-right: 16px;
+nav>div:first-child>div:nth-child(2)>ul li {
+    margin: 0;
+    text-align: center;
 }
 
+nav>div:first-child>div:nth-child(2)>ul li a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: white;
+    white-space: nowrap;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+
+}
+
+nav>div:first-child>div:nth-child(2)>ul li a:hover {
+    opacity: 0.8;
+}
+
+
+
+nav>div:first-child>div:nth-child(3)>form {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav>div:first-child>div:nth-child(3)>form input[type="search"] {
+    flex: 1;
+}
+
+/* Sezione Destra */
+nav>div:first-child>div:nth-child(3) {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+}
+
+nav>div:first-child>div:nth-child(3)>a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+nav>div:last-child {
+    padding: 3px;
+    width: 100%;
+}
+
+nav>div:last-child form {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+    width: 100%;
+}
+
+
+nav>div:first-child>div:nth-child(3)>a:nth-child(2),
+nav>div:first-child>div:nth-child(3)>div:first-child {
+    display: none;
+}
+
+/* Dropdown (usa Bootstrap) */
+nav>div:first-child>div:nth-child(3)>div:last-child>img:after {
+    display: none;
+}
+
+nav div:nth-child(2),
+nav div:nth-child(3) {
+    background-color: #E6AA68;
+}
+
+nav div:nth-child(2) ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+nav div:nth-child(2) ul li {
+    margin: 10px 0;
+}
+
+nav div:nth-child(2) ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    display: block;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    nav>div>div:first-child>button {
+        display: none !important;
+    }
+
+    nav>div:first-child>div:nth-child(2) {
+        display: flex;
+    }
+
+    nav>div:first-child>div:nth-child(3)>a:nth-child(2),
+    nav>div:first-child>div:nth-child(3)>div:first-child {
+        display: flex;
+    }
+}
+
+@media (max-width: 767px) {
+    nav>div>div:first-child>button {
+        display: block;
+    }
+
+    nav>div:first-child {
+        padding: 0.5rem;
+    }
+}

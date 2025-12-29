@@ -1,16 +1,18 @@
 * {
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    box-sizing: border-box;
 }
+
+
 
 ul {
     list-style: none;
 }
 
-body > header {
+body>header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -19,43 +21,30 @@ body > header {
     padding: 10px;
 }
 
-header > nav > ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
 
-header > img {
+header>img {
     max-height: 60px;
 }
 
-header nav {
-    margin: 0;
-}
 
-nav > ul > li > img {
-    width: 30px;
-    justify-self: end;
-}
 
-section > header {
+section>header {
     display: grid;
-    grid-template-columns: 1fr auto 1fr; 
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 10px;
 }
 
-section > header > h1 {
+section>header>h1 {
     grid-column: 2;
 }
 
-section > header > img {
+section>header>img {
     grid-column: 3;
     justify-self: end;
 }
-main section > ul {
+
+main section>ul {
     padding-left: 0%;
     list-style: none;
 }
@@ -74,7 +63,7 @@ form ul {
     grid-template-columns: 1fr 1fr;
 }
 
-main ul > li {
+main ul>li {
     width: 100%;
     margin-bottom: 15px;
 }
@@ -105,17 +94,17 @@ hr {
     margin-left: 10%;
 }
 
-section > ul {
+section>ul {
     width: 100%;
 }
 
-section > ul > li {
+section>ul>li {
     background-color: #F7E4CF;
     border-radius: 10px;
     max-width: 60%;
 }
 
-section > ul {
+section>ul {
     width: 100%;
     display: flex;
     align-items: center;
