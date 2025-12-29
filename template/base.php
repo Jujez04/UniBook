@@ -72,11 +72,11 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="<?php echo CONTROLLER_PATH . "logout.php"; ?>">Logout</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/logout.php"; ?>">Logout</a></li>
                         </ul>
                     </div>
                 <?php else : ?>
-                    <a class="" href="<?php echo CONTROLLER_PATH . "login-form.php"  ?>">Login</a>
+                    <a class="" href="<?php echo BASE_URL . "controller/login-form.php"  ?>">Login</a>
                 <?php endif; ?>
             </div>
         </div>
