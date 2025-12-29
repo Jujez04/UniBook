@@ -66,7 +66,7 @@
                                     <?php endif; ?>
 
                                 <?php else : ?>
-                                    <a href="login-form.php" class="btn btn-danger px-15">Prenota</a>
+                                    <a href="<?php echo BASE_URL . "controller/login-form.php"; ?>" class="btn btn-danger px-15">Prenota</a>
                                 <?php endif; ?>
                             </div>
                         </div>
