@@ -1,3 +1,4 @@
+    <?php require_once 'card.php'; ?>
     <?php foreach($templateParams['home_content'] as $content) : ?>
         <?php $collapse_id = "cat_".$content['catalogue_id'];?>
         <section>

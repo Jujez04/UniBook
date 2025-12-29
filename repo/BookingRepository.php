@@ -18,7 +18,7 @@ class BookingRepository {
         if ($this->isBooked($idStudent, $codeBook)) {
             return false; // Già prenotato
         }
-
+        var_dump($idStudent, $codeBook);
         $sql = "INSERT INTO booking (idstudent, codebook, date) VALUES (?, ?, CURDATE())";
         $this->db->executeQuery($sql, [$idStudent, $codeBook]);
         return true;

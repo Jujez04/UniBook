@@ -45,7 +45,20 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center my-2   ">
                                 <span class="">3 in coda</span>
-                                <a href="#" class="btn btn-danger px-15">Prenota</a>
+                                <?php
+                                    // Protocollo (http o https)
+                                    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
+
+                                    // Host e URI
+                                    $currentUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+                                    ?>
+                                <?php if ($sessionManager->isLogged()) : ?>
+                                    <?php $studentId = $_SESSION['userid']; ?>
+                                    <a href="reservation.php?redirect=<?php echo urlencode($currentUrl); ?>&idbook=<?php echo (int)$book->getCodeBook(); ?>&idstudent=<?php echo $studentId; ?>" class="btn btn-danger px-15">Prenota</a>
+                                <?php else : ?>
+                                    <a href="login-form.php" class="btn btn-danger px-15">Prenota</a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </article>

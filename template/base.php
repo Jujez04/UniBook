@@ -64,8 +64,10 @@
                         alt="Profile" width="32" height="32"
                         class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="reserved-books.php?id=<?php echo $_SESSION['userid']; ?>">Libri prenotati</a></li>
+                        <li><a class="dropdown-item" href="#">Libri in prestito</a></li>
+                        <li><a class="dropdown-item" href="#">Libri in restituzione</a></li>
+
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                     </ul>
