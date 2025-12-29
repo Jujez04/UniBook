@@ -69,6 +69,23 @@ class BookRepository {
         return $result[0]['total'] ?? 0;
     }
 
+    public function findFirstAvailableCopy($codeBook) {
+        $sql = "SELECT codecopy FROM book_copy
+                WHERE codebook = ? AND state = 'Disponibile'
+                LIMIT 1";
+        $result = $this->db->executeQuery($sql, [$codeBook], 'i');
+
+        if (count($result) > 0) {
+            return $result[0]['codecopy'];
+        }
+        return null;
+    }
+
+    public function updateCopyState($codeBook, $codeCopy, $newState) {
+        $sql = "UPDATE book_copy SET state = ? WHERE codebook = ? AND codecopy = ?";
+        $this->db->executeStatement($sql, [$newState, $codeBook, $codeCopy], 'sii');
+    }
+
     private function mapRowToObject($row) {
         return new Book(
             $row['codebook'],
