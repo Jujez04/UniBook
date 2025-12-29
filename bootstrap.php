@@ -1,23 +1,31 @@
 <?php
 session_start();
-define("UPLOAD_DIR", "./upload/");
+
+//Costanti
+define("BASE_URL", "/UniBook/");
+define("UPLOAD_DIR", BASE_URL . "upload/");
+// FILESYSTEM (PHP)
+define("BASE_PATH", realpath(__DIR__ . "/.."));
 
 //Credenziali admin
 define("ADMIN_EMAIL", "admin@unibook.com");
 define("ADMIN_PASSWORD", "admin");
 
-require_once("db/database.php");
-require_once("orm/Student.php");
-require_once("repo/StudentRepository.php");
-require_once("repo/BookingRepository.php");
-require_once("repo/BookRepository.php");
-require_once("repo/CatalogueRepository.php");
-require_once("repo/LoanRepository.php");
-require_once("repo/ReviewRepository.php");
-require_once("repo/TagInBookRepository.php");
-require_once("SessionManager.php");
-require_once 'AuthenticationManager.php';
-
+require_once(BASE_PATH. BASE_URL . "db/database.php");
+require_once(BASE_PATH. BASE_URL . "db/database.php");
+require_once(BASE_PATH. BASE_URL . "db/database.php");
+require_once(BASE_PATH. BASE_URL . "db/database.php");
+require_once(BASE_PATH. BASE_URL . "db/database.php");
+require_once(BASE_PATH. BASE_URL . "orm/Student.php");
+require_once(BASE_PATH. BASE_URL . "repo/StudentRepository.php");
+require_once(BASE_PATH. BASE_URL . "repo/BookingRepository.php");
+require_once(BASE_PATH. BASE_URL . "repo/BookRepository.php");
+require_once(BASE_PATH. BASE_URL . "repo/CatalogueRepository.php");
+require_once(BASE_PATH. BASE_URL . "repo/LoanRepository.php");
+require_once(BASE_PATH. BASE_URL . "repo/ReviewRepository.php");
+require_once(BASE_PATH. BASE_URL . "repo/TagInBookRepository.php");
+require_once(BASE_PATH. BASE_URL . "SessionManager.php");
+require_once BASE_PATH. BASE_URL . 'AuthenticationManager.php';
 
 $dbh = new DatabaseHelper("localhost", "root", "", "unibook", 3306);
 
