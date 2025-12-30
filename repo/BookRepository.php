@@ -77,6 +77,21 @@ class BookRepository
         return $books;
     }
 
+    public function addNewCopies($codeBook, $numberOfCopies = 1)
+    {
+        // Find highest existing codecopy
+        $sql = "SELECT MAX(codecopy) as max_codecopy FROM book_copy WHERE codebook = ?";
+        $result = $this->db->executeQuery($sql, [$codeBook], 'i');
+
+        $results = [];
+        $sql = "INSERT INTO book_copy (codebook, codecopy, state) VALUES (?, ?, 'Disponibile')";
+        $startCodeCopy = $result[0]['max_codecopy'] !== null ? $result[0]['max_codecopy'] + 1 : 0;
+        for ($i = $startCodeCopy; $i < $startCodeCopy + $numberOfCopies; $i++) {
+            $results[] = $this->db->executeStatement($sql, [$codeBook, $i], 'ii');
+        }
+        return $results;
+    }
+
     public function getAvailableCopiesCount($codeBook)
     {
         $sql = "SELECT COUNT(*) as total FROM book_copy
