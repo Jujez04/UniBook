@@ -68,7 +68,7 @@
                             ?>
                             <input type="hidden" name="redirect_url" value="<?php echo $currentUrl; ?>">
                             <input type="hidden" name="codebook" value="<?php echo $book->getCodeBook(); ?>">
-                            <input type="hidden" name="codeCopy" value="<?php echo $loan->getCodeCopy(); ?>">
+                            <input type="hidden" name="codecopy" value="<?php echo $loan->getCodeCopy(); ?>">
                             <input type="hidden" name="idstudent" value="<?php echo $loan->getIdStudent(); ?>">
                             <input type="hidden" name="subscriptiondate" value="<?php echo $loan->getSubscriptionDate(); ?>">
                             <input type="submit" value="Recensione" class="btn btn-danger px-15">

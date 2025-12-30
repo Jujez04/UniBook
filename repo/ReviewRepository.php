@@ -19,15 +19,10 @@ class ReviewRepository
      */
     public function addReview($idStudent, $codeBook, $codeCopy, $subscriptionDate, $rating, $description)
     {
-        // ottieni l'ID della nuova recensione
-        $countQuery = "SELECT COUNT(*) as count FROM review";
-        $countResult = $this->db->executeQuery($countQuery, [], '');
-        $newReviewId = $countResult[0]['count'] + 1;
         $sqlReview = "INSERT INTO review (rating, description) VALUES (?, ?)";
         $this->db->executeQuery($sqlReview, [$rating, $description], 'is');
-        // ottieni il 
 
-
+        $newReviewId = $this->db->getConnection()->insert_id;
 
         $sqlLoan = "UPDATE loan
                     SET idreview = ?

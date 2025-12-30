@@ -1,11 +1,8 @@
+    <?php
+    var_dump($templateParams);
+    ?>
     <form action="leave-review-user-action.php" method="POST">
-        <?php if (isset($_GET['error'])): ?>
-            <div class="alert alert-danger">
-                <?php
-                if ($_GET['error'] == 'empty_fields') echo "Inserisci tutti i campi!";
-                ?>
-            </div>
-        <?php endif; ?>
+
         <ul>
             <li>
                 <label for="voto">Voto:</label><select id="voto" name="voto">
