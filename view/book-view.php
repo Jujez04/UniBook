@@ -44,7 +44,10 @@
 <!-- Recensioni -->
 <section>
     <?php $reviews = $reviewRepo->getReviewsByBook($book->getCodeBook()); 
+    if(count($reviews) == 0) : ?>
+        <h2>Nessuna recensione per questo libro.</h2>
     ?>
+    
     <h2><?php echo count($reviews) . (count($reviews) == 1 ? ' recensione' : ' recensioni'); ?> </h2>
     <?php foreach($reviews as $review) : ?>
     <article>
