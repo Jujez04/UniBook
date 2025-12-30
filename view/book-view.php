@@ -1,9 +1,14 @@
+<?php
+?>
 <section>
     <div> <img src=<?php echo UPLOAD_DIR . 'books/' . $book->getImage(); ?> alt="Book cover" /> </div>
     <h1><?php echo $book->getTitle(); ?></h1>
     <ul>
         <li><?php echo $book->getAuthor(); ?></li>
-        <li><img src="/svg/circle-fill.svg" width="12" height="12" alt="" /> </li>
+        <li><img src=<?php echo BASE_URL . "/svg/circle-fill.svg" ?> width="12" height="12" alt="" /> </li>
+        <li><?php echo $book->getDescription(); ?></li>
+        <li><img src=<?php echo BASE_URL . "/svg/circle-fill.svg" ?> width="12" height="12" alt="" /> </li>
+        <li><?php echo $book->getPublisher(); ?></li>
 
     </ul>
     <div>
@@ -24,17 +29,18 @@
             <?php endfor; ?>
             <?php if ($fraction > 0) : ?>
                 <img src="/UniBook/svg/star-half.svg" width="12" height="12" alt="" class="">
-            <?php endif ?>
+            <?php endif; ?>
             <?php
             for ($i = 0; $i < 5 - $whole - $remainder; $i++) :
             ?>
                 <img src="/UniBook/svg/star.svg" width="12" height="12" alt="" class="">
             <?php endfor; ?>
         </div>
-        <input type="button" value="Reserve now">
+        <input type="submit" value="Reserve now">
+
     </div>
     <p>
-        <?php echo $book->getDescription(); ?>
+        <?php echo $book->getPublicationYear(); ?>
     </p>
     <!-- Tag -->
     <ul>
