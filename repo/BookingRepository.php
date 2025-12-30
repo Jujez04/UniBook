@@ -74,6 +74,13 @@ class BookingRepository
         return $bookings;
     }
 
+    public function getAmountOfPeopleAhead($idStudent, $codeBook)
+    {
+        $sql = "SELECT count(*) as total FROM booking WHERE codebook = ? AND date < (SELECT date FROM booking WHERE idstudent = ? AND codebook = ?)";
+        $result = $this->db->executeQuery($sql, [$codeBook, $idStudent, $codeBook], 'iii');
+        return $result[0]['total'];
+    }
+
 
     private function mapRowToObject($row)
     {

@@ -5,8 +5,6 @@ $studentLoans = $loanRepo->findAllByStudent($_SESSION['userid']);
 $borrowedBooks = [];
 foreach ($studentLoans as $loan) {
     $book = $bookRepo->findById($loan->getCodeBook());
-    var_dump($loan);
-    echo "<br>".$book->getTitle();
     if ($loan->getState() === 'in_restituzione') {
         array_push($borrowedBooks, $loan);
     }
