@@ -2,6 +2,7 @@
 require_once BASE_PATH .  "/UniBook/" . 'orm/Loan.php';
 require_once BASE_PATH . "/UniBook/" . 'db/database.php';
 
+
 class LoanRepository
 {
     private $db;
@@ -49,11 +50,11 @@ class LoanRepository
         return $loans;
     }
 
-    public function findAllExceptReturned()
+    public function findAllBorrowed()
     {
         $sql = "SELECT *
                 FROM loan
-                WHERE state != 'Restituito'
+                WHERE state = 'in_prestito'
                 ORDER BY subscriptiondate DESC";
         $result = $this->db->executeQuery($sql);
         $loans = [];
@@ -62,6 +63,33 @@ class LoanRepository
         }
         return $loans;
     }
+    public function findAllReturned()
+    {
+        $sql = "SELECT *
+                FROM loan
+                WHERE state = 'restituito'
+                ORDER BY subscriptiondate DESC";
+        $result = $this->db->executeQuery($sql);
+        $loans = [];
+        foreach ($result as $row) {
+            $loans[] = $this->mapRowToObject($row);
+        }
+        return $loans;
+    }
+    public function findAllReturning()
+    {
+        $sql = "SELECT *
+                FROM loan
+                WHERE state = 'in_restituzione'
+                ORDER BY subscriptiondate DESC";
+        $result = $this->db->executeQuery($sql);
+        $loans = [];
+        foreach ($result as $row) {
+            $loans[] = $this->mapRowToObject($row);
+        }
+        return $loans;
+    }
+
 
     public function closeLoan($idStudent, $codeBook, $codeCopy, $subscriptionDate)
     {
@@ -98,6 +126,8 @@ class LoanRepository
         foreach ($result as $row) {
             $loans[] = $this->mapRowToObject($row);
         }
+
+
         return $loans;
     }
 

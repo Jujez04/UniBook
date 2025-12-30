@@ -1,11 +1,13 @@
 <?php
-require_once BASE_PATH. "/UniBook/".  'db/database.php';
-require_once BASE_PATH. "/UniBook/". 'orm/Booking.php';
+require_once BASE_PATH . "/UniBook/" .  'db/database.php';
+require_once BASE_PATH . "/UniBook/" . 'orm/Booking.php';
 
-class BookingRepository {
+class BookingRepository
+{
     private $db;
 
-    public function __construct($db) {
+    public function __construct($db)
+    {
         $this->db = $db;
     }
 
@@ -13,7 +15,8 @@ class BookingRepository {
      * Crea una nuova prenotazione.
      * Inserisce la data odierna (CURDATE()) automaticamente.
      */
-    public function create($idStudent, $codeBook) {
+    public function create($idStudent, $codeBook)
+    {
         if ($this->isBooked($idStudent, $codeBook)) {
             return false;
         }
@@ -25,7 +28,8 @@ class BookingRepository {
     /**
      * Cancella una prenotazione (es. l'utente cambia idea o ritira il libro)
      */
-    public function delete($idStudent, $codeBook) {
+    public function delete($idStudent, $codeBook)
+    {
         $sql = "DELETE FROM booking WHERE idstudent = ? AND codebook = ?";
         $this->db->executeStatement($sql, [$idStudent, $codeBook], 'ii');
     }
@@ -33,7 +37,8 @@ class BookingRepository {
     /**
      * Controlla se uno studente ha già prenotato un certo libro.
      */
-    public function isBooked($idStudent, $codeBook) {
+    public function isBooked($idStudent, $codeBook)
+    {
         $sql = "SELECT count(*) as total FROM booking WHERE idstudent = ? AND codebook = ?";
         $result = $this->db->executeQuery($sql, [$idStudent, $codeBook], 'ii');
         return $result[0]['total'] > 0;
@@ -42,7 +47,8 @@ class BookingRepository {
     /**
      * Recupera tutte le prenotazioni di uno studente.
      */
-    public function findAllByStudent($idStudent) {
+    public function findAllByStudent($idStudent)
+    {
         $sql = "SELECT * FROM booking WHERE idstudent = ?";
         $result = $this->db->executeQuery($sql, [$idStudent], 'i');
 
@@ -56,7 +62,8 @@ class BookingRepository {
     /**
      * Recupera tutte le prenotazioni.
      */
-    public function findAll() {
+    public function findAll()
+    {
         $sql = "SELECT * FROM booking";
         $result = $this->db->executeQuery($sql, [], 'i');
 
@@ -68,7 +75,8 @@ class BookingRepository {
     }
 
 
-    private function mapRowToObject($row) {
+    private function mapRowToObject($row)
+    {
         return new Booking(
             $row['idstudent'],
             $row['codebook'],
@@ -76,4 +84,3 @@ class BookingRepository {
         );
     }
 }
-?>
