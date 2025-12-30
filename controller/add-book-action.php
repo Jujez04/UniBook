@@ -79,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     }
 
     $newBookId = $bookRepo->create($titolo, $publisher, $anno_pubblicazione, $descrizione, $autore, $immagineName, $catalogo);
+    echo "<p><strong>ID del nuovo libro inserito:</strong> " . htmlspecialchars($newBookId) . "</p>";
     $tagArray = stringToArray($tagString);
     foreach ($tagArray as $tag) {
         // Prova a crearlo, se fallisce agisce già, ma non bisogna fare nulla perché la chiave del tag è il nome.
@@ -94,7 +95,7 @@ $templateParams["title"] = "Unibook - Aggiunta Libro";
 $templateParams["content"] =  BASE_PATH . "/UniBook/view/add-book-form-view.php";
 $templateParams["css"] = "user_style.css";
 
-header("Location: " . BASE_URL . "/controller/add-book-form.php?success=true");
+//header("Location: " . BASE_URL . "/controller/add-book-form.php?success=true");
 exit;
 
 /**
