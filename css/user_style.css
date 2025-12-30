@@ -8,6 +8,9 @@
     box-sizing: border-box;
 }
 
+main {
+    padding: 0 8px;
+}
 
 @media screen and (min-width: 520px) {
     main>section {
@@ -56,6 +59,8 @@ main>section>ul:nth-of-type(2)>li>a {
     font-style: italic;
     color: black;
 }
+
+
 
 main article {
     background-color: rgb(247, 228, 207);
@@ -241,11 +246,19 @@ main form ul li:last-child {
     vertical-align: center;
 }
 
-main>form>ul>li>input[type="submit"] {
+main>form>ul>li>input[type="submit"],
+main>section>div>form>input[type="submit"] {
     background-color: #A72925;
     color: white;
     padding: 10px 20px;
     align-self: end;
+}
+
+
+input[type="submit"] {
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
 }
 
 main>form ul li label {

@@ -1,4 +1,5 @@
 <?php
+require_once 'bootstrap.php';
 ?>
 <section>
     <div> <img src=<?php echo UPLOAD_DIR . 'books/' . $book->getImage(); ?> alt="Book cover" /> </div>
@@ -36,7 +37,37 @@
                 <img src="/UniBook/svg/star.svg" width="12" height="12" alt="" class="">
             <?php endfor; ?>
         </div>
-        <input type="submit" value="Reserve now">
+        <?php $numAhead = $bookingRepo->getNumberOfPeopleAhead($_SESSION['userid'] ?? -1, $book->getCodeBook()); ?>
+        <?php if ($bookRepo->getAvailableCopiesCount($book->getCodeBook()) > 0) : ?>
+            <span class="text-success">Disponibile</span>
+        <?php else : ?>
+            <span class=""><?php echo $numAhead; ?> in coda</span>
+        <?php endif;
+        // Protocollo (http o https)
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
+
+        // Host e URI
+        $currentUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+        ?>
+        <?php if ($sessionManager->isLogged() && !$sessionManager->isAdminLogged()) : ?>
+            <?php $studentId = $_SESSION['userid']; ?>
+            <?php if ($loanRepo->isBorrowed($studentId, $book->getCodeBook())) :
+            ?>
+                <a href="#" class="btn btn-secondary px-15">In Prestito</a>
+            <?php elseif (
+                !$bookingRepo->isBooked($studentId, $book->getCodeBook())
+
+            ) : ?>
+                <a href=" <?php echo BASE_URL ?>/controller/reservation.php?redirect=<?php echo urlencode($currentUrl); ?>&idbook=<?php echo (int)$book->getCodeBook(); ?>&idstudent=<?php echo $studentId; ?>" class="btn btn-danger px-15">Prenota</a>
+            <?php else : ?>
+                <a href="#" class="btn btn-secondary px-15 disabled">Prenotato</a>
+            <?php endif; ?>
+
+        <?php else : ?>
+            <a href=" <?php echo BASE_URL  ?>/controller/login-form.php" class="btn btn-danger px-15">Prenota</a>
+        <?php endif; ?>
+
 
     </div>
     <p>
@@ -60,7 +91,7 @@
             <?php
             $student = $studentRepo->findByEmail($review['email']);
             ?>
-            <img src=<?php echo UPLOAD_DIR . 'profiles/' . $student->getProfileImage(); ?> alt="profile icon">
+            <img src=<?php echo UPLOAD_DIR . 'students/' . $student->getProfileImage(); ?> alt="profile icon">
             <div>
                 <h3><?php echo $student->getName() . ' ' . $student->getSurname(); ?></h3>
                 <?php

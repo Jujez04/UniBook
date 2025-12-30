@@ -131,6 +131,20 @@ class LoanRepository
         return $loans;
     }
 
+    public function isBorrowed($idStudent, $codeBook)
+    {
+        $sql = "SELECT COUNT(*) as count
+                FROM loan
+                WHERE idstudent = ? AND codebook = ? AND state = 'in_prestito'";
+
+        $result = $this->db->executeQuery($sql, [
+            $idStudent,
+            $codeBook
+        ], 'ii');
+
+        return $result[0]['count'] > 0;
+    }
+
     /**
      * Trova tutti i prestiti in ritardo
      */
@@ -149,7 +163,19 @@ class LoanRepository
         return $loans;
     }
 
+    public function hasBeenReviewed($idStudent, $codeBook)
+    {
+        $sql = "SELECT COUNT(*) as count
+                FROM loan
+                WHERE idstudent = ? AND codebook = ? AND idreview IS NOT NULL";
 
+        $result = $this->db->executeQuery($sql, [
+            $idStudent,
+            $codeBook
+        ], 'ii');
+
+        return $result[0]['count'] > 0;
+    }
     private function mapRowToObject($row)
     {
         return new Loan(

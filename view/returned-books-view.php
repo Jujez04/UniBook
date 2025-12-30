@@ -9,6 +9,9 @@
                     continue;
                 }
                 $book = $bookRepo->findById($loan->getCodeBook());
+                if ($loanRepo->hasBeenReviewed((int)$loan->getIdStudent(), (int)$loan->getCodeBook())) {
+                    continue;
+                }
             ?>
                 <article
                     class="card flex-row  d-flex justify-content-center col-12 col-sm-6  col-md-4 col-lg-3 m-0 p-0">

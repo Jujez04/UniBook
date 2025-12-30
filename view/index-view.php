@@ -63,7 +63,13 @@
                                 ?>
                                 <?php if ($sessionManager->isLogged() && !$sessionManager->isAdminLogged()) : ?>
                                     <?php $studentId = $_SESSION['userid']; ?>
-                                    <?php if (!$bookingRepo->isBooked($studentId, $book->getCodeBook())) : ?>
+                                    <?php if ($loanRepo->isBorrowed($studentId, $book->getCodeBook())) :
+                                    ?>
+                                        <a href="#" class="btn btn-secondary px-15">In Prestito</a>
+                                    <?php elseif (
+                                        !$bookingRepo->isBooked($studentId, $book->getCodeBook())
+
+                                    ) : ?>
                                         <a href=" <?php echo BASE_URL ?>/controller/reservation.php?redirect=<?php echo urlencode($currentUrl); ?>&idbook=<?php echo (int)$book->getCodeBook(); ?>&idstudent=<?php echo $studentId; ?>" class="btn btn-danger px-15">Prenota</a>
                                     <?php else : ?>
                                         <a href="#" class="btn btn-secondary px-15 disabled">Prenotato</a>
