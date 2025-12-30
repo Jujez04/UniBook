@@ -1,12 +1,4 @@
 <?php
-/*
- *
- *
- */
-?>
-
-
-<?php var_dump($_GET);
 require_once 'bootstrap.php';
 if (isset($_GET["msg"])) {
     if ($_GET["msg"] == "booking_accepted") {

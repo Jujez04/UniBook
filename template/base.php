@@ -81,8 +81,8 @@
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/reserved-books.php?id=" . $_SESSION['userid']; ?>">Libri prenotati</a></li>
                             <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/borrowed-books.php?id=" . $_SESSION['userid']; ?>">Libri in prestito</a></li>
-                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/return-books.php?id=" . $_SESSION['userid']; ?>">Libri in restituzione</a></li>
-
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/return-books.php?" ?>">Libri in restituzione</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/returned-books.php?" ?>">Libri restituiti</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
