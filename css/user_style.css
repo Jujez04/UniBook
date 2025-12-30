@@ -227,27 +227,37 @@ main>form ul {
 
 main form ul li {
     margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+main form ul li:last-child {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: row-reverse;
+
     text-align: center;
+    vertical-align: center;
 }
 
 main>form>ul>li>input[type="submit"] {
     background-color: #A72925;
     color: white;
     padding: 10px 20px;
-}
-
-main>form ul li:last-child {
-    text-align: right;
+    align-self: end;
 }
 
 main>form ul li label {
     display: inline-block;
     width: 50%;
+    height: 100%;
     text-align: left;
     cursor: pointer;
 }
 
-main>form ul li input:not([type="submit"]) {
+main>form ul li input:not([type="submit"]),
+main>form ul li select,
+main>form ul li textarea {
     width: 50%;
     box-sizing: border-box;
 }

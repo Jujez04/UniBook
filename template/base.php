@@ -66,6 +66,7 @@
                             class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/admin-dashboard.php"; ?>">DashBoard</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/add-book-form.php"; ?>">Aggiungi Libro</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
