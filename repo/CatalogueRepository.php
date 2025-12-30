@@ -1,18 +1,21 @@
 <?php
-require_once BASE_PATH.  "/UniBook/". 'db/database.php';
-require_once BASE_PATH. "/UniBook/". 'orm/Catalogue.php';
+require_once BASE_PATH .  "/UniBook/" . 'db/database.php';
+require_once BASE_PATH . "/UniBook/" . 'orm/Catalogue.php';
 
-class CatalogueRepository {
+class CatalogueRepository
+{
     private $db;
 
-    public function __construct($db) {
+    public function __construct($db)
+    {
         $this->db = $db;
     }
 
     /**
      * Restituisce tutti i cataloghi.
      */
-    public function findAll() {
+    public function findAll()
+    {
         $sql = "SELECT * FROM catalogue";
         $result = $this->db->executeQuery($sql);
 
@@ -26,7 +29,8 @@ class CatalogueRepository {
     /**
      * Trova un catalogo specifico per ID.
      */
-    public function findById($idCatalogue) {
+    public function findById($idCatalogue)
+    {
         $sql = "SELECT * FROM catalogue WHERE idcatalogue = ?";
         $result = $this->db->executeQuery($sql, [$idCatalogue], 'i');
 
@@ -40,7 +44,8 @@ class CatalogueRepository {
     /**
      * Recupera i primi n cataloghi casuali (per index)
      */
-    public function findRandom($limit) {
+    public function findRandom($limit)
+    {
         $sql = "SELECT * FROM catalogue ORDER BY RAND() LIMIT " . (int)$limit;
         $result = $this->db->executeQuery($sql);
 
@@ -54,7 +59,8 @@ class CatalogueRepository {
     /**
      * (Admin) Crea un nuovo catalogo.
      */
-    public function create($name) {
+    public function create($name)
+    {
         $sql = "INSERT INTO catalogue (name) VALUES (?)";
         $this->db->executeStatement($sql, [$name], 's');
 
@@ -64,7 +70,8 @@ class CatalogueRepository {
     /**
      * (Admin) Rinominare un catalogo.
      */
-    public function update($idCatalogue, $newName) {
+    public function update($idCatalogue, $newName)
+    {
         $sql = "UPDATE catalogue SET name = ? WHERE idcatalogue = ?";
         $this->db->executeStatement($sql, [$newName, $idCatalogue], 'si');
     }
@@ -72,7 +79,8 @@ class CatalogueRepository {
     /**
      * (Admin) Cancella un catalogo.
      */
-    public function delete($idCatalogue) {
+    public function delete($idCatalogue)
+    {
         $sql = "DELETE FROM catalogue WHERE idcatalogue = ?";
         $this->db->executeStatement($sql, [$idCatalogue], 'i');
     }
@@ -80,11 +88,11 @@ class CatalogueRepository {
     /**
      * Helper Mapping
      */
-    private function mapRowToObject($row) {
+    private function mapRowToObject($row)
+    {
         return new Catalogue(
             $row['idcatalogue'],
             $row['name']
         );
     }
 }
-?>

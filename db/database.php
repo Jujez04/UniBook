@@ -54,6 +54,10 @@ class DatabaseHelper {
 
         return $success;
     }
+
+    public function getConnection() {
+        return $this->db;
+    }
 }
 
 ?>
