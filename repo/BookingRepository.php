@@ -20,9 +20,45 @@ class BookingRepository
         if ($this->isBooked($idStudent, $codeBook)) {
             return false;
         }
-        $sql = "INSERT INTO booking (idstudent, codebook, date) VALUES (?, ?, CURDATE())";
+        $sql = "INSERT INTO booking (idstudent, codebook, date) VALUES (?, ?, NOW())";
         $this->db->executeStatement($sql, [$idStudent, $codeBook], 'ii');
         return true;
+    }
+
+
+    public function getNumberOfPeopleAhead($idStudent, $codeBook)
+    {
+        $sql = "SELECT COUNT(*) as total FROM booking WHERE codebook = ? AND date < (SELECT date FROM booking WHERE idstudent = ? AND codebook = ?)";
+        $result = $this->db->executeQuery($sql, [$codeBook, $idStudent, $codeBook], 'iii');
+        return $result[0]['total'];
+    }
+
+    public function findBookQueue($codeBook)
+    {
+        $sql = "SELECT * FROM booking WHERE codebook = ? ORDER BY date ASC";
+        $result = $this->db->executeQuery($sql, [$codeBook], 'i');
+
+        $bookings = [];
+        foreach ($result as $row) {
+            $bookings[] = $this->mapRowToObject($row);
+        }
+        return $bookings;
+    }
+
+    public function findAllFirstPositionReservations()
+    {
+        $sql = "SELECT b1.* FROM booking b1
+                WHERE NOT EXISTS (
+                    SELECT 1 FROM booking b2
+                    WHERE b2.codebook = b1.codebook AND b2.date < b1.date
+                )";
+        $result = $this->db->executeQuery($sql, [], '');
+
+        $bookings = [];
+        foreach ($result as $row) {
+            $bookings[] = $this->mapRowToObject($row);
+        }
+        return $bookings;
     }
 
     /**
@@ -72,13 +108,6 @@ class BookingRepository
             $bookings[] = $this->mapRowToObject($row);
         }
         return $bookings;
-    }
-
-    public function getAmountOfPeopleAhead($idStudent, $codeBook)
-    {
-        $sql = "SELECT count(*) as total FROM booking WHERE codebook = ? AND date < (SELECT date FROM booking WHERE idstudent = ? AND codebook = ?)";
-        $result = $this->db->executeQuery($sql, [$codeBook, $idStudent, $codeBook], 'iii');
-        return $result[0]['total'];
     }
 
 

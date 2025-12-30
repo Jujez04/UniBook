@@ -1,6 +1,7 @@
 <?php
 
-class Loan {
+class Loan
+{
     private $idstudent;
     private $codebook;
     private $codecopy;
@@ -27,32 +28,38 @@ class Loan {
         $this->state = $state;
     }
 
-    public function getIdStudent() {
+    public function getIdStudent()
+    {
         return $this->idstudent;
     }
 
-    public function getCodeBook() {
+    public function getCodeBook()
+    {
         return $this->codebook;
     }
 
-    public function getCodeCopy() {
+    public function getCodeCopy()
+    {
         return $this->codecopy;
     }
 
-    public function getIdReview() {
+    public function getIdReview()
+    {
         return $this->idreview;
     }
 
-    public function getRefundData() {
+    public function getRefundData()
+    {
         return $this->refunddata;
     }
 
-    public function getSubscriptionDate() {
+    public function getSubscriptionDate()
+    {
         return $this->subscriptiondate;
     }
 
-    public function getState() {
+    public function getState()
+    {
         return $this->state;
     }
 }
-?>

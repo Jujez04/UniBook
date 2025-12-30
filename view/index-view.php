@@ -48,8 +48,12 @@
                                 <span>Recensioni</span>
                             </div>
                             <div class="d-flex justify-content-between align-items-center my-2   ">
-                                <span class="">3 in coda</span>
-                                <?php
+                                <?php $numAhead = $bookingRepo->getNumberOfPeopleAhead($_SESSION['userid'] ?? -1, $book->getCodeBook()); ?>
+                                <?php if ($bookRepo->getAvailableCopiesCount($book->getCodeBook()) > 0) : ?>
+                                    <span class="text-success">Disponibile</span>
+                                <?php else : ?>
+                                    <span class=""><?php echo $numAhead; ?> in coda</span>
+                                <?php endif;
                                 // Protocollo (http o https)
                                 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
 
