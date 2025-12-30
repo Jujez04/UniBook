@@ -12,8 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $autore = $_POST['autore'] ?? '';
     $catalogo = $_POST['catalogo'] ?? '';
     $nuovo_catalogo = $_POST['nuovo-catalogo'] ?? '';
+    $tagString = $_POST['tag'] ?? '';
 
-    if (empty($titolo) || empty($publisher) || empty($anno_pubblicazione) || empty($descrizione) || empty($autore) || empty($catalogo) || ($catalogo === 'custom' && empty($nuovo_catalogo))) {
+    if (empty($titolo) || empty($publisher) || empty($anno_pubblicazione) || empty($descrizione) || empty($autore) || empty($catalogo) || ($catalogo === 'custom' && empty($nuovo_catalogo)) || empty($tagString)) {
         header("Location: " . BASE_URL . "/controller/add-book-form.php?error=missing_fields");
         exit;
     }
@@ -57,6 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         $immagineError = 'Errore nel caricamento del file: ' . $immagine['error'];
     }
 
+
+
     // Visualizza i dati ricevuti
     echo "<h2>Dati ricevuti:</h2>";
     echo "<p><strong>Titolo:</strong> " . htmlspecialchars($titolo) . "</p>";
@@ -75,7 +78,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         header("Location: " . BASE_URL . "/controller/register-form.php?error=" . urlencode($immagineError));
     }
 
-    $bookRepo->create($titolo, $publisher, $anno_pubblicazione, $descrizione, $autore, $immagineName, $catalogo);
+    $newBookId = $bookRepo->create($titolo, $publisher, $anno_pubblicazione, $descrizione, $autore, $immagineName, $catalogo);
+    $tagArray = stringToArray($tagString);
+    foreach ($tagArray as $tag) {
+        // Prova a crearlo, se fallisce agisce già, ma non bisogna fare nulla perché la chiave del tag è il nome.
+        $tagRepo->create($tag);
+
+        $tagInBookRepo->create($newBookId, $tag);
+    }
 } else {
     header("Location: " . BASE_URL . "/controller/login-form.php");
     exit;
@@ -86,3 +96,12 @@ $templateParams["css"] = "user_style.css";
 
 header("Location: " . BASE_URL . "/controller/add-book-form.php?success=true");
 exit;
+
+/**
+ * Converte una stringa che contiene tag separati da nuove righe in un array di tag.
+ * Rimuove anche eventuali righe vuote.
+ */
+function stringToArray($tags)
+{
+    return array_filter(array_map('trim', explode("\n", $tags)));
+}
