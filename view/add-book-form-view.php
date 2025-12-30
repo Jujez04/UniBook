@@ -13,25 +13,25 @@ if (isset($_GET["success"])) {
 <form action="add-book-action.php" method="POST" enctype="multipart/form-data">
     <ul>
         <li>
-            <label for="titolo">Titolo:</label><input type="text" id="titolo" name="titolo" />
+            <label for="titolo">Titolo:</label><input required type="text" id="titolo" name="titolo" />
         </li>
         <li>
-            <label for="publisher">Publisher:</label><input type="text" id="publisher" name="publisher" />
+            <label for="publisher">Publisher:</label><input required type="text" id="publisher" name="publisher" />
         </li>
         <li>
-            <label for="anno-pubblicazione">Anno pubblicazione:</label><input type="text" id="anno-pubblicazione" name="anno-pubblicazione" />
+            <label for="anno-pubblicazione">Anno pubblicazione:</label><input required type="text" id="anno-pubblicazione" name="anno-pubblicazione" />
         </li>
         <li>
-            <label for="descrizione">Descrizione:</label><textarea id="descrizione" name="descrizione"></textarea>
+            <label for="descrizione">Descrizione:</label><textarea required id="descrizione" name="descrizione"></textarea>
         </li>
         <li>
-            <label for="autore">Autore:</label><input type="text" id="autore" name="autore" />
+            <label for="autore">Autore:</label><input required type="text" id="autore" name="autore" />
         </li>
         <li>
-            <label for="immagine">Immagine:</label><input type="file" id="immagine" name="immagine" />
+            <label for="immagine">Immagine:</label><input required type="file" id="immagine" name="immagine" />
         </li>
         <li>
-            <label for="catalogo">Catalogo:</label><select id="catalogo" name="catalogo">
+            <label for="catalogo">Catalogo:</label><select required id="catalogo" name="catalogo">
                 <option disabled selected value> &mdash; Seleziona un catalogo &mdash; </option>
                 <option value="custom">Nuovo catalogo...</option>
                 <?php foreach ($templateParams["catalogues"] as $catalogue): ?>
@@ -44,7 +44,9 @@ if (isset($_GET["success"])) {
         <li>
             <label for="nuovo-catalogo">Nome nuovo catalogo:</label><input type="text" id="nuovo-catalogo" name="nuovo-catalogo" />
         </li>
-        <!-- TODO: Tag -->
+        <li>
+            <label for="tag" data-toggle="tooltip" data-placement="top" title="Inserisci un tag per riga">Tag<sup><strong>&#9432;</strong></sup>:</label><textarea id="tag" name="tag"></textarea>
+        </li>
         <li>
             <input type="submit" name="submit" value="Invia" />
         </li>
