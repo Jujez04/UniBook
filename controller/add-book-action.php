@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
     if ($immagineName) {
         echo "<p><strong>Immagine:</strong> " . htmlspecialchars($immagineName) . "</p>";
-        echo "<p><img src='" . htmlspecialchars($uploadDir . $immagineName) . "' alt='Immagine' style='max-width: 200px;'></p>";
+        echo "<p><img src='" . htmlspecialchars(BASE_URL . "upload/books/" . $immagineName) . "' alt='Immagine' style='max-width: 200px;'></p>";
     }
 
     if ($immagineError) {
@@ -80,9 +80,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     header("Location: " . BASE_URL . "/controller/login-form.php");
     exit;
 }
-//$templateParams["title"] = "Unibook - Aggiunta Libro";
-//$templateParams["content"] =  BASE_PATH . "/UniBook/view/add-book-form-view.php";
-//$templateParams["css"] = "user_style.css";
+$templateParams["title"] = "Unibook - Aggiunta Libro";
+$templateParams["content"] =  BASE_PATH . "/UniBook/view/add-book-form-view.php";
+$templateParams["css"] = "user_style.css";
 
-//header("Location: " . BASE_URL . "/controller/login-form.php");
+header("Location: " . BASE_URL . "/controller/add-book-form.php?success=true");
 exit;

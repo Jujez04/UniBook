@@ -5,6 +5,9 @@ if (isset($_GET['error'])) {
         echo '<div class="alert alert-danger">Ci sono campi mancanti. Per favore, compila tutti i campi richiesti.</div>';
     }
 }
+if (isset($_GET["success"])) {
+    echo '<div class="alert alert-success">Libro inserito correttamente!</div>';
+}
 ?>
 
 <form action="add-book-action.php" method="POST" enctype="multipart/form-data">
