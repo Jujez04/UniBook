@@ -12,7 +12,8 @@ class TagRepository
 
     public function create($idTag)
     {
-        $sql = "INSERT INTO tag (idtag) VALUES (?)";
+        // IGNORE doesn't throw error if tag already exists
+        $sql = "INSERT IGNORE INTO tag (idtag) VALUES (?)";
         return $this->db->executeStatement($sql, [$idTag], 's');
     }
 }

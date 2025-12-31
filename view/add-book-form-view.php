@@ -16,19 +16,22 @@ if (isset($_GET["success"])) {
             <label for="titolo">Titolo:</label><input required type="text" id="titolo" name="titolo" />
         </li>
         <li>
+            <label for="autore">Autore:</label><input required type="text" id="autore" name="autore" />
+        </li>
+        <li>
             <label for="publisher">Publisher:</label><input required type="text" id="publisher" name="publisher" />
         </li>
         <li>
-            <label for="anno-pubblicazione">Anno pubblicazione:</label><input required type="text" id="anno-pubblicazione" name="anno-pubblicazione" />
+            <label for="anno-pubblicazione">Anno pubblicazione:</label><input required type="number" id="anno-pubblicazione" name="anno-pubblicazione" min="0" max="9999" />
         </li>
         <li>
             <label for="descrizione">Descrizione:</label><textarea required id="descrizione" name="descrizione"></textarea>
         </li>
         <li>
-            <label for="autore">Autore:</label><input required type="text" id="autore" name="autore" />
+            <label for="immagine">Immagine:</label><input required type="file" id="immagine" name="immagine" />
         </li>
         <li>
-            <label for="immagine">Immagine:</label><input required type="file" id="immagine" name="immagine" />
+            <label for="numero-copie">Numero copie:</label><input required type="number" id="numero-copie" name="numero-copie" />
         </li>
         <li>
             <label for="catalogo">Catalogo:</label><select required id="catalogo" name="catalogo">
@@ -45,7 +48,7 @@ if (isset($_GET["success"])) {
             <label for="nuovo-catalogo">Nome nuovo catalogo:</label><input type="text" id="nuovo-catalogo" name="nuovo-catalogo" />
         </li>
         <li>
-            <label for="tag" data-toggle="tooltip" data-placement="top" title="Inserisci un tag per riga">Tag<sup><strong>&#9432;</strong></sup>:</label><textarea id="tag" name="tag"></textarea>
+            <label for="tag" title="Inserisci un tag per riga">Tag<sup><strong>&#9432;</strong></sup>:</label><textarea id="tag" name="tag"></textarea>
         </li>
         <li>
             <input type="submit" name="submit" value="Invia" />

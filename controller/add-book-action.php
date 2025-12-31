@@ -13,8 +13,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $catalogo = $_POST['catalogo'] ?? '';
     $nuovo_catalogo = $_POST['nuovo-catalogo'] ?? '';
     $tagString = $_POST['tag'] ?? '';
+    $numero_copie = $_POST['numero-copie'] ?? '';
 
-    if (empty($titolo) || empty($publisher) || empty($anno_pubblicazione) || empty($descrizione) || empty($autore) || empty($catalogo) || ($catalogo === 'custom' && empty($nuovo_catalogo)) || empty($tagString)) {
+    if (empty($titolo) || empty($publisher) || empty($anno_pubblicazione) || empty($descrizione) || empty($autore) || empty($catalogo) || ($catalogo === 'custom' && empty($nuovo_catalogo)) || empty($numero_copie)) {
         header("Location: " . BASE_URL . "/controller/add-book-form.php?error=missing_fields");
         exit;
     }
@@ -79,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     }
 
     $newBookId = $bookRepo->create($titolo, $publisher, $anno_pubblicazione, $descrizione, $autore, $immagineName, $catalogo);
+    echo "<p><strong>ID del nuovo libro inserito:</strong> " . htmlspecialchars($newBookId) . "</p>";
     $tagArray = stringToArray($tagString);
     foreach ($tagArray as $tag) {
         // Prova a crearlo, se fallisce agisce già, ma non bisogna fare nulla perché la chiave del tag è il nome.
@@ -86,6 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
         $tagInBookRepo->create($newBookId, $tag);
     }
+
+    $bookRepo->addNewCopies($newBookId, $numero_copie);
 } else {
     header("Location: " . BASE_URL . "/controller/login-form.php");
     exit;

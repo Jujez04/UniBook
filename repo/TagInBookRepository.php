@@ -1,6 +1,6 @@
 <?php
-require_once BASE_PATH . "/UniBook/" .  'db/database.php';
-require_once BASE_PATH . "/UniBook/" . 'orm/Review.php';
+require_once BASE_PATH . "/UniBook/db/database.php";
+require_once BASE_PATH . "/UniBook/orm/Review.php";
 
 class TagInBookRepository
 {
@@ -11,10 +11,10 @@ class TagInBookRepository
         $this->db = $db;
     }
 
-    public function create($idTag, $codeBook)
+    public function create($codeBook, $idTag)
     {
-        $sql = "INSERT INTO tag_in_book (idtag, codebook) VALUES (?, ?)";
-        return $this->db->executeStatement($sql, [$idTag, $codeBook], 'si');
+        $sql = "INSERT INTO tag_in_book (codebook, idtag) VALUES (?, ?)";
+        return $this->db->executeStatement($sql, [$codeBook, $idTag], 'is');
     }
 
     /**
