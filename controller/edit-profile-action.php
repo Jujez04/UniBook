@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
             // Elimina la vecchia foto se esiste e non è la foto di default
             $oldPhoto = $currentStudent->getProfileImage();
-            if (!empty($oldPhoto) && $oldPhoto !== 'default.jpg') {
+            if (!empty($oldPhoto) && $oldPhoto !== 'default.png') {
                 $oldPhotoPath = $uploadDir . $oldPhoto;
                 if (file_exists($oldPhotoPath)) {
                     unlink($oldPhotoPath);
