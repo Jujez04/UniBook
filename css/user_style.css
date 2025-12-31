@@ -251,11 +251,11 @@ main>section>div>form>input[type="submit"] {
     background-color: #A72925;
     color: white;
     padding: 10px 20px;
-    align-self: end;
 }
 
 
-input[type="submit"] {
+input[type="submit"],
+main>form ul li a {
     border: none;
     border-radius: 12px;
     cursor: pointer;
@@ -271,12 +271,27 @@ main>form ul li label {
 
 main>form ul li input:not([type="submit"]),
 main>form ul li select,
-main>form ul li textarea {
+main>form ul li textarea,
+main>section>div>form>input:not([type="submit"]) {
     width: 50%;
     box-sizing: border-box;
 }
 
-main>form ul li input[type="submit"] {
+main>form ul li a {
+    background-color: grey;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+
+}
+
+main>form ul li input[type="submit"],
+main>form ul li a {
     cursor: pointer;
     border-width: 0;
     width: 120px;
@@ -287,6 +302,17 @@ main>form ul li input[type="submit"] {
 }
 
 
+main>form[action="edit-profile-action.php"] ul li>div img {
+    max-width: 150px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    display: block;
+    margin-bottom: 10px;
+    float: left;
+    margin-right: 20px;
+}
+
+
 @media screen and (min-width: 520px) {
 
     main>form {
@@ -294,5 +320,3 @@ main>form ul li input[type="submit"] {
 
     }
 }
-
-/*#endregion*/

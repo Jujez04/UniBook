@@ -96,4 +96,43 @@ class StudentRepository
             $row['name']
         );
     }
+
+
+    /**
+     * Aggiorna i dati di uno studente
+     * Aggiungi questo metodo alla classe StudentRepository
+     */
+    public function update($id, $nome, $cognome, $phone, $photo)
+    {
+        $query = "UPDATE students SET 
+              nome = ?, 
+              cognome = ?, 
+              phone = ?, 
+              photo = ? 
+              WHERE id = ?";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ssssi", $nome, $cognome, $phone, $photo, $id);
+
+        return $stmt->execute();
+    }
+
+
+
+    /**
+     * Aggiorna il profilo completo dello studente (nome, cognome, email, telefono, foto)
+     * 
+     * @param int $idStudent ID dello studente
+     * @param string $name Nome
+     * @param string $surname Cognome
+     * @param string $email Email
+     * @param string $phone Telefono
+     * @param string $profileImage Nome file immagine profilo
+     * @return bool True se l'aggiornamento ha successo, false altrimenti
+     */
+    public function updateProfileComplete($idStudent, $name, $surname, $email, $phone, $profileImage)
+    {
+        $sql = "UPDATE student SET name = ?, surname = ?, email = ?, phone = ?, profileimage = ? WHERE idstudent = ?";
+        return $this->db->executeStatement($sql, [$name, $surname, $email, $phone, $profileImage, $idStudent], 'sssssi');
+    }
 }

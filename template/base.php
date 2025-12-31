@@ -87,6 +87,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/edit-profile-form.php"; ?>">Modifica Profilo</a></li>
                             <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/logout.php"; ?>">Logout</a></li>
                         </ul>
                     </div>
