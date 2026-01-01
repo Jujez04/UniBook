@@ -4,13 +4,13 @@
     </div>
     <div class=" container-fluid my-2" id="<?php echo $collapse_id; ?>">
         <div class="row justify-content-center gap-3">
-            <?php foreach ($templateParams['reserved_books'] as $reserve) :
-                $book = $bookRepo->findById($reserve->getCodeBook());
+            <?php foreach ($templateParams['return_books'] as $returns) :
+                $book = $bookRepo->findById($returns->getCodeBook());
             ?>
                 <article
                     class="card flex-row  d-flex justify-content-center col-12 col-sm-6  col-md-4 col-lg-3 m-0 p-0">
-                    <img src=" <?php echo UPLOAD_DIR . 'books/' . htmlspecialchars($book->getImage()); ?>" class=" " alt="immagine libro" />
-                    <div class="card-body p-2   ">
+                    <img src=" <?php echo UPLOAD_DIR . 'books/' . htmlspecialchars($book->getImage()); ?>" alt="immagine libro" />
+                    <div class="card-body p-2">
                         <h5 class="card-title">
                             <a href="bookPage.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none text-dark">
                                 <?php echo $book->getTitle(); ?>
@@ -41,19 +41,14 @@
                             <img src="/UniBook/svg/circle-fill.svg" width="13" height="13" alt="" class="">
                             <span>Recensioni</span>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center my-2   ">
-                            <?php $numAhead = $bookingRepo->getNumberOfPeopleAhead($_SESSION['userid'] ?? -1, $book->getCodeBook()); ?>
-                            <?php if ($bookRepo->getAvailableCopiesCount($book->getCodeBook()) > 0) : ?>
-                                <span class="text-success">Disponibile</span>
-                            <?php else : ?>
-                                <span class=""><?php echo $numAhead; ?> in coda</span>
-                            <?php endif;
+                        <div class="d-flex justify-content-between align-items-center my-2">
+                            <span class="">3 in coda</span>
+                            <?php
                             // Protocollo (http o https)
                             $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
 
                             // Host e URI
                             $currentUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-
                             ?>
 
                         </div>

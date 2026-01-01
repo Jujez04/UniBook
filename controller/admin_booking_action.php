@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $idStudent = $_POST['idstudent'] ?? null;
 $codeBook = $_POST['codebook'] ?? null;
 
-if(!$idStudent || !$codeBook) {
+if (!$idStudent || !$codeBook) {
     header("Location: admin-dashboard.php?error=missing_data");
     exit;
 }
@@ -28,13 +28,12 @@ try {
     }
 
     $loanRepo->create($idStudent, $codeBook, $codeCopy);
+    $loanRepo->update($idStudent, $codeBook, $codeCopy, 'in_prestito');
+    $bookRepo->updateCopyState($codeBook, $codeCopy, 'In_prestito');
     $bookingRepo->delete($idStudent, $codeBook);
 
     header("Location: admin-dashboard.php?msg=booking_accepted");
-
 } catch (Exception $e) {
     header("Location: admin-dashboard.php?error=db_error");
 }
 exit;
-
-?>

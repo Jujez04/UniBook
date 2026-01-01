@@ -20,9 +20,10 @@ require_once(BASE_PATH . "/UniBook/" . "repo/BookRepository.php");
 require_once(BASE_PATH . "/UniBook/" . "repo/CatalogueRepository.php");
 require_once(BASE_PATH . "/UniBook/" . "repo/LoanRepository.php");
 require_once(BASE_PATH . "/UniBook/" . "repo/ReviewRepository.php");
+require_once(BASE_PATH . "/UniBook/" . "repo/TagRepository.php");
 require_once(BASE_PATH . "/UniBook/" . "repo/TagInBookRepository.php");
 require_once("SessionManager.php");
-require_once  'AuthenticationManager.php';
+require_once("AuthenticationManager.php");
 
 $dbh = new DatabaseHelper("localhost", "root", "", "unibook", 3306);
 
@@ -33,6 +34,7 @@ $bookRepo = new BookRepository($dbh);
 $catalogueRepo = new CatalogueRepository($dbh);
 $loanRepo = new LoanRepository($dbh);
 $reviewRepo = new ReviewRepository($dbh);
+$tagRepo = new TagRepository($dbh);
 $tagInBookRepo = new TagInBookRepository($dbh);
 
 if ($studentRepo->findByEmail(ADMIN_EMAIL) === null) {
@@ -50,3 +52,7 @@ $sessionManager = new SessionManager();
 
 //Authentication
 $authManager = new AuthenticationManager($studentRepo, $sessionManager);
+
+$templateParams["js"] = ["js/search-bar-toggle.js", "js/search.js"];
+
+?>

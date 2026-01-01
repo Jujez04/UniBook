@@ -1,11 +1,13 @@
 <?php
-require_once BASE_PATH. "/UniBook/". 'db/database.php';
-require_once BASE_PATH. "/UniBook/". 'orm/Review.php';
+require_once BASE_PATH . "/UniBook/" . 'db/database.php';
+require_once BASE_PATH . "/UniBook/" . 'orm/Review.php';
 
-class ReviewRepository {
+class ReviewRepository
+{
     private $db;
 
-    public function __construct($db) {
+    public function __construct($db)
+    {
         $this->db = $db;
     }
 
@@ -15,7 +17,8 @@ class ReviewRepository {
      * 1. Inseriamo la recensione nella tabella 'review'.
      * 2. Aggiorniamo la riga del prestito ('loan') con l'ID della nuova recensione.
      */
-    public function addReview($idStudent, $codeBook, $codeCopy, $subscriptionDate, $rating, $description) {
+    public function addReview($idStudent, $codeBook, $codeCopy, $subscriptionDate, $rating, $description)
+    {
         $sqlReview = "INSERT INTO review (rating, description) VALUES (?, ?)";
         $this->db->executeQuery($sqlReview, [$rating, $description], 'is');
 
@@ -39,7 +42,8 @@ class ReviewRepository {
     /**
      * Recupera tutte le recensioni di un determinato libro.
      */
-    public function getReviewsByBook($codeBook) {
+    public function getReviewsByBook($codeBook)
+    {
         $sql = "SELECT r.*, s.email,s.name, s.surname, l.subscriptiondate
                 FROM review r
                 JOIN loan l ON r.idreview = l.idreview
@@ -55,7 +59,8 @@ class ReviewRepository {
      * Calcola la media voto di un libro.
      * Utile per mostrare le stelline nel catalogo.
      */
-    public function getAverageRating($codeBook) {
+    public function getAverageRating($codeBook)
+    {
         $sql = "SELECT AVG(r.rating) as avg_rating, COUNT(*) as total_reviews
                 FROM review r
                 JOIN loan l ON r.idreview = l.idreview
@@ -74,7 +79,8 @@ class ReviewRepository {
      * Cancella una recensione.
      * Bisogna prima scollegarla dal prestito (set null) e poi cancellare la riga review.
      */
-    public function deleteReview($idReview) {
+    public function deleteReview($idReview)
+    {
         $sqlUnlink = "UPDATE loan SET idreview = NULL WHERE idreview = ?";
         $this->db->executeStatement($sqlUnlink, [$idReview], 'i');
 
@@ -82,4 +88,3 @@ class ReviewRepository {
         $this->db->executeStatement($sqlDelete, [$idReview], 'i');
     }
 }
-?>

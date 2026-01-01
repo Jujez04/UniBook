@@ -257,14 +257,15 @@ nav div:nth-child(2) ul li a {
 
 
 /*footer style*/
-footer {
+body>footer {
     background-color: #E6AA68;
     text-align: center;
     padding: 10px 0;
     margin-top: 20px;
+
 }
 
-footer p {
+body>footer p {
     margin: 0;
     font-size: 1rem;
     font-weight: bolder;

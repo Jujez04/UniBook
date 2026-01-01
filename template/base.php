@@ -29,11 +29,12 @@
             <!-- Sezione Centro: Link Navigazione (desktop) -->
             <div>
                 <ul>
-                    <li><a href="<?php echo CONTROLLER_PATH . "all-books.php"; ?>">Libri</a></li>
+                    <li><a href="<?php echo CONTROLLER_PATH . "catalogue-books.php"; ?>">Cataloghi</a></li>
+                    <li><a href="<?php echo CONTROLLER_PATH . "books-by-tag.php"; ?>">Tag</a></li>
                 </ul>
             </div>
 
-            <!-- Barra di Ricerca Collapsible -->
+            <!-- Barra di Ricerca -->
 
 
             <!-- Sezione Destra: Icone e Azioni -->
@@ -66,6 +67,7 @@
                             class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/admin-dashboard.php"; ?>">DashBoard</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/add-book-form.php"; ?>">Aggiungi Libro</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -80,12 +82,13 @@
                             class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/reserved-books.php?id=" . $_SESSION['userid']; ?>">Libri prenotati</a></li>
-                            <li><a class="dropdown-item" href="#">Libri in prestito</a></li>
-                            <li><a class="dropdown-item" href="#">Libri in restituzione</a></li>
-
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/borrowed-books.php?id=" . $_SESSION['userid']; ?>">Libri in prestito</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/return-books.php?" ?>">Libri in restituzione</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/returned-books.php?" ?>">Libri restituiti</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/edit-profile-form.php"; ?>">Modifica Profilo</a></li>
                             <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/logout.php"; ?>">Logout</a></li>
                         </ul>
                     </div>
@@ -109,7 +112,7 @@
                         <a class="nav-link py-2 px-4" href="#">
                             <div class="d-flex flex-row align-items-center">
                                 <img src="/UniBook/svg/shop.svg" alt="" width="48" height="48" />
-                                <span>Negozio</span>
+                                <span>placeholder</span>
                             </div>
                         </a>
                     </li>
@@ -117,7 +120,7 @@
                         <a class="nav-link py-2 px-4" href="#">
                             <div class="d-flex flex-row align-items-center">
                                 <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
-                                <span>Negozio</span>
+                                <span>placeholder</span>
                             </div>
                         </a>
                     </li>
@@ -177,19 +180,22 @@
         </div>
 
         <div class="collapse search-collapse" id="searchBar">
-            <form class="search-form">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+            <form class="search-form position-relative" onsubmit="event.preventDefault()">
+                <input id="globalSearchInput" class="form-control" type="search" placeholder="Cerca libro..." aria-label="Search" autocomplete="off"/>
                 <button class="btn btn-outline-success" type="submit">Search</button>
                 <button class="btn btn-outline-danger" id="searchCloseBtn" type="button" data-bs-toggle="collapse"
                     data-bs-target="#searchBar" aria-controls="searchBar">Close</button>
+                <!--Per fare in modo che js inietti i risultati in una lista-->
+                <ul id="globalSearchResults"
+                    class="list-group position-absolute w-100 mt-1">
+                </ul>
             </form>
         </div>
     </nav>
 
     <main>
         <?php
-
-        require $templateParams["content"];
+            require $templateParams["content"];
         ?>
     </main>
     <footer>
@@ -199,8 +205,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="src/search-bar-toggle.js"></script>
+    <script>
+        const API_SEARCH_URL = "<?php echo BASE_URL . 'api/api-search.php'; ?>";
+        const BASE_URL = "<?php echo BASE_URL; ?>";
+    </script>
 
+    <?php foreach($templateParams["js"] as $script) :?>
+        <script src="<?php echo BASE_URL . $script; ?>"></script>
+    <?php endforeach?>
 </body>
 
 </html>
