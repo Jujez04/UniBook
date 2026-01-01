@@ -119,6 +119,19 @@ class BookRepository
         $this->db->executeStatement($sql, [$newState, $codeBook, $codeCopy], 'sii');
     }
 
+    public function findByTag($tagId) {
+        $sql = "SELECT b.*
+            FROM book b, tag_in_book tb
+            WHERE b.codebook = tb.codebook
+            AND tb.idtag = ?";
+        $result = $this->db->executeQuery($sql, [$tagId], 's');
+        $books = [];
+        foreach($result as $row) {
+            $books[] = $this->mapRowToObject($row);
+        }
+        return $books;
+    }
+
     private function mapRowToObject($row)
     {
         return new Book(

@@ -29,7 +29,8 @@
             <!-- Sezione Centro: Link Navigazione (desktop) -->
             <div>
                 <ul>
-                    <li><a href="<?php echo CONTROLLER_PATH . "all-books.php"; ?>">Libri</a></li>
+                    <li><a href="<?php echo CONTROLLER_PATH . "catalogue-books.php"; ?>">Cataloghi</a></li>
+                    <li><a href="<?php echo CONTROLLER_PATH . "books-by-tag.php"; ?>">Tag</a></li>
                 </ul>
             </div>
 
@@ -111,7 +112,7 @@
                         <a class="nav-link py-2 px-4" href="#">
                             <div class="d-flex flex-row align-items-center">
                                 <img src="/UniBook/svg/shop.svg" alt="" width="48" height="48" />
-                                <span>Negozio</span>
+                                <span>placeholder</span>
                             </div>
                         </a>
                     </li>
@@ -119,7 +120,7 @@
                         <a class="nav-link py-2 px-4" href="#">
                             <div class="d-flex flex-row align-items-center">
                                 <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
-                                <span>Negozio</span>
+                                <span>placeholder</span>
                             </div>
                         </a>
                     </li>
@@ -185,8 +186,8 @@
                 <button class="btn btn-outline-danger" id="searchCloseBtn" type="button" data-bs-toggle="collapse"
                     data-bs-target="#searchBar" aria-controls="searchBar">Close</button>
                 <!--Per fare in modo che js inietti i risultati in una lista-->
-                <ul id="globalSearchResults" class="list-group position-absolute w-100 mt-1"ù
-                    style="z-index: 1050; max-height: 300px; overflow-y: auto; display: none;" >
+                <ul id="globalSearchResults"
+                    class="list-group position-absolute w-100 mt-1">
                 </ul>
             </form>
         </div>
@@ -194,8 +195,7 @@
 
     <main>
         <?php
-
-        require $templateParams["content"];
+            require $templateParams["content"];
         ?>
     </main>
     <footer>
