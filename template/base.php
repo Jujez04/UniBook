@@ -39,14 +39,7 @@
 
             <!-- Sezione Destra: Icone e Azioni -->
             <div>
-                <!-- Dropdown Lingua (desktop) -->
-                <div class="dropdown navbar-item desktop-only">
-                    <img src="/UniBook/svg/menu-language-desktop-icon.svg" alt="Language" width="32" height="32"
-                        class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">Inglese</a></li>
-                    </ul>
-                </div>
+
 
                 <!-- Dark Mode Toggle (desktop) -->
                 <a id="dark-mode-switch-desktop" href="#">
@@ -109,33 +102,25 @@
             <div class="offcanvas-body d-flex flex-column justify-content-between mx-3">
                 <ul class="navbar-nav flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link py-2 px-4" href="#">
+                        <a class="nav-link py-2 px-4" href="<?php echo CONTROLLER_PATH . "catalogue-books.php"; ?>">
                             <div class="d-flex flex-row align-items-center">
                                 <img src="/UniBook/svg/shop.svg" alt="" width="48" height="48" />
-                                <span>placeholder</span>
+                                <span>Cataloghi</span>
                             </div>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-2 px-4" href="#">
+                        <a class="nav-link py-2 px-4" href="<?php echo CONTROLLER_PATH . "books-by-tag.php"; ?>">
                             <div class="d-flex flex-row align-items-center">
                                 <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
-                                <span>placeholder</span>
+                                <span>Tag</span>
                             </div>
                         </a>
                     </li>
                 </ul>
 
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link py-2 px-4" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasLanguage" aria-controls="offcanvasLanguage" href="#">
-                            <div class="d-flex flex-row align-items-center">
-                                <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
-                                <span>Cambia Lingua</span>
-                            </div>
-                        </a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link py-2 px-4" id="dark-mode-switch-mobile" href="#">
                             <div class="d-flex flex-row align-items-center">
@@ -187,7 +172,7 @@
                 <!--Per fare in modo che js inietti i risultati in una lista-->
             </form>
             <ul id="globalSearchResults"
-                class="list-group position-absolute w-100 mt-1">
+                class="list-group position-absolute w-100 mt-1 z-3">
             </ul>
         </div>
     </nav>
