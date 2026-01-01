@@ -49,7 +49,7 @@
                 </div>
 
                 <!-- Dark Mode Toggle (desktop) -->
-                <a id="dark-mode-switch" href="#">
+                <a id="dark-mode-switch-desktop" href="#">
                     <img src="/UniBook/svg/dark-mode-desktop-icon.svg" alt="Dark Mode" width="24" height="24">
                 </a>
 
@@ -137,7 +137,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-2 px-4" href="#">
+                        <a class="nav-link py-2 px-4" id="dark-mode-switch-mobile" href="#">
                             <div class="d-flex flex-row align-items-center">
                                 <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
                                 <span>Cambia tema</span>
@@ -204,14 +204,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+
     <script>
         const API_SEARCH_URL = "<?php echo BASE_URL . 'api/api-search.php'; ?>";
         const BASE_URL = "<?php echo BASE_URL; ?>";
     </script>
-
     <?php foreach ($templateParams["js"] as $script) : ?>
         <script src="<?php echo BASE_URL . $script; ?>"></script>
     <?php endforeach ?>
+    <script src="<?php echo BASE_URL . '/js/dark-mode.js'; ?>"></script>
 </body>
 
 </html>

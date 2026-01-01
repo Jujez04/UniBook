@@ -1,0 +1,166 @@
+/* Dark Mode CSS - Solo colori con contrasto AA */
+
+/* Colori di base */
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+/* Tipografia */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #f5f5f5;
+}
+
+/* Link */
+a {
+    color: #66b3ff;
+}
+
+a:hover {
+    color: #99ccff;
+}
+
+main>section>ul:nth-of-type(2)>li>a {
+    color: #66b3ff;
+}
+
+/* Navigation */
+nav,
+nav>div>div:nth-child(5),
+nav>div>div:nth-child(6),
+nav div:nth-child(2),
+nav div:nth-child(3) {
+    background-color: #8b5a2b;
+    color: #ffffff;
+}
+
+nav>div>div:nth-child(6)>div:nth-child(2)>ul>li>a,
+nav>div>div:nth-child(5)>div:nth-child(2)>ul>li>a,
+main input[type="button"],
+nav>div>div>ul>li>a,
+nav>div:first-child>div:nth-child(3)>a:last-child {
+    background-color: #b84440;
+    color: #ffffff;
+}
+
+nav>div>div:nth-child(5)>div:nth-child(2)>ul>li>a.btn,
+nav>div>div:nth-child(6)>div:nth-child(2)>ul>li>a.btn {
+    background-color: #3a2f1f;
+    color: #ffffff;
+}
+
+nav>div:first-child>div:nth-child(3)>div:last-child a {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+nav>div:first-child>div:nth-child(3)>div:last-child a:hover {
+    background-color: #3a3a3a;
+    color: #ffffff;
+}
+
+nav div:nth-child(2) ul li a,
+nav>div:first-child>div:nth-child(2)>ul li a {
+    color: #ffffff;
+}
+
+/* Header */
+body>header {
+    background-color: #8b5a2b;
+}
+
+/* Footer */
+body>footer {
+    background-color: #8b5a2b;
+    color: #e0e0e0;
+}
+
+/* Cards */
+section article.card,
+main article {
+    background-color: #3a2f1f;
+}
+
+body>div>form:first-child {
+    background-color: #3a2f1f;
+}
+
+section>ul>li {
+    background-color: #3a2f1f;
+}
+
+/* Form */
+main>form ul,
+nav>div:first-child>div:nth-child(3)>form {
+    background-color: #3a2f1f;
+}
+
+main>form>ul>li>input[type="submit"],
+main>section>div>form>input[type="submit"],
+form footer input {
+    background-color: #b84440;
+    color: #ffffff;
+}
+
+main>form ul li a {
+    background-color: #555555;
+    color: #e0e0e0;
+}
+
+main>form ul li input:not([type="submit"]),
+main>form ul li select,
+main>form ul li textarea,
+main>section>div>form>input:not([type="submit"]),
+nav>div:last-child form input[type="search"] {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-color: #444444;
+}
+
+main>form ul li input:not([type="submit"]):focus,
+main>form ul li select:focus,
+main>form ul li textarea:focus,
+main>section>div>form>input:not([type="submit"]):focus {
+    background-color: #333333;
+    border-color: #66b3ff;
+}
+
+main>form[action="edit-profile-action.php"] ul li>div img {
+    border-color: #444444;
+}
+
+/* HR */
+hr {
+    border-color: #e0e0e0;
+}
+
+/* Images */
+main>section img,
+section article.card>img {
+    border-color: #444444;
+}
+
+/* Button hover states */
+nav>div>div:first-child>button {
+    background-color: #2a2a2a;
+    border-color: #444444;
+    color: #e0e0e0;
+}
+
+nav>div>div:first-child>button>span {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28224, 224, 224, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Form dropdown backgrounds */
+form ul {
+    background-color: #2a2a2a;
+}
+
+section>header {
+    background-color: transparent;
+}
