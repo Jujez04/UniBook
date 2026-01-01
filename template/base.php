@@ -33,7 +33,7 @@
                 </ul>
             </div>
 
-            <!-- Barra di Ricerca Collapsible -->
+            <!-- Barra di Ricerca -->
 
 
             <!-- Sezione Destra: Icone e Azioni -->
@@ -179,11 +179,15 @@
         </div>
 
         <div class="collapse search-collapse" id="searchBar">
-            <form class="search-form">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+            <form class="search-form position-relative" onsubmit="event.preventDefault()">
+                <input id="globalSearchInput" class="form-control" type="search" placeholder="Cerca libro..." aria-label="Search" autocomplete="off"/>
                 <button class="btn btn-outline-success" type="submit">Search</button>
                 <button class="btn btn-outline-danger" id="searchCloseBtn" type="button" data-bs-toggle="collapse"
                     data-bs-target="#searchBar" aria-controls="searchBar">Close</button>
+                <!--Per fare in modo che js inietti i risultati in una lista-->
+                <ul id="globalSearchResults" class="list-group position-absolute w-100 mt-1"ù
+                    style="z-index: 1050; max-height: 300px; overflow-y: auto; display: none;" >
+                </ul>
             </form>
         </div>
     </nav>
@@ -201,8 +205,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="src/search-bar-toggle.js"></script>
+    <script>
+        const API_SEARCH_URL = "<?php echo BASE_URL . 'api/api-search.php'; ?>";
+        const BASE_URL = "<?php echo BASE_URL; ?>";
+    </script>
 
+    <?php foreach($templateParams["js"] as $script) :?>
+        <script src="<?php echo BASE_URL . $script; ?>"></script>
+    <?php endforeach?>
 </body>
 
 </html>

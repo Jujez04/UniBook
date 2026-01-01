@@ -23,7 +23,7 @@ require_once(BASE_PATH . "/UniBook/" . "repo/ReviewRepository.php");
 require_once(BASE_PATH . "/UniBook/" . "repo/TagRepository.php");
 require_once(BASE_PATH . "/UniBook/" . "repo/TagInBookRepository.php");
 require_once("SessionManager.php");
-require_once  'AuthenticationManager.php';
+require_once("AuthenticationManager.php");
 
 $dbh = new DatabaseHelper("localhost", "root", "", "unibook", 3306);
 
@@ -52,3 +52,7 @@ $sessionManager = new SessionManager();
 
 //Authentication
 $authManager = new AuthenticationManager($studentRepo, $sessionManager);
+
+$templateParams["js"] = ["js/search-bar-toggle.js", "js/search.js"];
+
+?>
