@@ -130,3 +130,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     header("Location: " . BASE_URL . "/controller/edit-profile-form.php");
     exit;
 }
+
+?>
