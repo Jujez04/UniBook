@@ -202,7 +202,6 @@
     <?php foreach ($templateParams["js"] as $script) : ?>
         <script src="<?php echo BASE_URL . $script; ?>"></script>
     <?php endforeach ?>
-    <script src="<?php echo BASE_URL . '/js/dark-mode.js'; ?>"></script>
 </body>
 
 </html>
