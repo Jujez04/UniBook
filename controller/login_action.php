@@ -14,3 +14,4 @@ if ($authManager->login()) {
     header("Location: " . BASE_URL . "/controller/login-form.php?error=credenziali_errate");
     exit;
 }
+?>

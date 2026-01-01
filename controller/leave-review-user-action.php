@@ -10,3 +10,4 @@ $reviewRepo->addReview((int)$idStudent, (int)$codeBook, (int)$codeCopy, $subscri
 $redirectUrl = "/UniBook/index.php";
 header("Location: $redirectUrl");
 exit();
+?>

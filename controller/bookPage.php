@@ -8,3 +8,5 @@ $templateParams["content"] =  BASE_PATH . "/UniBook/view/book-view.php";
 $templateParams["css"] = "user_style.css";
 
 require '../template/base.php';
+
+?>

@@ -23,7 +23,6 @@ try {
 
     $codeCopy = $bookRepo->findFirstAvailableCopy($codeBook);
     if ($codeCopy === null) {
-        // ERRORE: Non ci sono copie fisiche libere.
         header("Location: admin-dashboard.php?error=no_copies_available");
         exit;
     }
@@ -38,3 +37,4 @@ try {
     header("Location: admin-dashboard.php?error=db_error");
 }
 exit;
+?>

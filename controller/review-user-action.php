@@ -11,3 +11,4 @@ $templateParams['idstudent'] = $_POST['idstudent'] ?? null;
 $templateParams['subscriptiondate'] = $_POST['subscriptiondate'] ?? null;
 $templateParams["css"] = "user_style.css";
 require  BASE_PATH . "/UniBook/" . 'template/base.php';
+?>

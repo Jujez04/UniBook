@@ -93,3 +93,4 @@ $templateParams["css"] = "user_style.css";
 
 header("Location: " . BASE_URL . "/controller/login-form.php");
 exit;
+?>

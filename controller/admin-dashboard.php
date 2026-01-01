@@ -8,3 +8,5 @@ $templateParams["css"] = "style.css";
 $templateParams["css"] = "style_admin-booking.css";
 
 require BASE_PATH .  "/UniBook/template/base.php";
+
+?>

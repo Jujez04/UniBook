@@ -29,3 +29,4 @@ try {
     header("Location: admin-dashboard.php?error=db_error");
 }
 exit;
+?>
