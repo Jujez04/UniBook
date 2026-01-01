@@ -181,21 +181,20 @@
 
         <div class="collapse search-collapse" id="searchBar">
             <form class="search-form position-relative" onsubmit="event.preventDefault()">
-                <input id="globalSearchInput" class="form-control" type="search" placeholder="Cerca libro..." aria-label="Search" autocomplete="off"/>
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <input id="globalSearchInput" class="form-control" type="search" placeholder="Cerca libro..." aria-label="Search" autocomplete="off" />
                 <button class="btn btn-outline-danger" id="searchCloseBtn" type="button" data-bs-toggle="collapse"
                     data-bs-target="#searchBar" aria-controls="searchBar">Close</button>
                 <!--Per fare in modo che js inietti i risultati in una lista-->
-                <ul id="globalSearchResults"
-                    class="list-group position-absolute w-100 mt-1">
-                </ul>
             </form>
+            <ul id="globalSearchResults"
+                class="list-group position-absolute w-100 mt-1">
+            </ul>
         </div>
     </nav>
 
     <main>
         <?php
-            require $templateParams["content"];
+        require $templateParams["content"];
         ?>
     </main>
     <footer>
@@ -210,9 +209,9 @@
         const BASE_URL = "<?php echo BASE_URL; ?>";
     </script>
 
-    <?php foreach($templateParams["js"] as $script) :?>
+    <?php foreach ($templateParams["js"] as $script) : ?>
         <script src="<?php echo BASE_URL . $script; ?>"></script>
-    <?php endforeach?>
+    <?php endforeach ?>
 </body>
 
 </html>

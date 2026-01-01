@@ -1,3 +1,5 @@
+const pulsante = document.getElementById('searchButton');
+
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('globalSearchInput');
     const resultsContainer = document.getElementById('globalSearchResults'); // Recupero la lista
