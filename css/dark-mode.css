@@ -72,32 +72,68 @@ nav>div:first-child>div:nth-child(2)>ul li a {
 /* Header */
 body>header {
     background-color: #8b5a2b;
+    color: #ffffff;
 }
 
 /* Footer */
 body>footer {
     background-color: #8b5a2b;
-    color: #e0e0e0;
+    color: #ffffff;
+}
+
+body>footer p {
+    color: #ffffff;
 }
 
 /* Cards */
 section article.card,
 main article {
     background-color: #3a2f1f;
+    color: #ffffff;
+}
+
+section article.card h3,
+main article h3,
+main section article h5 {
+    color: #ffffff;
+}
+
+main section article h5 a {
+    color: #ffffff;
+}
+
+main section article>div>div>span {
+    color: #ffffff;
+}
+
+main section article>div>div:nth-of-type(2)>span {
+    color: #ffffff;
+}
+
+main section article>div>div:nth-of-type(2)>a {
+    background-color: #b84440;
+    color: #ffffff;
 }
 
 body>div>form:first-child {
     background-color: #3a2f1f;
+    color: #ffffff;
 }
 
 section>ul>li {
     background-color: #3a2f1f;
+    color: #ffffff;
 }
 
 /* Form */
 main>form ul,
 nav>div:first-child>div:nth-child(3)>form {
     background-color: #3a2f1f;
+    color: #ffffff;
+}
+
+main>form ul li label {
+    color: #ffffff;
 }
 
 main>form>ul>li>input[type="submit"],
@@ -109,7 +145,7 @@ form footer input {
 
 main>form ul li a {
     background-color: #555555;
-    color: #e0e0e0;
+    color: #ffffff;
 }
 
 main>form ul li input:not([type="submit"]),
@@ -163,4 +199,13 @@ form ul {
 
 section>header {
     background-color: transparent;
+}
+
+main section article h5 {
+    color: #ffffff;
+}
+
+main section article h5 a {
+    color: #ffffff;
+    text-decoration: none;
 }

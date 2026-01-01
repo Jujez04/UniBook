@@ -15,7 +15,7 @@
                     <img src=" <?php echo UPLOAD_DIR . 'books/' . htmlspecialchars($book->getImage()); ?>" class=" " alt="immagine libro" />
                     <div class="card-body p-2   ">
                         <h5 class="card-title">
-                            <a href="bookPage.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none text-dark">
+                            <a href="bookPage.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none   ">
                                 <?php echo $book->getTitle(); ?>
                             </a>
                         </h5>

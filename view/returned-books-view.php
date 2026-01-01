@@ -1,3 +1,6 @@
+<?php
+var_dump($templateParams);
+?>
 <section>
     <div class=" row gap-3 h-auto mb-10 align-items-center">
 
@@ -5,13 +8,11 @@
     <div class=" container-fluid my-2" id="<?php echo $collapse_id; ?>">
         <div class="row justify-content-center gap-3">
             <?php foreach ($templateParams['returned_books_loans'] as $loan) :
-                if ($loan->getState() !== 'restituito' || $loan->getIdReview() != null) {
+                if ($loan->getState() !== 'restituito') {
                     continue;
                 }
                 $book = $bookRepo->findById($loan->getCodeBook());
-                if ($loanRepo->hasBeenReviewed((int)$loan->getIdStudent(), (int)$loan->getCodeBook())) {
-                    continue;
-                }
+
             ?>
                 <article
                     class="card flex-row  d-flex justify-content-center col-12 col-sm-6  col-md-4 col-lg-3 m-0 p-0">
@@ -74,7 +75,12 @@
                             <input type="hidden" name="codecopy" value="<?php echo $loan->getCodeCopy(); ?>">
                             <input type="hidden" name="idstudent" value="<?php echo $loan->getIdStudent(); ?>">
                             <input type="hidden" name="subscriptiondate" value="<?php echo $loan->getSubscriptionDate(); ?>">
-                            <input type="submit" value="Recensione" class="btn btn-danger px-15">
+                            <?php if (!$loanRepo->hasBeenReviewed((int)$loan->getIdStudent(), (int)$loan->getCodeBook())) : ?>
+                                <input type="submit" value="Lascia Recensione" class="btn btn-danger px-15">
+                            <?php else : ?>
+                                <span class="text-success">Recensito</span>
+                            <?php endif; ?>
+
                         </form>
                     </div>
                 </article>

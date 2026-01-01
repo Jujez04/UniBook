@@ -130,16 +130,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-2 px-4" href="#">
-                            <div class="d-flex flex-row align-items-center">
-                                <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
-                                <?php if ($sessionManager->isLogged()) : ?>
-                                    <span>Log out</span>
-                                <?php else : ?>
+                        <?php if ($sessionManager->isLogged() || $sessionManager->isAdminLogged()) : ?>
+                            <a class="nav-link py-2 px-4" href="<?php echo BASE_URL . "controller/logout.php"; ?>">
+                                <div class="d-flex flex-row align-items-center">
+                                    <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
+                                    <span>Logout</span>
+                                </div>
+                            </a>
+                        <?php else : ?>
+                            <a class="nav-link py-2 px-4" href="<?php echo BASE_URL . "controller/login-form.php"  ?>">
+                                <div class="d-flex flex-row align-items-center">
+                                    <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
                                     <span>Log in</span>
-                                <?php endif; ?>
-                            </div>
-                        </a>
+                                </div>
+                            </a>
+                        <?php endif; ?>
                     </li>
                 </ul>
             </div>
