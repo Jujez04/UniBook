@@ -39,7 +39,8 @@ nav>div:nth-child(1)>div:nth-child(3)>a:last-child {
     background-color: #A72925 !important;
 }
 
-nav>div:nth-child(1)>div:nth-child(3)>a:last-child {
+nav>div:nth-child(1)>div:nth-child(3)>a:last-child,
+nav div:nth-child(2) ul li a {
     background-color: #A72925 !important;
     color: white !important;
     display: flex;
@@ -227,6 +228,14 @@ nav div:nth-child(2) ul li a {
     text-decoration: none;
     padding: 8px 16px;
     display: block;
+}
+
+nav div:nth-child(2) ul li a {
+    height: max-content;
+}
+
+nav div:nth-child(2) ul li a img {
+    margin-right: 8px;
 }
 
 /* Responsive */
