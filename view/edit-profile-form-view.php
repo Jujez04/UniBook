@@ -50,16 +50,17 @@ $student = $templateParams['student'];
         </li>
         <li>
             <label for="photo">Foto Profilo:</label>
-            <?php if (!empty($student->getProfileImage())): ?>
-                <div class="current-photo">
-                    <img src="<?php echo BASE_URL . '/upload/students/' . htmlspecialchars($student->getProfileImage()); ?>"
-                        alt="Foto Profilo Attuale"
-                        style="max-width: 150px; display: block; margin-bottom: 10px;" />
-                    <small>Foto attuale</small>
-                </div>
-            <?php endif; ?>
-            <input type="file" id="photo" name="photo" accept="image/*" />
-            <small>Lascia vuoto per mantenere la foto attuale. Dimensione massima: 5MB</small>
+            <div>
+                <?php if (!empty($student->getProfileImage())): ?>
+                    <div class="current-photo">
+                        <small>Foto attuale</small>
+                        <img src="<?php echo BASE_URL . '/upload/students/' . htmlspecialchars($student->getProfileImage()); ?>"
+                            alt="Foto Profilo Attuale"
+                            style="max-width: 150px; display: block; margin-bottom: 10px;" />
+                    </div>
+                <?php endif; ?>
+                <input type="file" id="photo" name="photo" accept="image/*" />
+            </div>
         </li>
         <li>
             <input type="checkbox" id="remove_photo" name="remove_photo" value="1" />
