@@ -48,7 +48,7 @@ if (isset($_GET["success"])) {
             <label for="nuovo-catalogo">Nome nuovo catalogo:</label><input type="text" id="nuovo-catalogo" name="nuovo-catalogo" />
         </li>
         <li>
-            <label for="tag" title="Inserisci un tag per riga">Tag<sup><strong>&#9432;</strong></sup>:</label><textarea id="tag" name="tag"></textarea>
+            <label for="tag" title="Inserisci un tag per riga senza #">Tag<sup><strong>&#9432;</strong></sup>:</label><textarea id="tag" name="tag"></textarea>
         </li>
         <li>
             <input type="submit" name="submit" value="Invia" />

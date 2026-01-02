@@ -66,7 +66,7 @@
                                         <?php $studentId = $_SESSION['userid']; ?>
                                         <?php if ($loanRepo->isBorrowed($studentId, $book->getCodeBook())) :
                                         ?>
-                                            <a href="#" class="btn btn-secondary px-15">In Prestito</a>
+                                            <a href="#" class="btn btn-secondary px-15">In prestito</a>
                                         <?php elseif (
                                             !$bookingRepo->isBooked($studentId, $book->getCodeBook())
 

@@ -15,16 +15,19 @@ class LoanRepository
     public function create($idStudent, $codeBook, $codeCopy)
     {
         $date = date('Y-m-d');
+        // Calcola 30 giorni dalla sottoscrizione
+        $refundDate = date('Y-m-d', strtotime($date . ' + 30 days'));
 
         $sql = "INSERT INTO loan (idstudent, codebook, codecopy, subscriptiondate, state, refunddata, idreview)
-            VALUES (?, ?, ?, ?, 'in_prestito', NULL, NULL)";
+            VALUES (?, ?, ?, ?, 'in_prestito', ?, NULL)";
 
         $this->db->executeStatement($sql, [
             $idStudent,
             $codeBook,
             $codeCopy,
-            $date
-        ], 'iiis');
+            $date,
+            $refundDate
+        ], 'iiiss');
     }
     public function update($idStudent, $codeBook, $codeCopy, $state)
     {

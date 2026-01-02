@@ -73,8 +73,6 @@ if (isset($_GET["error"])) {
                         <li><?php echo $book->getTitle(); ?></li>
                         <li>Scadenza:</li>
                         <li><?php echo $loan->getRefundData(); ?></li>
-                        <li>Stato</li>
-                        <li><?php echo $loan->getState(); ?></li>
                     </ul>
 
                 </form>
@@ -106,8 +104,6 @@ if (isset($_GET["error"])) {
                         <li><?php echo $book->getTitle(); ?></li>
                         <li>Scadenza:</li>
                         <li><?php echo $loan->getRefundData(); ?></li>
-                        <li>Stato</li>
-                        <li><?php echo $loan->getState(); ?></li>
                     </ul>
                     <footer>
                         <input type="submit" value="Accetta" />
@@ -141,8 +137,6 @@ if (isset($_GET["error"])) {
                         <li><?php echo $book->getTitle(); ?></li>
                         <li>Scadenza:</li>
                         <li><?php echo $loan->getRefundData(); ?></li>
-                        <li>Stato</li>
-                        <li><?php echo $loan->getState(); ?></li>
                     </ul>
 
                 </form>

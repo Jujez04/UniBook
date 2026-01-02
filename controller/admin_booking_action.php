@@ -29,7 +29,7 @@ try {
 
     $loanRepo->create($idStudent, $codeBook, $codeCopy);
     $loanRepo->update($idStudent, $codeBook, $codeCopy, 'in_prestito');
-    $bookRepo->updateCopyState($codeBook, $codeCopy, 'In_prestito');
+    $bookRepo->updateCopyState($codeBook, $codeCopy, 'in_prestito');
     $bookingRepo->delete($idStudent, $codeBook);
 
     header("Location: admin-dashboard.php?msg=booking_accepted");

@@ -155,7 +155,7 @@ CREATE TABLE `loan` (
 
 LOCK TABLES `loan` WRITE;
 /*!40000 ALTER TABLE `loan` DISABLE KEYS */;
-INSERT INTO `loan` VALUES (1,1,1,1,'2025-02-01','2025-01-10','Restituito'),(2,2,1,NULL,'2025-03-01','2025-02-01','In Prestito'),(3,5,1,NULL,'2025-03-01','2025-02-05','In Restituzione');
+INSERT INTO `loan` VALUES (1,1,1,1,'2025-02-01','2025-01-10','Restituito'),(2,2,1,NULL,'2025-03-01','2025-02-01','In prestito'),(3,5,1,NULL,'2025-03-01','2025-02-05','In Restituzione');
 /*!40000 ALTER TABLE `loan` ENABLE KEYS */;
 UNLOCK TABLES;
 
