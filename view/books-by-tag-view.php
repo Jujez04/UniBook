@@ -7,7 +7,7 @@
         <section class="mb-5">
             <div class="row h-auto align-items-center">
                 <div class="col"></div>
-                <h2 class="text-center col text-uppercase"><?php echo "#" . $content['tag_id']; ?></h2>
+                <h2 class="text-center col"><?php echo "#" . ucfirst($content['tag_id']); ?></h2>
                 <div class="col">
                     <img src="<?php echo BASE_URL; ?>svg/light/open-collapse.svg" alt="Toggle Tag" data-bs-toggle="collapse"
                         data-bs-target="#<?php echo $collapse_id; ?>" class="btn col w-auto" />
