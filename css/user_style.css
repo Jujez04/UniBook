@@ -312,11 +312,12 @@ main>form[action="edit-profile-action.php"] ul li>div img {
     margin-right: 20px;
 }
 
-main section article h5 {
+main section article h3 {
     color: #000000;
 }
 
-main section article h5 a {
+main section article h3 a {
+    font-size: medium;
     color: #000000;
     text-decoration: none;
 }

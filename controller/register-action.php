@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         header("Location: " . BASE_URL . "/controller/register-form.php?error=password_mismatch");
         exit;
     }
-    
+
 
     // Gestione del file caricato
     $photo = $_FILES['photo'] ?? null;
@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
     if ($photoName) {
         echo "<p><strong>Foto Profilo:</strong> " . htmlspecialchars($photoName) . "</p>";
-        echo "<p><img src='" . htmlspecialchars($uploadDir . $photoName) . "' alt='Foto Profilo' style='max-width: 200px;'></p>";
+        echo "<p><img src='" . htmlspecialchars($uploadDir . $photoName) . "' alt='Foto Profilo' style='max-width: 200px;'/></p>";
     }
 
     if ($photoError) {
@@ -93,4 +93,3 @@ $templateParams["css"] = "user_style.css";
 
 header("Location: " . BASE_URL . "/controller/login-form.php");
 exit;
-?>
