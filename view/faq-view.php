@@ -3,7 +3,7 @@
         <div class="col-12 col-lg-10">
 
             <h2 class="text-center text-uppercase fw-bold mb-4">Domande Frequenti</h2>
-            <p class="text-center text-muted mb-5">Hai dubbi su come funziona UniBook? Qui trovi le risposte alle domande più comuni.</p>
+            <p class="text-center mb-5">Hai dubbi su come funziona UniBook? Qui trovi le risposte alle domande più comuni.</p>
 
             <div class="accordion shadow-sm" id="accordionFAQ">
 

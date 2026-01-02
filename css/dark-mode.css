@@ -12,7 +12,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
     color: #f5f5f5;
 }
 
@@ -35,7 +36,7 @@ nav>div>div:nth-child(5),
 nav>div>div:nth-child(6),
 nav div:nth-child(2),
 nav div:nth-child(3) {
-    background-color: #8b5a2b;
+    background-color: #cb7728;
     color: #ffffff;
 }
 
@@ -71,13 +72,13 @@ nav>div:first-child>div:nth-child(2)>ul li a {
 
 /* Header */
 body>header {
-    background-color: #8b5a2b;
+    background-color: #cb7728;
     color: #ffffff;
 }
 
 /* Footer */
 body>footer {
-    background-color: #8b5a2b;
+    background-color: #cb7728;
     color: #ffffff;
 }
 
@@ -149,7 +150,6 @@ form footer input {
 }
 
 main>form ul li a {
-    background-color: #555555;
     color: #ffffff;
 }
 
@@ -212,5 +212,11 @@ main section article h3 {
 
 main section article h3 a {
     color: #ffffff;
+    text-decoration: none;
+}
+
+
+main form ul li>p>a {
+    color: #66b3ff;
     text-decoration: none;
 }
