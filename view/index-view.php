@@ -1,4 +1,4 @@
-<h1 class="text-center">Benvenuti su UniBook</h1>
+<h1 class="text-center fw-bold">Benvenuti su UniBook!</h1>
 <?php foreach ($templateParams['home_content'] as $content) : ?>
     <?php $collapse_id = "cat_" . $content['catalogue_id']; ?>
     <section class="mb-5">
