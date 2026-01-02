@@ -35,24 +35,11 @@
 
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <strong>Cosa succede se riconsegno un libro in ritardo?</strong>
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionFAQ">
-                        <div class="accordion-body">
-                            Il rispetto delle scadenze è importante per garantire il servizio a tutti gli studenti. Se consegni in ritardo, il tuo account potrebbe subire una <strong>sospensione temporanea</strong> che ti impedirà di effettuare nuove prenotazioni per un periodo pari ai giorni di ritardo accumulati.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFour">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                             <strong>Posso annullare una prenotazione?</strong>
                         </button>
                     </h2>
-                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionFAQ">
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionFAQ">
                         <div class="accordion-body">
                             Certamente. Puoi gestire le tue prenotazioni attive accedendo alla tua <strong>Area Personale</strong> sotto la voce "Libri Prenotati". Lì troverai l'opzione per cancellare la richiesta se non hai ancora ritirato il libro.
                         </div>
