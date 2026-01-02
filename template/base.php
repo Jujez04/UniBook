@@ -39,17 +39,10 @@
 
             <!-- Sezione Destra: Icone e Azioni -->
             <div>
-                <!-- Dropdown Lingua (desktop) -->
-                <div class="dropdown navbar-item desktop-only">
-                    <img src="/UniBook/svg/menu-language-desktop-icon.svg" alt="Language" width="32" height="32"
-                        class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">Inglese</a></li>
-                    </ul>
-                </div>
+
 
                 <!-- Dark Mode Toggle (desktop) -->
-                <a id="dark-mode-switch" href="#">
+                <a id="dark-mode-switch-desktop" href="#">
                     <img src="/UniBook/svg/dark-mode-desktop-icon.svg" alt="Dark Mode" width="24" height="24">
                 </a>
 
@@ -109,35 +102,27 @@
             <div class="offcanvas-body d-flex flex-column justify-content-between mx-3">
                 <ul class="navbar-nav flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link py-2 px-4" href="#">
+                        <a class="nav-link py-2 px-4" href="<?php echo CONTROLLER_PATH . "catalogue-books.php"; ?>">
                             <div class="d-flex flex-row align-items-center">
                                 <img src="/UniBook/svg/shop.svg" alt="" width="48" height="48" />
-                                <span>placeholder</span>
+                                <span>Cataloghi</span>
                             </div>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-2 px-4" href="#">
+                        <a class="nav-link py-2 px-4" href="<?php echo CONTROLLER_PATH . "books-by-tag.php"; ?>">
                             <div class="d-flex flex-row align-items-center">
                                 <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
-                                <span>placeholder</span>
+                                <span>Tag</span>
                             </div>
                         </a>
                     </li>
                 </ul>
 
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+
                     <li class="nav-item">
-                        <a class="nav-link py-2 px-4" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasLanguage" aria-controls="offcanvasLanguage" href="#">
-                            <div class="d-flex flex-row align-items-center">
-                                <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
-                                <span>Cambia Lingua</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-2 px-4" href="#">
+                        <a class="nav-link py-2 px-4" id="dark-mode-switch-mobile" href="#">
                             <div class="d-flex flex-row align-items-center">
                                 <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
                                 <span>Cambia tema</span>
@@ -145,16 +130,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-2 px-4" href="#">
-                            <div class="d-flex flex-row align-items-center">
-                                <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
-                                <?php if ($sessionManager->isLogged()) : ?>
-                                    <span>Log out</span>
-                                <?php else : ?>
+                        <?php if ($sessionManager->isLogged() || $sessionManager->isAdminLogged()) : ?>
+                            <a class="nav-link py-2 px-4" href="<?php echo BASE_URL . "controller/logout.php"; ?>">
+                                <div class="d-flex flex-row align-items-center">
+                                    <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
+                                    <span>Logout</span>
+                                </div>
+                            </a>
+                        <?php else : ?>
+                            <a class="nav-link py-2 px-4" href="<?php echo BASE_URL . "controller/login-form.php"  ?>">
+                                <div class="d-flex flex-row align-items-center">
+                                    <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
                                     <span>Log in</span>
-                                <?php endif; ?>
-                            </div>
-                        </a>
+                                </div>
+                            </a>
+                        <?php endif; ?>
                     </li>
                 </ul>
             </div>
@@ -181,21 +171,20 @@
 
         <div class="collapse search-collapse" id="searchBar">
             <form class="search-form position-relative" onsubmit="event.preventDefault()">
-                <input id="globalSearchInput" class="form-control" type="search" placeholder="Cerca libro..." aria-label="Search" autocomplete="off"/>
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <input id="globalSearchInput" class="form-control" type="search" placeholder="Cerca libro..." aria-label="Search" autocomplete="off" />
                 <button class="btn btn-outline-danger" id="searchCloseBtn" type="button" data-bs-toggle="collapse"
                     data-bs-target="#searchBar" aria-controls="searchBar">Close</button>
                 <!--Per fare in modo che js inietti i risultati in una lista-->
-                <ul id="globalSearchResults"
-                    class="list-group position-absolute w-100 mt-1">
-                </ul>
             </form>
+            <ul id="globalSearchResults"
+                class="list-group position-absolute w-100 mt-1 z-3">
+            </ul>
         </div>
     </nav>
 
     <main>
         <?php
-            require $templateParams["content"];
+        require $templateParams["content"];
         ?>
     </main>
     <footer>
@@ -206,14 +195,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+
     <script>
         const API_SEARCH_URL = "<?php echo BASE_URL . 'api/api-search.php'; ?>";
         const BASE_URL = "<?php echo BASE_URL; ?>";
     </script>
-
-    <?php foreach($templateParams["js"] as $script) :?>
+    <?php foreach ($templateParams["js"] as $script) : ?>
         <script src="<?php echo BASE_URL . $script; ?>"></script>
-    <?php endforeach?>
+    <?php endforeach ?>
 </body>
 
 </html>

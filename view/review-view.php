@@ -1,5 +1,4 @@
     <?php
-    var_dump($templateParams);
     ?>
     <form action="leave-review-user-action.php" method="POST">
 

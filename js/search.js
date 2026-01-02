@@ -1,3 +1,5 @@
+const pulsante = document.getElementById('searchButton');
+const cardTitle = document.querySelectorAll('.card-title');
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('globalSearchInput');
     const resultsContainer = document.getElementById('globalSearchResults'); // Recupero la lista

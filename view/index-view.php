@@ -1,8 +1,8 @@
 <h1 class="text-center">Benvenuti su UniBook</h1>
 <?php foreach ($templateParams['home_content'] as $content) : ?>
     <?php $collapse_id = "cat_" . $content['catalogue_id']; ?>
-    <section class="mb-0">
-        <div class=" row align-items-center">
+    <section class="mb-5">
+        <div class=" h-auto row align-items-center">
             <div class="col"></div>
             <h2 class="text-center col"><?php echo $content['catalogue_name']; ?></h2>
             <div class="col">
@@ -18,7 +18,7 @@
                         <img src=" <?php echo BASE_URL; ?>upload/books/<?php echo $book->getImage(); ?>" class=" " alt="immagine libro" />
                         <div class="card-body p-2   ">
                             <h5 class="card-title">
-                                <a href="<?php echo BASE_URL; ?>/controller/bookPage.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none text-dark">
+                                <a href="<?php echo BASE_URL; ?>/controller/bookPage.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none ">
                                     <?php echo $book->getTitle(); ?>
                                 </a>
                             </h5>
@@ -61,22 +61,24 @@
                                 $currentUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
                                 ?>
-                                <?php if ($sessionManager->isLogged() && !$sessionManager->isAdminLogged()) : ?>
-                                    <?php $studentId = $_SESSION['userid']; ?>
-                                    <?php if ($loanRepo->isBorrowed($studentId, $book->getCodeBook())) :
-                                    ?>
-                                        <a href="#" class="btn btn-secondary px-15">In Prestito</a>
-                                    <?php elseif (
-                                        !$bookingRepo->isBooked($studentId, $book->getCodeBook())
+                                <?php if (!$sessionManager->isAdminLogged()) : ?>
+                                    <?php if ($sessionManager->isLogged()) : ?>
+                                        <?php $studentId = $_SESSION['userid']; ?>
+                                        <?php if ($loanRepo->isBorrowed($studentId, $book->getCodeBook())) :
+                                        ?>
+                                            <a href="#" class="btn btn-secondary px-15">In Prestito</a>
+                                        <?php elseif (
+                                            !$bookingRepo->isBooked($studentId, $book->getCodeBook())
 
-                                    ) : ?>
-                                        <a href=" <?php echo BASE_URL ?>/controller/reservation.php?redirect=<?php echo urlencode($currentUrl); ?>&idbook=<?php echo (int)$book->getCodeBook(); ?>&idstudent=<?php echo $studentId; ?>" class="btn btn-danger px-15">Prenota</a>
+                                        ) : ?>
+                                            <a href=" <?php echo BASE_URL ?>/controller/reservation.php?redirect=<?php echo urlencode($currentUrl); ?>&idbook=<?php echo (int)$book->getCodeBook(); ?>&idstudent=<?php echo $studentId; ?>" class="btn btn-danger px-15">Prenota</a>
+                                        <?php else : ?>
+                                            <a href="#" class="btn btn-secondary px-15 disabled">Prenotato</a>
+                                        <?php endif; ?>
+
                                     <?php else : ?>
-                                        <a href="#" class="btn btn-secondary px-15 disabled">Prenotato</a>
+                                        <a href=" <?php echo BASE_URL  ?>/controller/login-form.php" class="btn btn-danger px-15">Prenota</a>
                                     <?php endif; ?>
-
-                                <?php else : ?>
-                                    <a href=" <?php echo BASE_URL  ?>/controller/login-form.php" class="btn btn-danger px-15">Prenota</a>
                                 <?php endif; ?>
 
                             </div>

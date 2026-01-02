@@ -9,7 +9,7 @@ try {
     $books = $bookRepo->search($query);
 
     $results = [];
-    foreach($books as $book) {
+    foreach ($books as $book) {
         $results[] = [
             'id' => $book->getCodeBook(),
             'title' => $book->getTitle(),
@@ -21,4 +21,3 @@ try {
 } catch (Exception $e) {
     echo json_encode([]);
 }
-?>

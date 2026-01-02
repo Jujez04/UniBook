@@ -26,7 +26,7 @@
 
                             <div class="card-body p-2">
                                 <h5 class="card-title">
-                                    <a href="<?php echo CONTROLLER_PATH; ?>bookPage.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none text-dark">
+                                    <a href="<?php echo CONTROLLER_PATH; ?>bookPage.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none ">
                                         <?php echo $book->getTitle(); ?>
                                     </a>
                                 </h5>
@@ -72,20 +72,21 @@
                                     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
                                     $currentUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                                     ?>
+                                    <?php if (!$sessionManager->isAdminLogged()) : ?>
+                                        <?php if ($sessionManager->isLogged()) : ?>
+                                            <?php $studentId = $_SESSION['userid']; ?>
 
-                                    <?php if ($sessionManager->isLogged() && !$sessionManager->isAdminLogged()) : ?>
-                                        <?php $studentId = $_SESSION['userid']; ?>
+                                            <?php if ($loanRepo->isBorrowed($studentId, $book->getCodeBook())) : ?>
+                                                <a href="#" class="btn btn-secondary px-15">In Prestito</a>
+                                            <?php elseif (!$bookingRepo->isBooked($studentId, $book->getCodeBook())) : ?>
+                                                <a href="<?php echo BASE_URL ?>/controller/reservation.php?redirect=<?php echo urlencode($currentUrl); ?>&idbook=<?php echo (int)$book->getCodeBook(); ?>&idstudent=<?php echo $studentId; ?>" class="btn btn-danger px-15">Prenota</a>
+                                            <?php else : ?>
+                                                <a href="#" class="btn btn-secondary px-15 disabled">Prenotato</a>
+                                            <?php endif; ?>
 
-                                        <?php if ($loanRepo->isBorrowed($studentId, $book->getCodeBook())) : ?>
-                                            <a href="#" class="btn btn-secondary px-15">In Prestito</a>
-                                        <?php elseif (!$bookingRepo->isBooked($studentId, $book->getCodeBook())) : ?>
-                                            <a href="<?php echo BASE_URL ?>/controller/reservation.php?redirect=<?php echo urlencode($currentUrl); ?>&idbook=<?php echo (int)$book->getCodeBook(); ?>&idstudent=<?php echo $studentId; ?>" class="btn btn-danger px-15">Prenota</a>
                                         <?php else : ?>
-                                            <a href="#" class="btn btn-secondary px-15 disabled">Prenotato</a>
+                                            <a href="<?php echo BASE_URL ?>/controller/login-form.php" class="btn btn-danger px-15">Prenota</a>
                                         <?php endif; ?>
-
-                                    <?php else : ?>
-                                        <a href="<?php echo BASE_URL ?>/controller/login-form.php" class="btn btn-danger px-15">Prenota</a>
                                     <?php endif; ?>
                                 </div>
                             </div>

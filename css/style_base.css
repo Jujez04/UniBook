@@ -198,7 +198,7 @@ nav>div:last-child form {
 }
 
 
-nav>div:first-child>div:nth-child(3)>a:nth-child(2),
+nav>div:first-child>div:nth-child(3)>a:nth-child(1),
 nav>div:first-child>div:nth-child(3)>div:first-child {
     display: none;
 }
@@ -239,7 +239,7 @@ nav div:nth-child(2) ul li a {
         display: flex;
     }
 
-    nav>div:first-child>div:nth-child(3)>a:nth-child(2),
+    nav>div:first-child>div:nth-child(3)>a:nth-child(1),
     nav>div:first-child>div:nth-child(3)>div:first-child {
         display: flex;
     }
@@ -269,4 +269,13 @@ body>footer p {
     margin: 0;
     font-size: 1rem;
     font-weight: bolder;
+}
+
+nav>div:nth-child(4)>ul>li {
+    margin-bottom: 0px;
+}
+
+
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
