@@ -54,11 +54,11 @@
                             $currentUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
                             ?>
-                            <input type="hidden" name="redirect_url" value="<?php echo $currentUrl; ?>">
-                            <input type="hidden" name="codebook" value="<?php echo $book->getCodeBook(); ?>">
-                            <input type="hidden" name="codeCopy" value="<?php echo $loan->getCodeCopy(); ?>">
-                            <input type="hidden" name="idstudent" value="<?php echo $loan->getIdStudent(); ?>">
-                            <input type="submit" value="Restituisci" class="btn btn-danger px-15">
+                            <input type="hidden" name="redirect_url" value="<?php echo $currentUrl; ?>" />
+                            <input type="hidden" name="codebook" value="<?php echo $book->getCodeBook(); ?>" />
+                            <input type="hidden" name="codeCopy" value="<?php echo $loan->getCodeCopy(); ?>" />
+                            <input type="hidden" name="idstudent" value="<?php echo $loan->getIdStudent(); ?>" />
+                            <input type="submit" value="Restituisci" class="btn btn-danger px-15" />
                         </form>
                     </div>
                 </article>

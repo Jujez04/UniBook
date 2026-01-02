@@ -70,13 +70,13 @@ var_dump($templateParams);
                             $currentUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
                             ?>
-                            <input type="hidden" name="redirect_url" value="<?php echo $currentUrl; ?>">
-                            <input type="hidden" name="codebook" value="<?php echo $book->getCodeBook(); ?>">
-                            <input type="hidden" name="codecopy" value="<?php echo $loan->getCodeCopy(); ?>">
-                            <input type="hidden" name="idstudent" value="<?php echo $loan->getIdStudent(); ?>">
-                            <input type="hidden" name="subscriptiondate" value="<?php echo $loan->getSubscriptionDate(); ?>">
+                            <input type="hidden" name="redirect_url" value="<?php echo $currentUrl; ?>" />
+                            <input type="hidden" name="codebook" value="<?php echo $book->getCodeBook(); ?>" />
+                            <input type="hidden" name="codecopy" value="<?php echo $loan->getCodeCopy(); ?>" />
+                            <input type="hidden" name="idstudent" value="<?php echo $loan->getIdStudent(); ?>" />
+                            <input type="hidden" name="subscriptiondate" value="<?php echo $loan->getSubscriptionDate(); ?>" />
                             <?php if (!$loanRepo->hasBeenReviewed((int)$loan->getIdStudent(), (int)$loan->getCodeBook())) : ?>
-                                <input type="submit" value="Lascia Recensione" class="btn btn-danger px-15">
+                                <input type="submit" value="Lascia Recensione" class="btn btn-danger px-15" />
                             <?php else : ?>
                                 <span class="text-success">Recensito</span>
                             <?php endif; ?>
