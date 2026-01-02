@@ -201,11 +201,11 @@ section>header {
     background-color: transparent;
 }
 
-main section article h5 {
+main section article h3 {
     color: #ffffff;
 }
 
-main section article h5 a {
+main section article h3 a {
     color: #ffffff;
     text-decoration: none;
 }

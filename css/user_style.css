@@ -244,6 +244,7 @@ main form ul li:last-child {
 
     text-align: center;
     vertical-align: center;
+    justify-content: space-between;
 }
 
 main>form>ul>li>input[type="submit"],
@@ -254,12 +255,13 @@ main>section>div>form>input[type="submit"] {
 }
 
 
-input[type="submit"],
-main>form ul li a {
+input[type="submit"] {
     border: none;
     border-radius: 12px;
     cursor: pointer;
 }
+
+main>form ul li>p>a {}
 
 main>form ul li label {
     display: inline-block;
@@ -269,6 +271,7 @@ main>form ul li label {
     cursor: pointer;
 }
 
+
 main>form ul li input:not([type="submit"]),
 main>form ul li select,
 main>form ul li textarea,
@@ -277,7 +280,7 @@ main>section>div>form>input:not([type="submit"]) {
     box-sizing: border-box;
 }
 
-main>form ul li a {
+main>form ul li:last-child>a {
     background-color: grey;
     color: white;
     text-decoration: none;
@@ -291,7 +294,7 @@ main>form ul li a {
 }
 
 main>form ul li input[type="submit"],
-main>form ul li a {
+main>form ul li:last-child>a {
     cursor: pointer;
     border-width: 0;
     width: 120px;
@@ -312,11 +315,12 @@ main>form[action="edit-profile-action.php"] ul li>div img {
     margin-right: 20px;
 }
 
-main section article h5 {
+main section article h3 {
     color: #000000;
 }
 
-main section article h5 a {
+main section article h3 a {
+    font-size: medium;
     color: #000000;
     text-decoration: none;
 }

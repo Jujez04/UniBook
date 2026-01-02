@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
     if ($immagineName) {
         echo "<p><strong>Immagine:</strong> " . htmlspecialchars($immagineName) . "</p>";
-        echo "<p><img src='" . htmlspecialchars(BASE_URL . "upload/books/" . $immagineName) . "' alt='Immagine' style='max-width: 200px;'></p>";
+        echo "<p><img src='" . htmlspecialchars(BASE_URL . "upload/books/" . $immagineName) . "' alt='Immagine' style='max-width: 200px;'/></p>";
     }
 
     if ($immagineError) {

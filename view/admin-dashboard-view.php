@@ -15,7 +15,7 @@ if (isset($_GET["error"])) {
 <section>
     <header>
         <h1 class="text-center">Prenotazioni</h1>
-        <img src="../svg/open-collapse.svg" alt="">
+        <img src="../svg/open-collapse.svg" alt="" />
     </header>
     <ul>
         <?php
@@ -56,7 +56,7 @@ if (isset($_GET["error"])) {
 <section>
     <header>
         <h1 class="text-center">Prestiti</h1>
-        <img src="../svg/open-collapse.svg" alt="">
+        <img src="../svg/open-collapse.svg" alt="" />
     </header>
     <ul>
         <?php
@@ -84,7 +84,7 @@ if (isset($_GET["error"])) {
 <section>
     <header>
         <h1 class="text-center">In restituzione</h1>
-        <img src="../svg/open-collapse.svg" alt="">
+        <img src="../svg/open-collapse.svg" alt="" />
     </header>
     <ul>
         <?php
@@ -117,7 +117,7 @@ if (isset($_GET["error"])) {
 <section>
     <header>
         <h1 class="text-center">Storico</h1>
-        <img src="../svg/open-collapse.svg" alt="">
+        <img src="../svg/open-collapse.svg" alt="" />
     </header>
     <ul>
         <?php

@@ -43,12 +43,12 @@
 
                 <!-- Dark Mode Toggle (desktop) -->
                 <a id="dark-mode-switch-desktop" href="#">
-                    <img src="/UniBook/svg/dark-mode-desktop-icon.svg" alt="Dark Mode" width="24" height="24">
+                    <img src="/UniBook/svg/dark-mode-desktop-icon.svg" alt="Dark Mode" width="24" height="24" />
                 </a>
 
                 <!-- Search Toggle -->
                 <a id="searchActivator" data-bs-toggle="collapse" data-bs-target="#searchBar" href="#">
-                    <img src="/UniBook/svg/search.svg" alt="Search" width="24" height="24">
+                    <img src="/UniBook/svg/search.svg" alt="Search" width="24" height="24" />
                 </a>
 
                 <!-- User Profile / Login -->
@@ -57,7 +57,7 @@
                         <?php $student = $studentRepo->findById($_SESSION['userid']); ?>
                         <img src="<?php echo UPLOAD_DIR . 'students/default.png' ?>"
                             alt="Profile" width="32" height="32"
-                            class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" />
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/admin-dashboard.php"; ?>">DashBoard</a></li>
                             <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/add-book-form.php"; ?>">Aggiungi Libro</a></li>
@@ -72,7 +72,7 @@
                         <?php $student = $studentRepo->findById($_SESSION['userid']); ?>
                         <img src="<?php echo UPLOAD_DIR . 'students/' . htmlspecialchars($student->getProfileImage()); ?>"
                             alt="Profile" width="32" height="32"
-                            class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            class="rounded-circle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" />
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/reserved-books.php?id=" . $_SESSION['userid']; ?>">Libri prenotati</a></li>
                             <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/borrowed-books.php?id=" . $_SESSION['userid']; ?>">Libri in prestito</a></li>
@@ -155,7 +155,7 @@
             <div class="offcanvas-header">
                 <div class="d-flex align-items-center">
                     <a class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
-                        <img src="/UniBook/svg/menu-back.svg" alt="">
+                        <img src="/UniBook/svg/menu-back.svg" alt="" />
                     </a>
                     <h5 class="offcanvas-title mx-3">UniBook</h5>
                 </div>

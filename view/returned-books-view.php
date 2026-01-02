@@ -18,11 +18,11 @@ var_dump($templateParams);
                     class="card flex-row  d-flex justify-content-center col-12 col-sm-6  col-md-4 col-lg-3 m-0 p-0">
                     <img src=" <?php echo UPLOAD_DIR . 'books/' . htmlspecialchars($book->getImage()); ?>" class=" " alt="immagine libro" />
                     <div class="card-body p-2   ">
-                        <h5 class="card-title">
+                        <h3 class="card-title">
                             <a href="bookPage.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none text-dark">
                                 <?php echo $book->getTitle(); ?>
                             </a>
-                        </h5>
+                        </h3>
                         <div class="container-flex my-2">
                             <?php
                             $n = $reviewRepo->getAverageRating($book->getCodeBook())['average'];
@@ -35,17 +35,17 @@ var_dump($templateParams);
                             }
                             for ($i = 0; $i < $whole; $i++) :
                             ?>
-                                <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="">
+                                <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="" />
                             <?php endfor; ?>
                             <?php if ($fraction > 0) : ?>
-                                <img src="/UniBook/svg/star-half.svg" width="12" height="12" alt="" class="">
+                                <img src="/UniBook/svg/star-half.svg" width="12" height="12" alt="" class="" />
                             <?php endif ?>
                             <?php
                             for ($i = 0; $i < 5 - $whole - $remainder; $i++) :
                             ?>
-                                <img src="/UniBook/svg/star.svg" width="12" height="12" alt="" class="">
+                                <img src="/UniBook/svg/star.svg" width="12" height="12" alt="" class="" />
                             <?php endfor; ?>
-                            <img src="/UniBook/svg/circle-fill.svg" width="13" height="13" alt="" class="">
+                            <img src="/UniBook/svg/circle-fill.svg" width="13" height="13" alt="" class="" />
                             <span>Recensioni</span>
                         </div>
                         <form action="review-user-action.php" method="post" class=" d-flex justify-content-between align-items-center my-2   ">
