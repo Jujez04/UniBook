@@ -15,9 +15,7 @@
                 <label for="password">Password:</label><input type="password" id="password" name="password" />
             </li>
             <li>
-                <input type="submit" name="submit" value="Invia" />
+                <input type="submit" name="submit" value="Invia" /><p>Non hai un account? <a href="register-form.php">Registrati qui</a></p>
             </li>
         </ul>
     </form>
-    <!-- rinvio al form di registrazione -->
-    <p>Non hai un account? <a href="register-form.php">Registrati qui</a></p>
