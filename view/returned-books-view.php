@@ -1,5 +1,4 @@
 <?php
-var_dump($templateParams);
 ?>
 <section>
     <div class=" row gap-3 h-auto mb-10 align-items-center">

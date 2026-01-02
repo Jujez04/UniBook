@@ -1,7 +1,6 @@
 <?php
 require_once 'bootstrap.php';
 
-var_dump($_POST);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     // Recupero dei campi di testo
@@ -109,5 +108,4 @@ function stringToArray($tags)
 {
     return array_filter(array_map('trim', explode("\n", $tags)));
 }
-
 ?>

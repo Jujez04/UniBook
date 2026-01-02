@@ -9,7 +9,6 @@ if (isset($_GET['error'])) {
         echo '<div class="alert alert-danger">Il campo di conferma della password è vuoto. Per favore, compilalo.</div>';
     }
 }
-var_dump($_GET);
 ?>
 
 <form action="register-action.php" method="POST" enctype="multipart/form-data">
