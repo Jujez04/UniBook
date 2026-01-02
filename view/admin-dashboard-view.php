@@ -15,9 +15,10 @@ if (isset($_GET["error"])) {
 <section>
     <header>
         <h1 class="text-center">Prenotazioni</h1>
-        <img src="../svg/light/open-collapse.svg" alt="" />
+        <img src="../svg/light/open-collapse.svg" alt="" data-bs-toggle="collapse"
+            data-bs-target="#prenotazioni" class="btn" />
     </header>
-    <ul>
+    <ul class="collapse show" id="prenotazioni">
         <?php
         $books = $bookRepo->findAll();
         foreach ($books as $book) :
@@ -56,9 +57,10 @@ if (isset($_GET["error"])) {
 <section>
     <header>
         <h1 class="text-center">Prestiti</h1>
-        <img src="../svg/light/open-collapse.svg" alt="" />
+        <img src="../svg/light/open-collapse.svg" alt="" data-bs-toggle="collapse"
+            data-bs-target="#prestiti" class="btn" />
     </header>
-    <ul>
+    <ul class="collapse show" id="prestiti">
         <?php
         foreach ($loanRepo->findAllBorrowed() as $loan) :
             $student = $studentRepo->findById($loan->getIdStudent());
@@ -84,9 +86,10 @@ if (isset($_GET["error"])) {
 <section>
     <header>
         <h1 class="text-center">In restituzione</h1>
-        <img src="../svg/light/open-collapse.svg" alt="" />
+        <img src="../svg/light/open-collapse.svg" alt="" data-bs-toggle="collapse"
+            data-bs-target="#restituzioni" class="btn" />
     </header>
-    <ul>
+    <ul class="collapse show" id="restituzioni">
         <?php
         foreach ($loanRepo->findAllReturning() as $loan) :
             $student = $studentRepo->findById($loan->getIdStudent());
@@ -117,9 +120,10 @@ if (isset($_GET["error"])) {
 <section>
     <header>
         <h1 class="text-center">Storico</h1>
-        <img src="../svg/light/open-collapse.svg" alt="" />
+        <img src="../svg/light/open-collapse.svg" alt="" data-bs-toggle="collapse"
+            data-bs-target="#storico" class="btn" />
     </header>
-    <ul>
+    <ul class="collapse show" id="storico">
         <?php
         foreach ($loanRepo->findAllReturned() as $loan) :
             $student = $studentRepo->findById($loan->getIdStudent());

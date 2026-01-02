@@ -228,6 +228,7 @@ main>form ul {
     width: 100%;
     padding: 10px 5%;
     margin: 0 auto;
+    border-radius: 16px !important;
 
 }
 
