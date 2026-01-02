@@ -1,9 +1,10 @@
 const desktopDarkModeToggle = document.getElementById('dark-mode-switch-desktop');
 const mobileDarkModeToggle = document.getElementById('dark-mode-switch-mobile');
+const svgElements = document.querySelectorAll("img[src$='.svg']");
 const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = `${BASE_URL}/css/dark-mode.css`;
-  link.id = "dark-theme";
+link.rel = "stylesheet";
+link.href = `${BASE_URL}/css/dark-mode.css`;
+link.id = "dark-theme";
 let darkModeEnabled = localStorage.getItem('darkMode') === 'enabled';
 if (darkModeEnabled) {
     document.head.appendChild(link);
@@ -31,4 +32,21 @@ function toggleDarkMode() {
         }
         localStorage.setItem('darkMode', 'disabled');
     }
+    svgElements.forEach((svg) => {
+        const src = svg.getAttribute("src");
+        if (darkModeEnabled) {
+            svg.setAttribute("src", src.replace("/light/", "/dark/"));
+        } else {
+            svg.setAttribute("src", src.replace("/dark/", "/light/"));
+        }
+    });
 }
+
+ svgElements.forEach((svg) => {
+        const src = svg.getAttribute("src");
+        if (darkModeEnabled) {
+            svg.setAttribute("src", src.replace("/light/", "/dark/"));
+        } else {
+            svg.setAttribute("src", src.replace("/dark/", "/light/"));
+        }
+});

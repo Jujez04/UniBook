@@ -25,7 +25,7 @@
                     <span></span>
                 </button>
                 <a href="<?php echo BASE_URL . "index.php"; ?>">
-                    <img src="/UniBook/svg/logo.svg" alt="UniBook Logo" width="120" />
+                    <img src="/UniBook/svg/light/logo.svg" alt="UniBook Logo" width="120" />
                 </a>
             </div>
 
@@ -46,12 +46,12 @@
 
                 <!-- Dark Mode Toggle (desktop) -->
                 <a id="dark-mode-switch-desktop" href="#">
-                    <img src="/UniBook/svg/dark-mode-desktop-icon.svg" alt="Dark Mode" width="24" height="24" />
+                    <img src="/UniBook/svg/light/dark-mode-desktop-icon.svg" alt="Dark Mode" width="24" height="24" />
                 </a>
 
                 <!-- Search Toggle -->
                 <a id="searchActivator" data-bs-toggle="collapse" data-bs-target="#searchBar" href="#">
-                    <img src="/UniBook/svg/search.svg" alt="Search" width="24" height="24" />
+                    <img src="/UniBook/svg/light/search.svg" alt="Search" width="24" height="24" />
                 </a>
 
                 <!-- User Profile / Login -->
@@ -107,7 +107,7 @@
                     <li class="nav-item">
                         <a class="nav-link py-2 px-4" href="<?php echo CONTROLLER_PATH . "catalogue-books.php"; ?>">
                             <div class="d-flex flex-row align-items-center">
-                                <img src="/UniBook/svg/shop.svg" alt="" width="48" height="48" />
+                                <img src="/UniBook/svg/light/shop.svg" alt="" width="48" height="48" />
                                 <span>Cataloghi</span>
                             </div>
                         </a>
@@ -115,7 +115,7 @@
                     <li class="nav-item">
                         <a class="nav-link py-2 px-4" href="<?php echo CONTROLLER_PATH . "books-by-tag.php"; ?>">
                             <div class="d-flex flex-row align-items-center">
-                                <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
+                                <img src="/UniBook/svg/light/shop.svg" alt="" width="48" height="48" />
                                 <span>Tag</span>
                             </div>
                         </a>
@@ -127,7 +127,7 @@
                     <li class="nav-item">
                         <a class="nav-link py-2 px-4" id="dark-mode-switch-mobile" href="#">
                             <div class="d-flex flex-row align-items-center">
-                                <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
+                                <img src="/UniBook/svg/light/shop.svg" alt="" width="48" height="48" />
                                 <span>Cambia tema</span>
                             </div>
                         </a>
@@ -136,14 +136,14 @@
                         <?php if ($sessionManager->isLogged() || $sessionManager->isAdminLogged()) : ?>
                             <a class="nav-link py-2 px-4" href="<?php echo BASE_URL . "controller/logout.php"; ?>">
                                 <div class="d-flex flex-row align-items-center">
-                                    <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
+                                    <img src="/UniBook/svg/light/shop.svg" alt="" width="48" height="48" />
                                     <span>Logout</span>
                                 </div>
                             </a>
                         <?php else : ?>
                             <a class="nav-link py-2 px-4" href="<?php echo BASE_URL . "controller/login-form.php"  ?>">
                                 <div class="d-flex flex-row align-items-center">
-                                    <img src="/UniBook/svg/shop-black.svg" alt="" width="48" height="48" />
+                                    <img src="/UniBook/svg/light/shop.svg" alt="" width="48" height="48" />
                                     <span>Log in</span>
                                 </div>
                             </a>
@@ -158,7 +158,7 @@
             <div class="offcanvas-header">
                 <div class="d-flex align-items-center">
                     <a class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
-                        <img src="/UniBook/svg/menu-back.svg" alt="" />
+                        <img src="/UniBook/svg/light/menu-back.svg" alt="" />
                     </a>
                     <h5 class="offcanvas-title mx-3">UniBook</h5>
                 </div>
