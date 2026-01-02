@@ -81,8 +81,13 @@ body>footer {
     color: #ffffff;
 }
 
-body>footer p {
+body>footer p,
+body>footer>p>a {
     color: #ffffff;
+}
+
+body>footer p>a:hover {
+    color: rgb(255, 125, 125);
 }
 
 /* Cards */

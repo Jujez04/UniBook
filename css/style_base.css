@@ -271,6 +271,14 @@ body>footer p {
     font-weight: bolder;
 }
 
+body>footer p>a {
+    color: black;
+}
+
+body>footer p>a:hover {
+    color: #a72925;
+}
+
 nav>div:nth-child(4)>ul>li {
     margin-bottom: 0px;
 }
