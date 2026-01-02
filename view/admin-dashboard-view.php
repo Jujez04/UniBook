@@ -31,8 +31,8 @@ if (isset($_GET["error"])) {
         ?>
                 <li>
                     <form action="<?php echo BASE_URL . "/controller/admin_booking_action.php"; ?>" method="POST">
-                        <input type="hidden" name="idstudent" value="<?php echo $booking->getIdStudent(); ?>">
-                        <input type="hidden" name="codebook" value="<?php echo $booking->getCodeBook(); ?>">
+                        <input type="hidden" name="idstudent" value="<?php echo $booking->getIdStudent(); ?>" />
+                        <input type="hidden" name="codebook" value="<?php echo $booking->getCodeBook(); ?>" />
                         <ul>
                             <li>Studente:</li>
                             <li><?php echo $student->getName() . " " . $student->getSurname(); ?> </li>
@@ -94,9 +94,9 @@ if (isset($_GET["error"])) {
         ?>
             <li>
                 <form action="<?php echo BASE_URL . "/controller/admin_restitution-action.php"; ?>" method="POST">
-                    <input type="hidden" name="idstudent" value="<?php echo $loan->getIdStudent(); ?>">
-                    <input type="hidden" name="codebook" value="<?php echo $loan->getCodeBook(); ?>">
-                    <input type="hidden" name="codecopy" value="<?php echo $loan->getCodeCopy(); ?>">
+                    <input type="hidden" name="idstudent" value="<?php echo $loan->getIdStudent(); ?>" />
+                    <input type="hidden" name="codebook" value="<?php echo $loan->getCodeBook(); ?>" />
+                    <input type="hidden" name="codecopy" value="<?php echo $loan->getCodeCopy(); ?>" />
                     <ul>
                         <li>Studente:</li>
                         <li><?php echo $student->getName() . " " . $student->getSurname(); ?> </li>
@@ -127,9 +127,9 @@ if (isset($_GET["error"])) {
         ?>
             <li>
                 <form action="<?php echo BASE_URL . "/controller/admin_restitution-action.php"; ?>" method="POST">
-                    <input type="hidden" name="idstudent" value="<?php echo $loan->getIdStudent(); ?>">
-                    <input type="hidden" name="codebook" value="<?php echo $loan->getCodeBook(); ?>">
-                    <input type="hidden" name="codecopy" value="<?php echo $loan->getCodeCopy(); ?>">
+                    <input type="hidden" name="idstudent" value="<?php echo $loan->getIdStudent(); ?>" />
+                    <input type="hidden" name="codebook" value="<?php echo $loan->getCodeBook(); ?>" />
+                    <input type="hidden" name="codecopy" value="<?php echo $loan->getCodeCopy(); ?>" />
                     <ul>
                         <li>Studente:</li>
                         <li><?php echo $student->getName() . " " . $student->getSurname(); ?> </li>

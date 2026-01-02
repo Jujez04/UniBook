@@ -19,9 +19,9 @@
                 <input type="submit" name="submit" value="Lascia" />
             </li>
         </ul>
-        <input type="hidden" name="codebook" value="<?php echo $templateParams['codebook']; ?>">
-        <input type="hidden" name="codecopy" value="<?php echo $templateParams['codecopy']; ?>">
-        <input type="hidden" name="idstudent" value="<?php echo $templateParams['idstudent']; ?>">
-        <input type="hidden" name="subscriptiondate" value="<?php echo $templateParams['subscriptiondate']; ?>">
+        <input type="hidden" name="codebook" value="<?php echo $templateParams['codebook']; ?>" />
+        <input type="hidden" name="codecopy" value="<?php echo $templateParams['codecopy']; ?>" />
+        <input type="hidden" name="idstudent" value="<?php echo $templateParams['idstudent']; ?>" />
+        <input type="hidden" name="subscriptiondate" value="<?php echo $templateParams['subscriptiondate']; ?>" />
 
     </form>

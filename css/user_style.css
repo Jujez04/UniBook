@@ -261,7 +261,9 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-main>form ul li>p>a {}
+main>h2 {
+    text-align: center;
+}
 
 main>form ul li label {
     display: inline-block;
@@ -314,6 +316,18 @@ main>form[action="edit-profile-action.php"] ul li>div img {
     float: left;
     margin-right: 20px;
 }
+
+main>form[action="edit-profile-action.php"] ul li:nth-child(5)>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+
 
 main section article h3 {
     color: #000000;
