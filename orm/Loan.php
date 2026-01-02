@@ -63,3 +63,4 @@ class Loan
         return $this->state;
     }
 }
+?>

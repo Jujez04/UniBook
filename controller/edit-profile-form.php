@@ -21,5 +21,4 @@ $templateParams["css"] = "user_style.css";
 $templateParams["student"] = $student;
 
 require '../template/base.php';
-
 ?>

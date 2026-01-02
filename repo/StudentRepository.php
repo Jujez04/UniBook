@@ -136,3 +136,4 @@ class StudentRepository
         return $this->db->executeStatement($sql, [$name, $surname, $email, $phone, $profileImage, $idStudent], 'sssssi');
     }
 }
+?>

@@ -19,3 +19,4 @@ foreach ($reviews as $review) {
 }
 
 echo json_encode($results);
+?>

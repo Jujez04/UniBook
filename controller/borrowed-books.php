@@ -17,5 +17,4 @@ $templateParams["content"] = BASE_PATH . "/UniBook/view/borrowed-books-view.php"
 $templateParams["borrowed_books_loan"] = $studentLoans;
 $templateParams["css"] = "user_style.css";
 require  BASE_PATH . "/UniBook/" . 'template/base.php';
-
 ?>

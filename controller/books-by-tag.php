@@ -5,7 +5,7 @@ $homeContent = [];
 
 $tags = $tagRepo->findAll();
 
-foreach($tags as $tag) {
+foreach ($tags as $tag) {
     $books = $bookRepo->findByTag($tag->getIdTag());
     $homeContent[] = [
         'tag_id'   => $tag->getIdTag(),
@@ -14,9 +14,9 @@ foreach($tags as $tag) {
 }
 
 $templateParams["title"] = "Unibook - Home";
-$templateParams["content"] = BASE_PATH. "/UniBook/". "view/books-by-tag-view.php";
+$templateParams["content"] = BASE_PATH . "/UniBook/" . "view/books-by-tag-view.php";
 $templateParams["home_content"] = $homeContent;
 $templateParams["css"] = "user_style.css";
 
-require  BASE_PATH. "/UniBook/". 'template/base.php';
+require  BASE_PATH . "/UniBook/" . 'template/base.php';
 ?>

@@ -88,3 +88,4 @@ class ReviewRepository
         $this->db->executeStatement($sqlDelete, [$idReview], 'i');
     }
 }
+?>

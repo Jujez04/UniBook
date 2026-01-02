@@ -1,19 +1,23 @@
 <?php
 
-class Catalogue {
+class Catalogue
+{
     private $idcatalogue;
     private $name;
 
-    public function __construct($idcatalogue, $name) {
+    public function __construct($idcatalogue, $name)
+    {
         $this->idcatalogue = $idcatalogue;
         $this->name = $name;
     }
 
-    public function getIdCatalogue() {
+    public function getIdCatalogue()
+    {
         return $this->idcatalogue;
     }
 
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 }

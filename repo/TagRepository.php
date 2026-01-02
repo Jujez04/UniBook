@@ -17,11 +17,12 @@ class TagRepository
         return $this->db->executeStatement($sql, [$idTag], 's');
     }
 
-    public function findAll() {
+    public function findAll()
+    {
         $sql = "SELECT * FROM tag";
         $result = $this->db->executeQuery($sql);
         $tags = [];
-        foreach($result as $row) {
+        foreach ($result as $row) {
             $tags[] = $this->mapRowToObject($row);
         }
         return $tags;
@@ -34,3 +35,4 @@ class TagRepository
         );
     }
 }
+?>

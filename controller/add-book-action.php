@@ -109,3 +109,5 @@ function stringToArray($tags)
 {
     return array_filter(array_map('trim', explode("\n", $tags)));
 }
+
+?>

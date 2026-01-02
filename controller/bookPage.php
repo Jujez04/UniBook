@@ -9,3 +9,4 @@ $templateParams["css"] = "user_style.css";
 $templateParams["js"][] = "js/comment-displayer.js";
 
 require '../template/base.php';
+?>

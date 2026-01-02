@@ -1,6 +1,7 @@
 <?php
 
-class Student {
+class Student
+{
     private $phone;
     private $password;
     private $email;
@@ -27,33 +28,39 @@ class Student {
         $this->name = $name;
     }
 
-    public function getPhone() {
+    public function getPhone()
+    {
         return $this->phone;
     }
 
-    public function getPassword() {
+    public function getPassword()
+    {
         return $this->password;
     }
 
-    public function getEmail() {
+    public function getEmail()
+    {
         return $this->email;
     }
 
-    public function getSurname() {
+    public function getSurname()
+    {
         return $this->surname;
     }
 
-    public function getIdStudent() {
+    public function getIdStudent()
+    {
         return $this->idstudent;
     }
 
-    public function getProfileImage() {
+    public function getProfileImage()
+    {
         return $this->profileimage;
     }
 
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 }
-
 ?>

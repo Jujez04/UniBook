@@ -1,25 +1,30 @@
 <?php
 
-class Review {
+class Review
+{
     private $idreview;
     private $rating;
     private $description;
 
-    public function __construct($idreview, $rating, $description) {
+    public function __construct($idreview, $rating, $description)
+    {
         $this->idreview = $idreview;
         $this->rating = $rating;
         $this->description = $description;
     }
 
-    public function getIdReview() {
+    public function getIdReview()
+    {
         return $this->idreview;
     }
 
-    public function getRating() {
+    public function getRating()
+    {
         return $this->rating;
     }
 
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->description;
     }
 }

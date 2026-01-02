@@ -54,3 +54,4 @@ $sessionManager = new SessionManager();
 $authManager = new AuthenticationManager($studentRepo, $sessionManager);
 
 $templateParams["js"] = ["js/search-bar-toggle.js", "js/search.js", "/js/dark-mode.js"];
+?>

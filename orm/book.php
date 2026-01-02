@@ -1,6 +1,7 @@
 <?php
 
-class Book {
+class Book
+{
     private $codebook;
     private $title;
     private $publisher;
@@ -30,37 +31,44 @@ class Book {
         $this->idcatalogue = $idcatalogue;
     }
 
-    public function getCodebook() {
+    public function getCodebook()
+    {
         return $this->codebook;
     }
 
-    public function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
 
-    public function getPublisher() {
+    public function getPublisher()
+    {
         return $this->publisher;
     }
 
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->description;
     }
 
-    public function getImage() {
+    public function getImage()
+    {
         return $this->image;
     }
 
-    public function getPublicationYear() {
+    public function getPublicationYear()
+    {
         return $this->publicationyear;
     }
 
-    public function getAuthor() {
+    public function getAuthor()
+    {
         return $this->author;
     }
 
-    public function getIdCatalogue() {
+    public function getIdCatalogue()
+    {
         return $this->idcatalogue;
     }
 }
-
 ?>

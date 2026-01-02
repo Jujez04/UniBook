@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         header("Location: " . BASE_URL . "/controller/register-form.php?error=password_mismatch");
         exit;
     }
-    
+
 
     // Gestione del file caricato
     $photo = $_FILES['photo'] ?? null;

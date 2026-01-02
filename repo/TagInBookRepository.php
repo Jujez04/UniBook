@@ -29,3 +29,4 @@ class TagInBookRepository
         return $this->db->executeQuery($sql, [$codeBook], 'i');
     }
 }
+?>

@@ -1,25 +1,30 @@
 <?php
 
-class Booking {
+class Booking
+{
     private $idstudent;
     private $codebook;
     private $date;
 
-    public function __construct($idstudent, $codebook, $date) {
+    public function __construct($idstudent, $codebook, $date)
+    {
         $this->idstudent = $idstudent;
         $this->codebook = $codebook;
         $this->date = $date;
     }
 
-    public function getIdStudent() {
+    public function getIdStudent()
+    {
         return $this->idstudent;
     }
 
-    public function getCodeBook() {
+    public function getCodeBook()
+    {
         return $this->codebook;
     }
 
-    public function getDate() {
+    public function getDate()
+    {
         return $this->date;
     }
 }

@@ -1,13 +1,16 @@
 <?php
 
-class Tag {
+class Tag
+{
     private $idtag;
 
-    public function __construct($idtag) {
+    public function __construct($idtag)
+    {
         $this->idtag = $idtag;
     }
 
-    public function getIdTag() {
+    public function getIdTag()
+    {
         return $this->idtag;
     }
 }
