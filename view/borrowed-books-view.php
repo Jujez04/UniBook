@@ -31,17 +31,17 @@
                             }
                             for ($i = 0; $i < $whole; $i++) :
                             ?>
-                                <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="" />
+                                <img src="/UniBook/svg/light/star-fill.svg" width="12" height="12" alt="" class="" />
                             <?php endfor; ?>
                             <?php if ($fraction > 0) : ?>
-                                <img src="/UniBook/svg/star-half.svg" width="12" height="12" alt="" class="" />
+                                <img src="/UniBook/svg/light/star-half.svg" width="12" height="12" alt="" class="" />
                             <?php endif ?>
                             <?php
                             for ($i = 0; $i < 5 - $whole - $remainder; $i++) :
                             ?>
-                                <img src="/UniBook/svg/star.svg" width="12" height="12" alt="" class="" />
+                                <img src="/UniBook/svg/light/star.svg" width="12" height="12" alt="" class="" />
                             <?php endfor; ?>
-                            <img src="/UniBook/svg/circle-fill.svg" width="13" height="13" alt="" class="" />
+                            <img src="/UniBook/svg/light/circle-fill.svg" width="13" height="13" alt="" class="" />
                             <span>Recensioni</span>
                         </div>
                         <form action="restitution-user-action.php" method="post" class=" d-flex justify-content-between align-items-center my-2   ">

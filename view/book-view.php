@@ -26,15 +26,15 @@ require_once 'bootstrap.php';
             }
             for ($i = 0; $i < $whole; $i++) :
             ?>
-                <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="" />
+                <img src="/UniBook/svg/light/star-fill.svg" width="12" height="12" alt="" class="" />
             <?php endfor; ?>
             <?php if ($fraction > 0) : ?>
-                <img src="/UniBook/svg/star-half.svg" width="12" height="12" alt="" class="" />
+                <img src="/UniBook/svg/light/star-half.svg" width="12" height="12" alt="" class="" />
             <?php endif; ?>
             <?php
             for ($i = 0; $i < 5 - $whole - $remainder; $i++) :
             ?>
-                <img src="/UniBook/svg/star.svg" width="12" height="12" alt="" class="" />
+                <img src="/UniBook/svg/light/star.svg" width="12" height="12" alt="" class="" />
             <?php endfor; ?>
         </div>
         <?php $numAhead = $bookingRepo->getNumberOfPeopleAhead($_SESSION['userid'] ?? -1, $book->getCodeBook()); ?>
@@ -106,13 +106,13 @@ require_once 'bootstrap.php';
                 ?>
                 <div>
                     <?php for ($i = 0; $i < $whole; $i++) : ?>
-                        <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" />
+                        <img src="/UniBook/svg/light/star-fill.svg" width="12" height="12" alt="" />
                     <?php endfor; ?>
                     <?php if ($fraction > 0) : ?>
-                        <img src="/UniBook/svg/star-half.svg" width="12" height="12" alt="" />
+                        <img src="/UniBook/svg/light/star-half.svg" width="12" height="12" alt="" />
                     <?php endif ?>
                     <?php for ($i = 0; $i < 5 - $whole - $remainder; $i++) : ?>
-                        <img src="/UniBook/svg/star.svg" width="12" height="12" alt="" />
+                        <img src="/UniBook/svg/light/star.svg" width="12" height="12" alt="" />
                     <?php endfor; ?>
 
                 </div>

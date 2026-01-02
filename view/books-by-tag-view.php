@@ -9,7 +9,7 @@
                 <div class="col"></div>
                 <h2 class="text-center col text-uppercase"><?php echo "#" . $content['tag_id']; ?></h2>
                 <div class="col">
-                    <img src="<?php echo BASE_URL; ?>svg/open-collapse.svg" alt="Toggle Tag" data-bs-toggle="collapse"
+                    <img src="<?php echo BASE_URL; ?>svg/light/open-collapse.svg" alt="Toggle Tag" data-bs-toggle="collapse"
                         data-bs-target="#<?php echo $collapse_id; ?>" class="btn col w-auto" />
                 </div>
             </div>
@@ -44,18 +44,18 @@
                                     }
 
                                     for ($i = 0; $i < $whole; $i++) : ?>
-                                        <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="" />
+                                        <img src="/UniBook/svg/light/star-fill.svg" width="12" height="12" alt="" class="" />
                                     <?php endfor; ?>
 
                                     <?php if ($fraction > 0) : ?>
-                                        <img src="/UniBook/svg/star-half.svg" width="12" height="12" alt="" class="" />
+                                        <img src="/UniBook/svg/light/star-half.svg" width="12" height="12" alt="" class="" />
                                     <?php endif ?>
 
                                     <?php for ($i = 0; $i < 5 - $whole - $remainder; $i++) : ?>
-                                        <img src="/UniBook/svg/star.svg" width="12" height="12" alt="" class="" />
+                                        <img src="/UniBook/svg/light/star.svg" width="12" height="12" alt="" class="" />
                                     <?php endfor; ?>
 
-                                    <img src="/UniBook/svg/circle-fill.svg" width="13" height="13" alt="" class="" />
+                                    <img src="/UniBook/svg/light/circle-fill.svg" width="13" height="13" alt="" class="" />
                                     <span>Recensioni</span>
                                 </div>
 

@@ -6,7 +6,7 @@
             <div class="col"></div>
             <h2 class="text-center col"><?php echo $content['catalogue_name']; ?></h2>
             <div class="col">
-                <img src="/UniBook/svg/open-collapse.svg" alt="Toggle Libri Consigliati" data-bs-toggle="collapse"
+                <img src="/UniBook/svg/light/open-collapse.svg" alt="Toggle Libri Consigliati" data-bs-toggle="collapse"
                     data-bs-target="#<?php echo $collapse_id; ?>" class="btn col w-auto" />
             </div>
         </div>
@@ -34,17 +34,17 @@
                                 }
                                 for ($i = 0; $i < $whole; $i++) :
                                 ?>
-                                    <img src="/UniBook/svg/star-fill.svg" width="12" height="12" alt="" class="" />
+                                    <img src="/UniBook/svg/light/star-fill.svg" width="12" height="12" alt="" class="" />
                                 <?php endfor; ?>
                                 <?php if ($fraction > 0) : ?>
-                                    <img src="/UniBook/svg/star-half.svg" width="12" height="12" alt="" class="" />
+                                    <img src="/UniBook/svg/light/star-half.svg" width="12" height="12" alt="" class="" />
                                 <?php endif ?>
                                 <?php
                                 for ($i = 0; $i < 5 - $whole - $remainder; $i++) :
                                 ?>
-                                    <img src="/UniBook/svg/star.svg" width="12" height="12" alt="" class="" />
+                                    <img src="/UniBook/svg/light/star.svg" width="12" height="12" alt="" class="" />
                                 <?php endfor; ?>
-                                <img src="/UniBook/svg/circle-fill.svg" width="13" height="13" alt="" class="" />
+                                <img src="/UniBook/svg/light/circle-fill.svg" width="13" height="13" alt="" class="" />
                                 <span>Recensioni</span>
                             </div>
                             <div class="d-flex justify-content-between align-items-center my-2   ">
