@@ -47,7 +47,7 @@ INSERT INTO `book` (`codebook`, `title`, `publisher`, `publicationyear`, `image`
 (2, 'Progettazione Architettonica', 'Hoepli', 2021, '2.webp', 'Manuale di progettazione per studenti di architettura', 'Gregotti', 2),
 (3, 'Biomeccanica Umana', 'Springer', 2019, '3.webp', 'Principi di biomeccanica applicati al corpo umano', 'Winter', 3),
 (4, 'Sistemi Elettrici Industriali', 'McGraw-Hill', 2020, '4.webp', 'Manuale sui sistemi elettrici e impiantistica', 'Chapman', 4),
-(5, 'Machine Learning per Ingegneri', 'O\'Reilly', 2023, '5.webp', 'Applicazioni ingegneristiche del machine learning', 'Goodfellow', 1);
+(5, 'Machine Learning per Ingegneri', 'O\'Reilly', 2023, '5.jpg', 'Applicazioni ingegneristiche del machine learning', 'Goodfellow', 1);
 
 -- --------------------------------------------------------
 
