@@ -200,6 +200,7 @@
     </main>
     <footer>
         <p>Made by Sacripante, Caruso & Carideo</p>
+        <p><a href="<?php echo BASE_URL . 'controller/faq.php'; ?>" class="text-white text-decoration-none">Domande Frequenti (FAQ)</a></p>
         <small>A.A.2025/2026</small>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
