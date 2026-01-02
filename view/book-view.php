@@ -6,9 +6,9 @@ require_once 'bootstrap.php';
     <h1><?php echo $book->getTitle(); ?></h1>
     <ul>
         <li><?php echo $book->getAuthor(); ?></li>
-        <li><img src=<?php echo BASE_URL . "/svg/circle-fill.svg" ?> width="12" height="12" alt="" /> </li>
+        <li><img src=<?php echo BASE_URL . "/svg/light/circle-fill.svg" ?> width="12" height="12" alt="" /> </li>
         <li><?php echo $book->getDescription(); ?></li>
-        <li><img src=<?php echo BASE_URL . "/svg/circle-fill.svg" ?> width="12" height="12" alt="" /> </li>
+        <li><img src=<?php echo BASE_URL . "/svg/light/circle-fill.svg" ?> width="12" height="12" alt="" /> </li>
         <li><?php echo $book->getPublisher(); ?></li>
 
     </ul>
@@ -77,7 +77,7 @@ require_once 'bootstrap.php';
     <ul>
         <?php $tags = $tagInBookRepo->getTagsByBook($book->getCodeBook());
         foreach ($tags as $tag) : ?>
-            <li><a href="#"><?php echo '#' . $tag['idtag']; ?></a></li>
+            <li><a href="<?php echo CONTROLLER_PATH . "books-by-tag.php#" . urlencode($tag['idtag']); ?>"><?php echo '#' . $tag['idtag']; ?></a></li>
         <?php endforeach; ?>
     </ul>
 </section>

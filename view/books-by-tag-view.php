@@ -4,7 +4,7 @@
 
         <?php $collapse_id = "tag_" . preg_replace('/[^a-zA-Z0-9]/', '', $content['tag_id']); ?>
 
-        <section class="mb-5">
+        <section class="mb-5" id="<?php echo ($content['tag_id']); ?>">
             <div class="row h-auto align-items-center">
                 <div class="col"></div>
                 <h2 class="text-center col"><?php echo "#" . ucfirst($content['tag_id']); ?></h2>
