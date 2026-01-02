@@ -55,7 +55,7 @@
                                         <img src="/UniBook/svg/star.svg" width="12" height="12" alt="" class="" />
                                     <?php endfor; ?>
 
-                                    <img src="/UniBook/svg/circle-fill.svg" width="13" height="13" alt="" class="" /> 
+                                    <img src="/UniBook/svg/circle-fill.svg" width="13" height="13" alt="" class="" />
                                     <span>Recensioni</span>
                                 </div>
 

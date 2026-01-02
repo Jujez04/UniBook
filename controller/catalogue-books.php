@@ -14,7 +14,7 @@ foreach ($randomCatalogues as $catalogue) {
     ];
 }
 
-$templateParams["title"] = "Unibook - Home";
+$templateParams["title"] = "Unibook - Cataloghi";
 $templateParams["content"] = BASE_PATH . "/UniBook/" . "view/catalogue-books-view.php";
 $templateParams["home_content"] = $homeContent;
 $templateParams["css"] = "user_style.css";

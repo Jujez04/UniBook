@@ -12,7 +12,7 @@ foreach ($studentLoans as $loan) {
 
 
 
-$templateParams["title"] = "Unibook - Home";
+$templateParams["title"] = "Unibook - Libri in prestito";
 $templateParams["content"] = BASE_PATH . "/UniBook/view/borrowed-books-view.php";
 $templateParams["borrowed_books_loan"] = $studentLoans;
 $templateParams["css"] = "user_style.css";

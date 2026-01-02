@@ -6,7 +6,7 @@ $reservedBooks = $bookingRepo->findAllByStudent($_SESSION['userid']);
 
 
 
-$templateParams["title"] = "Unibook - Home";
+$templateParams["title"] = "Unibook - Libri prenotati";
 $templateParams["content"] = BASE_PATH . "/UniBook/view/reserved-books-view.php";
 $templateParams["reserved_books"] = $reservedBooks;
 $templateParams["css"] = "user_style.css";

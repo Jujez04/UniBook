@@ -13,7 +13,7 @@ foreach ($tags as $tag) {
     ];
 }
 
-$templateParams["title"] = "Unibook - Home";
+$templateParams["title"] = "Unibook - Tag";
 $templateParams["content"] = BASE_PATH . "/UniBook/" . "view/books-by-tag-view.php";
 $templateParams["home_content"] = $homeContent;
 $templateParams["css"] = "user_style.css";
