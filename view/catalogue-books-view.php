@@ -50,6 +50,8 @@
                                     <?php $numAhead = $bookingRepo->getNumberOfPeopleAhead($_SESSION['userid'] ?? -1, $book->getCodeBook()); ?>
                                     <?php if ($bookRepo->getAvailableCopiesCount($book->getCodeBook()) > 0) : ?>
                                         <span class="text-success">Disponibile</span>
+                                    <?php elseif ($numAhead === 0) : ?>
+                                        <span class="">Prossimo disponibile</span>
                                     <?php else : ?>
                                         <span class=""><?php echo $numAhead; ?> in coda</span>
                                     <?php endif;

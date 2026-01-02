@@ -32,17 +32,42 @@
                                 } else {
                                     $remainder = 0;
                                 }
+                                $altWritten = false;
                                 for ($i = 0; $i < $whole; $i++) :
                                 ?>
-                                    <img src="/UniBook/svg/light/star-fill.svg" width="12" height="12" alt="" class="" />
+                                    <img src="/UniBook/svg/light/star-fill.svg" width="12" height="12" alt="
+                                    <?php
+                                    if ($altWritten) {
+                                        echo "";
+                                    } else {
+                                        echo "Media recensioni: " . number_format($n, 2) . " su 5";
+                                        $altWritten = true;
+                                    }
+                                    ?>" class="" />
                                 <?php endfor; ?>
                                 <?php if ($fraction > 0) : ?>
-                                    <img src="/UniBook/svg/light/star-half.svg" width="12" height="12" alt="" class="" />
+                                    <img src="/UniBook/svg/light/star-half.svg" width="12" height="12" alt="
+                                    <?php
+                                    if ($altWritten) {
+                                        echo "";
+                                    } else {
+                                        echo "Media recensioni: " . number_format($n, 2) . " su 5";
+                                        $altWritten = true;
+                                    }
+                                    ?>" class="" />
                                 <?php endif ?>
                                 <?php
                                 for ($i = 0; $i < 5 - $whole - $remainder; $i++) :
                                 ?>
-                                    <img src="/UniBook/svg/light/star.svg" width="12" height="12" alt="" class="" />
+                                    <img src="/UniBook/svg/light/star.svg" width="12" height="12" alt="
+                                    <?php
+                                    if ($altWritten) {
+                                        echo "";
+                                    } else {
+                                        echo "Media recensioni: " . number_format($n, 2) . " su 5";
+                                        $altWritten = true;
+                                    }
+                                    ?>" class="" />
                                 <?php endfor; ?>
                                 <img src="/UniBook/svg/light/circle-fill.svg" width="13" height="13" alt="" class="" />
                                 <span>Recensioni</span>
@@ -51,6 +76,8 @@
                                 <?php $numAhead = $bookingRepo->getNumberOfPeopleAhead($_SESSION['userid'] ?? -1, $book->getCodeBook()); ?>
                                 <?php if ($bookRepo->getAvailableCopiesCount($book->getCodeBook()) > 0) : ?>
                                     <span class="text-success">Disponibile</span>
+                                <?php elseif ($numAhead === 0) : ?>
+                                    <span class="">Prossimo disponibile</span>
                                 <?php else : ?>
                                     <span class=""><?php echo $numAhead; ?> in coda</span>
                                 <?php endif;
