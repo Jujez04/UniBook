@@ -108,6 +108,7 @@
                                 <?php else : ?>
                                     <form action="<?php echo BASE_URL ?>/controller/delete-book-action.php" method="post">
                                         <input type="hidden" name="idbook" value="<?php echo $book->getCodeBook(); ?>" />
+                                        <input type="hidden" name="redirect_url" value="<?php echo $currentUrl; ?>" />
                                         <input type="submit" value="Elimina" class="btn btn-danger px-15" />
                                     </form>
 
