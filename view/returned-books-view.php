@@ -18,7 +18,7 @@
                     <img src=" <?php echo UPLOAD_DIR . 'books/' . htmlspecialchars($book->getImage()); ?>" class=" " alt="immagine libro" />
                     <div class="card-body p-2   ">
                         <h3 class="card-title">
-                            <a href="bookPage.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none text-dark">
+                            <a href="bookPage.php?id=<?php echo $book->getCodeBook(); ?>" class="text-decoration-none ">
                                 <?php echo $book->getTitle(); ?>
                             </a>
                         </h3>
@@ -34,7 +34,7 @@
                             }
                             for ($i = 0; $i < $whole; $i++) :
                             ?>
-                                <svg src="/UniBook/svg/light/star-fill.svg" width="12" height="12" alt="" class="" />
+                                <img src="/UniBook/svg/light/star-fill.svg" width="12" height="12" alt="" class="" />
                             <?php endfor; ?>
                             <?php if ($fraction > 0) : ?>
                                 <img src="/UniBook/svg/light/star-half.svg" width="12" height="12" alt="" class="" />
@@ -48,21 +48,7 @@
                             <span>Recensioni</span>
                         </div>
                         <form action="review-user-action.php" method="post" class=" d-flex justify-content-between align-items-center my-2   ">
-                            <?php $numAhead = $bookingRepo->getNumberOfPeopleAhead($_SESSION['userid'] ?? -1, $book->getCodeBook()); ?>
-                            <?php if ($bookRepo->getAvailableCopiesCount($book->getCodeBook()) > 0) : ?>
-                                <span class="text-success">Disponibile</span>
-                            <?php elseif ($numAhead === 0) : ?>
-                                <span class="">Prossimo disponibile</span>
-                            <?php else : ?>
-                                <span class=""><?php echo $numAhead; ?> in coda</span>
-                            <?php endif;
-                            // Protocollo (http o https)
-                            $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
 
-                            // Host e URI
-                            $currentUrl = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-
-                            ?>
                             <input type="hidden" name="redirect_url" value="<?php echo $currentUrl; ?>" />
                             <input type="hidden" name="codebook" value="<?php echo $book->getCodeBook(); ?>" />
                             <input type="hidden" name="codecopy" value="<?php echo $loan->getCodeCopy(); ?>" />
