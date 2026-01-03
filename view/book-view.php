@@ -63,7 +63,11 @@ require_once 'bootstrap.php';
             <?php else : ?>
                 <a href="#" class="btn btn-secondary px-15 disabled">Prenotato</a>
             <?php endif; ?>
-
+        <?php elseif ($sessionManager->isAdminLogged()) : ?>
+            <form action="<?php echo BASE_URL ?>/controller/delete-book-action.php" method="post">
+                <input type="hidden" name="idbook" value="<?php echo $book->getCodeBook(); ?>" />
+                <input type="submit" value="Elimina" class="btn btn-danger px-15" />
+            </form>
         <?php else : ?>
             <a href=" <?php echo BASE_URL  ?>/controller/login-form.php" class="btn btn-danger px-15">Prenota</a>
         <?php endif; ?>
@@ -124,3 +128,12 @@ require_once 'bootstrap.php';
     <?php endforeach; ?>
 
 </section>
+<?php
+if ($sessionManager->isAdminLogged()) {
+?>
+    <script src="<?php echo BASE_URL . "js/confirm-delete-book.js" ?>">
+
+    </script>
+<?php
+}
+?>
