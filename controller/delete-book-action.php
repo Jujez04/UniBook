@@ -17,3 +17,4 @@ foreach ($reviews as $review) {
 $bookRepo->deleteBook($idToDelete);
 
 header("Location: " . BASE_URL . $redirectUrl);
+?>

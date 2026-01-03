@@ -16,3 +16,4 @@ foreach ($reviews as $review) {
 $studentRepo->delete($idToDelete);
 
 header("Location: " . CONTROLLER_PATH . "logout.php");
+?>
