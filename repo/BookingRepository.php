@@ -25,7 +25,6 @@ class BookingRepository
         return true;
     }
 
-
     public function getNumberOfPeopleAhead($idStudent, $codeBook)
     {
         $sql = "SELECT COUNT(*) as total FROM booking WHERE codebook = ? AND date < (SELECT date FROM booking WHERE idstudent = ? AND codebook = ?)";

@@ -29,6 +29,7 @@ class LoanRepository
             $refundDate
         ], 'iiiss');
     }
+
     public function update($idStudent, $codeBook, $codeCopy, $state)
     {
         $sql = "UPDATE loan
@@ -42,6 +43,7 @@ class LoanRepository
             $codeCopy
         ], 'siii');
     }
+
     public function findAll()
     {
         $sql = "SELECT * FROM loan ORDER BY subscriptiondate DESC";
@@ -66,6 +68,7 @@ class LoanRepository
         }
         return $loans;
     }
+
     public function findAllReturned()
     {
         $sql = "SELECT *
@@ -79,6 +82,7 @@ class LoanRepository
         }
         return $loans;
     }
+
     public function findAllReturning()
     {
         $sql = "SELECT *
@@ -92,7 +96,6 @@ class LoanRepository
         }
         return $loans;
     }
-
 
     public function closeLoan($idStudent, $codeBook, $codeCopy, $subscriptionDate)
     {
@@ -179,6 +182,7 @@ class LoanRepository
 
         return $result[0]['count'] > 0;
     }
+
     private function mapRowToObject($row)
     {
         return new Loan(

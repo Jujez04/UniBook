@@ -117,7 +117,11 @@ class StudentRepository
         return $stmt->execute();
     }
 
-
+    public function delete($idStudent)
+    {
+        $sql = "DELETE FROM student WHERE idstudent = ?";
+        return $this->db->executeStatement($sql, [$idStudent], 'i');
+    }
 
     /**
      * Aggiorna il profilo completo dello studente (nome, cognome, email, telefono, foto)
@@ -136,4 +140,5 @@ class StudentRepository
         return $this->db->executeStatement($sql, [$name, $surname, $email, $phone, $profileImage, $idStudent], 'sssssi');
     }
 }
+
 ?>
