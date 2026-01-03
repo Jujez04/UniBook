@@ -57,11 +57,16 @@ class ReviewRepository
 
     public function findByIdStudent($idStudent)
     {
-        $sql = "SELECT s.*
+        $sql = "SELECT r.*
                 FROM review r
                 JOIN loan l ON r.idreview = l.idreview
                 WHERE l.idstudent = ?";
-        return $this->db->executeQuery($sql, [$idStudent], 'i');
+        $result = $this->db->executeQuery($sql, [$idStudent], 'i');
+        $reviews = [];
+        foreach($result as $row) {
+            $reviews[] = $this->mapRowToObject($row);
+        }
+        return $reviews;
     }
 
     /**
@@ -95,6 +100,15 @@ class ReviewRepository
 
         $sqlDelete = "DELETE FROM review WHERE idreview = ?";
         $this->db->executeStatement($sqlDelete, [$idReview], 'i');
+    }
+
+    private function mapRowToObject($row)
+    {
+        return new Review(
+            $row['idreview'],
+            $row['rating'],
+            $row['description']
+        );
     }
 }
 ?>
