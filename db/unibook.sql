@@ -3,10 +3,12 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2025 at 03:55 PM
+-- Generation Time: Jan 03, 2026 at 03:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
-
+drop database if exists unibook;
+create database if not exists unibook;
+use unibook;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -66,15 +68,13 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`idstudent`, `codebook`, `date`) VALUES
-(1, 3, '2025-12-29 00:00:00'),
-(2, 1, '2025-12-29 00:00:00'),
-(2, 3, '2025-12-29 00:00:00'),
-(2, 4, '2025-12-29 00:00:00'),
-(3, 5, '2025-02-05 00:00:00'),
-(5, 1, '2025-12-30 00:00:00'),
-(5, 2, '2025-12-30 00:00:00'),
-(5, 3, '2025-12-30 00:00:00'),
-(5, 5, '2025-12-30 00:00:00');
+(1, 1, '2026-01-01 21:04:02'),
+(1, 5, '2026-01-01 21:04:04'),
+(2, 4, '2025-12-29 04:00:00'),
+(5, 1, '2026-01-01 18:57:35'),
+(5, 2, '2025-12-30 07:00:00'),
+(5, 3, '2025-12-30 19:50:53'),
+(5, 4, '2025-12-30 15:59:44');
 
 -- --------------------------------------------------------
 
@@ -93,13 +93,13 @@ CREATE TABLE `book_copy` (
 --
 
 INSERT INTO `book_copy` (`codebook`, `codecopy`, `state`) VALUES
-(1, 1, 'Disponibile'),
+(1, 1, 'In_prestito'),
 (1, 2, 'Disponibile'),
-(2, 1, 'In_prestito'),
+(2, 1, 'in_restituzione'),
 (3, 1, 'Disponibile'),
-(4, 1, 'In_prestito'),
-(5, 1, 'Disponibile'),
-(5, 2, 'Disponibile');
+(4, 1, 'in_restituzione'),
+(5, 1, 'In_prestito'),
+(5, 2, 'in_prestito');
 
 -- --------------------------------------------------------
 
@@ -143,10 +143,16 @@ CREATE TABLE `loan` (
 --
 
 INSERT INTO `loan` (`idstudent`, `codebook`, `codecopy`, `idreview`, `refunddata`, `subscriptiondate`, `state`) VALUES
-(1, 2, 1, NULL, NULL, '2025-12-30 00:00:00', 'in_prestito'),
-(1, 4, 1, NULL, NULL, '2025-12-30 00:00:00', 'in_prestito'),
-(5, 3, 1, NULL, NULL, '2025-12-30 00:00:00', 'restituito'),
-(5, 4, 1, NULL, NULL, '2025-12-30 00:00:00', 'restituito');
+(1, 2, 1, NULL, '2026-01-29 00:00:00', '2025-12-30 03:00:00', 'in_restituzione'),
+(1, 3, 1, 21, '2026-01-29 00:00:00', '2025-12-30 00:20:00', 'restituito'),
+(1, 4, 1, NULL, '2026-01-29 00:00:00', '2025-12-30 00:00:30', 'in_restituzione'),
+(2, 1, 1, NULL, '2026-01-29 00:00:00', '2025-12-30 00:00:20', 'in_prestito'),
+(2, 3, 1, NULL, '2026-01-29 00:00:00', '2025-12-30 00:00:00', 'restituito'),
+(3, 5, 2, NULL, '2026-02-01 00:00:00', '2026-01-02 00:00:00', 'in_prestito'),
+(5, 1, 2, NULL, '2026-01-29 00:00:00', '2025-12-30 00:00:00', 'restituito'),
+(5, 3, 1, NULL, '2026-01-29 00:00:00', '2025-12-30 00:00:59', 'restituito'),
+(5, 4, 1, 20, '2026-01-29 00:00:00', '2025-12-30 00:00:59', 'restituito'),
+(5, 5, 1, NULL, '2026-01-29 00:00:00', '2025-12-30 00:20:00', 'in_prestito');
 
 -- --------------------------------------------------------
 
@@ -165,9 +171,8 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`idreview`, `rating`, `description`) VALUES
-(1, 4.0, 'bel libro'),
-(2, 5.0, 'fa schifo'),
-(3, 3.0, 'più o meno');
+(20, 4.0, 'Molto bello'),
+(21, 3.0, 'Bello sc\'to libro uagliu');
 
 -- --------------------------------------------------------
 
@@ -190,11 +195,11 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`phone`, `password`, `email`, `surname`, `idstudent`, `profileimage`, `name`) VALUES
-('3331112222', '$2y$10$ouYmuw9pVxxrc5pr3L7vMeCnYJGLmWBOlhoUCRYikrPbPQ.VQoc.a', 'mario.rossi@example.com', 'Rossi', 1, '1.png', 'Mario'),
-('3331113333', '$2y$10$ouYmuw9pVxxrc5pr3L7vMeCnYJGLmWBOlhoUCRYikrPbPQ.VQoc.a', 'anna.bianchi@example.com', 'Bianchi', 2, '2.png', 'Anna'),
-('3331114444', '$2y$10$ouYmuw9pVxxrc5pr3L7vMeCnYJGLmWBOlhoUCRYikrPbPQ.VQoc.a', 'luca.verdi@example.com', 'Verdi', 3, '3.png', 'Luca'),
-('0000000000', '$2y$10$mvKmW/dtKJbtbLqrQVrPEOFsvhtmivg.PzwnfACIgkagHnt2VuRzi', 'admin@unibook.com', 'System', 4, 'default.jpg', 'Admin'),
-('3268', '$2y$10$xgnEYQSJklfPwyQbnoVyS.nwWfDE3hztJO0Kl6mdOCxh259.7rona', 'francesco.sacripante@studio.unibo.it', 'Sacripante', 5, 'profile_69531716401c96.99187706.png', 'Francesco'),
+('3331112222', '$2y$10$ouYmuw9pVxxrc5pr3L7vMeCnYJGLmWBOlhoUCRYikrPbPQ.VQoc.a', 'mario.rossi@example.com', 'Rossi', 1, 'profile_69548b0417c671.44339485.png', 'Mario'),
+('3331113333', '$2y$10$ouYmuw9pVxxrc5pr3L7vMeCnYJGLmWBOlhoUCRYikrPbPQ.VQoc.a', 'anna.bianchi@example.com', 'Bianchi', 2, 'default.png', 'Anna'),
+('3331114444', '$2y$10$ouYmuw9pVxxrc5pr3L7vMeCnYJGLmWBOlhoUCRYikrPbPQ.VQoc.a', 'luca.verdi@example.com', 'Verdi', 3, 'default.png', 'Luca'),
+('0000000000', '$2y$10$mvKmW/dtKJbtbLqrQVrPEOFsvhtmivg.PzwnfACIgkagHnt2VuRzi', 'admin@unibook.com', 'System', 4, 'default.png', 'Admin'),
+('3246927911', '$2y$10$xgnEYQSJklfPwyQbnoVyS.nwWfDE3hztJO0Kl6mdOCxh259.7rona', 'francesco.sacripante@studio.unibo.it', 'Sacripante', 5, 'profile_69586e0e7b1333.30331833.png', 'Francesco'),
 ('32049983', '$2y$10$Tg1gDm6Q8JDPVTesOUL5yeR9M/CREjHmbQDYIhzRObJ5RW7.NBqE2', 'justin.carideo@studio.unibo.it', 'Carideo', 6, 'profile_69531842af1211.69539350.png', 'Justin');
 
 -- --------------------------------------------------------
@@ -327,7 +332,7 @@ ALTER TABLE `catalogue`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `idreview` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idreview` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `student`
