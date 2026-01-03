@@ -1,7 +1,7 @@
 <?php if (!empty($templateParams['home_content'])) : ?>
 
     <?php foreach ($templateParams['home_content'] as $content) : ?>
-
+        <?php if (empty($content['books'])) continue; ?>
         <?php $collapse_id = "tag_" . preg_replace('/[^a-zA-Z0-9]/', '', $content['tag_id']); ?>
 
         <section class="mb-5" id="<?php echo ($content['tag_id']); ?>">
