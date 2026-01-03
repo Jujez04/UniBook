@@ -1,5 +1,6 @@
     <?php foreach ($templateParams['home_content'] as $content) : ?>
         <?php $collapse_id = "cat_" . $content['catalogue_id']; ?>
+        <?php if (empty($content['books'])) continue; ?>
         <section class="mb-5">
             <div class=" row   h-auto align-items-center">
                 <div class="col"></div>
