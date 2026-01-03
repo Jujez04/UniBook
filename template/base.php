@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<?php echo BASE_URL . '/css/' . $templateParams['css']; ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -85,6 +85,7 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/edit-profile-form.php"; ?>">Modifica Profilo</a></li>
+                            <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/delete-account-action.php"; ?>">Elimina profilo</a></li>
                             <li><a class="dropdown-item" href="<?php echo BASE_URL . "controller/logout.php"; ?>">Logout</a></li>
                         </ul>
                     </div>
