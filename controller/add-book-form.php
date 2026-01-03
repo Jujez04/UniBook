@@ -6,6 +6,5 @@ $templateParams["catalogues"] = $catalogueRepo->findAll();
 
 $templateParams["content"] =  BASE_PATH . "/UniBook/view/add-book-form-view.php";
 $templateParams["css"] = "user_style.css";
-
+$templateParams["js"][] = "/js/show-new-catalogue-input.js";
 require  '../template/base.php';
-?>

@@ -55,5 +55,3 @@ if (isset($_GET["success"])) {
         </li>
     </ul>
 </form>
-
-<script src="<?php echo BASE_URL . "src/show-new-catalogue-input.js" ?>"></script>
