@@ -55,6 +55,15 @@ class ReviewRepository
         return $this->db->executeQuery($sql, [$codeBook], 'i');
     }
 
+    public function findByIdStudent($idStudent)
+    {
+        $sql = "SELECT s.*
+                FROM review r
+                JOIN loan l ON r.idreview = l.idreview
+                WHERE l.idstudent = ?";
+        return $this->db->executeQuery($sql, [$idStudent], 'i');
+    }
+
     /**
      * Calcola la media voto di un libro.
      * Utile per mostrare le stelline nel catalogo.

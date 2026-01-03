@@ -19,6 +19,11 @@ class BookRepository
         return $this->db->getConnection()->insert_id;
     }
 
+    public function deleteBook($codeBook) {
+        $sql = "DELETE FROM book WHERE codebook = ?";
+        return $this->db->executeStatement($sql, [$codeBook], 'i');
+    }
+
     public function findAll()
     {
         $sql = "SELECT * FROM book";
