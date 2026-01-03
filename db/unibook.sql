@@ -348,35 +348,35 @@ ALTER TABLE `student`
 -- Constraints for table `book`
 --
 ALTER TABLE `book`
-  ADD CONSTRAINT `FKbelongs` FOREIGN KEY (`idcatalogue`) REFERENCES `catalogue` (`idcatalogue`);
+  ADD CONSTRAINT `FKbelongs` FOREIGN KEY (`idcatalogue`) REFERENCES `catalogue` (`idcatalogue`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `booking`
 --
 ALTER TABLE `booking`
-  ADD CONSTRAINT `FKexecute` FOREIGN KEY (`idstudent`) REFERENCES `student` (`idstudent`),
-  ADD CONSTRAINT `FKrelated` FOREIGN KEY (`codebook`) REFERENCES `book` (`codebook`);
+  ADD CONSTRAINT `FKexecute` FOREIGN KEY (`idstudent`) REFERENCES `student` (`idstudent`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FKrelated` FOREIGN KEY (`codebook`) REFERENCES `book` (`codebook`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `book_copy`
 --
 ALTER TABLE `book_copy`
-  ADD CONSTRAINT `FKhas` FOREIGN KEY (`codebook`) REFERENCES `book` (`codebook`);
+  ADD CONSTRAINT `FKhas` FOREIGN KEY (`codebook`) REFERENCES `book` (`codebook`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `loan`
 --
 ALTER TABLE `loan`
-  ADD CONSTRAINT `FKassignedto` FOREIGN KEY (`idstudent`) REFERENCES `student` (`idstudent`),
-  ADD CONSTRAINT `FKconcern` FOREIGN KEY (`codebook`,`codecopy`) REFERENCES `book_copy` (`codebook`, `codecopy`),
-  ADD CONSTRAINT `FKrating_FK` FOREIGN KEY (`idreview`) REFERENCES `review` (`idreview`);
+  ADD CONSTRAINT `FKassignedto` FOREIGN KEY (`idstudent`) REFERENCES `student` (`idstudent`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FKconcern` FOREIGN KEY (`codebook`,`codecopy`) REFERENCES `book_copy` (`codebook`, `codecopy`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FKrating_FK` FOREIGN KEY (`idreview`) REFERENCES `review` (`idreview`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tag_in_book`
 --
 ALTER TABLE `tag_in_book`
-  ADD CONSTRAINT `FK` FOREIGN KEY (`codebook`) REFERENCES `book` (`codebook`),
-  ADD CONSTRAINT `FKbook` FOREIGN KEY (`idtag`) REFERENCES `tag` (`idtag`);
+  ADD CONSTRAINT `FK` FOREIGN KEY (`codebook`) REFERENCES `book` (`codebook`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FKbook` FOREIGN KEY (`idtag`) REFERENCES `tag` (`idtag`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
