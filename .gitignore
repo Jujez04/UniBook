@@ -33,6 +33,3 @@ logs/
 *.gls
 *.ist
 *.gz
-
-# Cartelle temporanee di compilazione
-doc/*.pdf

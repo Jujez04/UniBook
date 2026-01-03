@@ -1,5 +1,7 @@
 # UniBook
 
+BOZZA INIZIALE
+
 ## Funzionalità
 
 - Ricerca di un documento in base al autore, titolo, editore, ...
