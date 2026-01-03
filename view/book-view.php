@@ -128,3 +128,12 @@ require_once 'bootstrap.php';
     <?php endforeach; ?>
 
 </section>
+<?php
+if ($sessionManager->isAdminLogged()) {
+?>
+    <script src="<?php echo BASE_URL . "js/confirm-delete-book.js" ?>">
+
+    </script>
+<?php
+}
+?>
